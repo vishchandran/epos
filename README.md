@@ -15,7 +15,6 @@ The project is designed to explore the architecture, design, implementation, dep
 - **Release:** 1.x
 - **Phase:** -1 – Technology & Platform Baseline
 - **Status:** 🟢 In Progress
-- **Program Started:** July 5, 2026
 
 ---
 
