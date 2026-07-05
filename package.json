@@ -1,0 +1,21 @@
+{
+  "name": "epos",
+  "version": "1.0.0",
+  "description": "Enterprise Platform OS",
+  "private": true,
+  "packageManager": "pnpm@11.10.0",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "build": "echo \"Build pipeline not configured\"",
+    "lint": "echo \"Lint pipeline not configured\"",
+    "test": "echo \"Test pipeline not configured\"",
+    "start": "echo \"No application configured\""
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  }
+}
