@@ -99,4 +99,4 @@ The repository contains:
 
 ## License
 
-This project is intended for learning, engineering experimentation, and portfolio demonstration.
+This project is intended for learning and engineering experimentation.
