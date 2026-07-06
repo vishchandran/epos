@@ -1,10 +1,8 @@
 import "dotenv/config";
-import express from "express";
 import pino from "pino";
+import { app } from "./app.js";
 
 const logger = pino();
-
-const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
 app.listen(PORT, () => {
