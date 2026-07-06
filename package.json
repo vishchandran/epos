@@ -3,19 +3,26 @@
   "version": "1.0.0",
   "description": "Enterprise Platform OS",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@11.10.0",
   "engines": {
     "node": "24.x"
   },
   "scripts": {
     "build": "echo \"Build pipeline not configured\"",
-    "lint": "echo \"Lint pipeline not configured\"",
+    "lint": "eslint .",
     "test": "echo \"Test pipeline not configured\"",
-    "start": "echo \"No application configured\""
+    "start": "echo \"No application configured\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^26.1.0",
+    "eslint": "^10.6.0",
+    "prettier": "^3.9.4",
     "tsx": "^4.23.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
   }
 }

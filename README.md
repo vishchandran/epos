@@ -18,15 +18,15 @@ The enterprise web portal will be introduced incrementally as the platform matur
 
 ## Program Roadmap
 
-| Release | Objective | Status |
-|----------|-----------------------------------------------|--------|
-| **1.0** | Enterprise Foundation | 🟢 In Progress |
-| **2.0** | Core Platform Services | ⚪ Planned |
-| **3.0** | Core Banking Platform & API Foundation | ⚪ Planned |
-| **4.0** | Enterprise Banking Portal (Initial UI) | ⚪ Planned |
-| **5.0** | Distributed Systems & Platform Operations | ⚪ Planned |
-| **6.0** | Platform Engineering & Reliability | ⚪ Planned |
-| **7.0** | Enterprise Intelligence, AI & Unified Operations Portal | ⚪ Planned |
+| Release | Objective                                               | Status         |
+| ------- | ------------------------------------------------------- | -------------- |
+| **1.0** | Enterprise Foundation                                   | 🟢 In Progress |
+| **2.0** | Core Platform Services                                  | ⚪ Planned     |
+| **3.0** | Core Banking Platform & API Foundation                  | ⚪ Planned     |
+| **4.0** | Enterprise Banking Portal (Initial UI)                  | ⚪ Planned     |
+| **5.0** | Distributed Systems & Platform Operations               | ⚪ Planned     |
+| **6.0** | Platform Engineering & Reliability                      | ⚪ Planned     |
+| **7.0** | Enterprise Intelligence, AI & Unified Operations Portal | ⚪ Planned     |
 
 ---
 
@@ -62,11 +62,11 @@ This approach ensures that every backend capability is designed with the end use
 
 ## Current Phase
 
-| Item | Value |
-|------|-------|
-| **Release** | 1.0 |
-| **Phase** | 0 – Engineering Foundation |
-| **Status** | 🟢 In Progress |
+| Item        | Value                      |
+| ----------- | -------------------------- |
+| **Release** | 1.0                        |
+| **Phase**   | 0 – Engineering Foundation |
+| **Status**  | 🟢 In Progress             |
 
 ---
 

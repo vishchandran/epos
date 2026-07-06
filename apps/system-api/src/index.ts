@@ -40,10 +40,13 @@ app.get("/info", (_req, res) => {
 });
 
 app.listen(PORT, () => {
-  logger.info({
-    service: "system-api",
-    event: "startup",
-    port: PORT,
-    environment: process.env.NODE_ENV || "development"
-  }, "EPOS System API started");
+  logger.info(
+    {
+      service: "system-api",
+      event: "startup",
+      port: PORT,
+      environment: process.env.NODE_ENV || "development"
+    },
+    "EPOS System API started"
+  );
 });

@@ -12,13 +12,13 @@ This document is reviewed throughout the program lifecycle and updated as new de
 
 # Dependency Matrix
 
-| ID | Release | Dependency Type | Description | Depends On | Impact if Unavailable | Owner | Status |
-|----|---------|-----------------|-------------|------------|-----------------------|-------|--------|
-| DEP-001 | 1.0 | Program | Engineering implementation | Technology & Platform Baseline | Phase 0 cannot begin | EPOS | Complete |
-| DEP-002 | 1.0 | Architecture | Engineering implementation | Architecture Principles | Design inconsistency | EPOS | Complete |
-| DEP-003 | 1.0 | Architecture | Engineering implementation | Engineering Standards | Inconsistent implementation | EPOS | Complete |
-| DEP-004 | 1.0 | Governance | Phase 0 execution | Release 1.0 Plan | No approved release baseline | EPOS | Complete |
-| DEP-005 | 1.0 | Governance | Phase 0 execution | ADR-0001 | No architectural baseline | EPOS | Complete |
+| ID      | Release | Dependency Type | Description                | Depends On                     | Impact if Unavailable        | Owner | Status   |
+| ------- | ------- | --------------- | -------------------------- | ------------------------------ | ---------------------------- | ----- | -------- |
+| DEP-001 | 1.0     | Program         | Engineering implementation | Technology & Platform Baseline | Phase 0 cannot begin         | EPOS  | Complete |
+| DEP-002 | 1.0     | Architecture    | Engineering implementation | Architecture Principles        | Design inconsistency         | EPOS  | Complete |
+| DEP-003 | 1.0     | Architecture    | Engineering implementation | Engineering Standards          | Inconsistent implementation  | EPOS  | Complete |
+| DEP-004 | 1.0     | Governance      | Phase 0 execution          | Release 1.0 Plan               | No approved release baseline | EPOS  | Complete |
+| DEP-005 | 1.0     | Governance      | Phase 0 execution          | ADR-0001                       | No architectural baseline    | EPOS  | Complete |
 
 ---
 
@@ -39,12 +39,12 @@ This document is reviewed throughout the program lifecycle and updated as new de
 
 # Status Definitions
 
-| Status | Description |
-|--------|-------------|
-| Planned | Dependency identified but not yet satisfied |
-| In Progress | Dependency is actively being addressed |
-| Complete | Dependency has been satisfied |
-| Blocked | Dependency is preventing progress |
+| Status      | Description                                 |
+| ----------- | ------------------------------------------- |
+| Planned     | Dependency identified but not yet satisfied |
+| In Progress | Dependency is actively being addressed      |
+| Complete    | Dependency has been satisfied               |
+| Blocked     | Dependency is preventing progress           |
 
 ---
 
@@ -63,6 +63,6 @@ The Dependency Matrix should be reviewed:
 
 # Revision History
 
-| Version | Date | Description |
-|---------|------|-------------|
+| Version | Date         | Description               |
+| ------- | ------------ | ------------------------- |
 | **1.0** | July 5, 2026 | Initial Dependency Matrix |

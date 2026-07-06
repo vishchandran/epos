@@ -20,17 +20,17 @@ The selected toolchain should support modern cloud-native development while rema
 
 EPOS will adopt the following engineering toolchain.
 
-| Component | Technology | Purpose |
-|----------|------------|---------|
-| Runtime | Node.js (LTS) | Execute backend applications |
-| Language | TypeScript | Primary backend language |
-| Package Manager | pnpm | Dependency and workspace management |
-| Build System | Turborepo | Monorepo builds and task orchestration |
-| Compiler | TypeScript Compiler (tsc) | Compile TypeScript to JavaScript |
-| Linter | ESLint | Static code analysis |
-| Formatter | Prettier | Consistent code formatting |
-| Version Control | Git | Source control |
-| Repository Hosting | GitHub | Repository and collaboration |
+| Component          | Technology                | Purpose                                |
+| ------------------ | ------------------------- | -------------------------------------- |
+| Runtime            | Node.js (LTS)             | Execute backend applications           |
+| Language           | TypeScript                | Primary backend language               |
+| Package Manager    | pnpm                      | Dependency and workspace management    |
+| Build System       | Turborepo                 | Monorepo builds and task orchestration |
+| Compiler           | TypeScript Compiler (tsc) | Compile TypeScript to JavaScript       |
+| Linter             | ESLint                    | Static code analysis                   |
+| Formatter          | Prettier                  | Consistent code formatting             |
+| Version Control    | Git                       | Source control                         |
+| Repository Hosting | GitHub                    | Repository and collaboration           |
 
 ## Rationale
 

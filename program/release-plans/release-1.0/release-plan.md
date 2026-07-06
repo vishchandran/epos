@@ -10,13 +10,13 @@ The objective of this release is to build the core platform capabilities require
 
 # Release Summary
 
-| Item | Value |
-|------|-------|
-| **Release** | 1.0 |
-| **Release Name** | Enterprise Foundation |
-| **Planned Start** | July 5, 2026 |
-| **Target Completion** | October 2026 *(Tentative)* |
-| **Estimated Duration** | ~4 Months |
+| Item                   | Value                      |
+| ---------------------- | -------------------------- |
+| **Release**            | 1.0                        |
+| **Release Name**       | Enterprise Foundation      |
+| **Planned Start**      | July 5, 2026               |
+| **Target Completion**  | October 2026 _(Tentative)_ |
+| **Estimated Duration** | ~4 Months                  |
 
 > **Note:** The target completion date represents the current planning baseline. Depending on sprint execution, scope changes, technical complexity, engineering velocity, risks, and approved program decisions, the release may complete earlier or later than planned. Any approved schedule changes will be reflected in the program roadmap.
 
@@ -32,14 +32,14 @@ Build a production-inspired enterprise platform foundation by establishing the e
 
 Release 1.0 includes the following phases:
 
-| Phase | Focus |
-|------:|------------------------------|
+|  Phase | Focus                          |
+| -----: | ------------------------------ |
 | **-1** | Technology & Platform Baseline |
-| **0** | Engineering Foundation |
-| **1** | Enterprise Domain Modeling |
-| **2** | Networking Platform |
-| **3** | Identity & Security Platform |
-| **4** | Kubernetes Platform |
+|  **0** | Engineering Foundation         |
+|  **1** | Enterprise Domain Modeling     |
+|  **2** | Networking Platform            |
+|  **3** | Identity & Security Platform   |
+|  **4** | Kubernetes Platform            |
 
 ---
 
@@ -167,6 +167,6 @@ Release 1.0 can be formally closed when:
 
 # Revision History
 
-| Version | Date | Description |
-|---------|------|-------------|
+| Version | Date         | Description              |
+| ------- | ------------ | ------------------------ |
 | **1.0** | July 5, 2026 | Initial Release 1.0 plan |
