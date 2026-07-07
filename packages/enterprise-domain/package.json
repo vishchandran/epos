@@ -1,0 +1,15 @@
+{
+  "name": "@epos/enterprise-domain",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pure enterprise domain layer for EPOS Release 1 Phase 1.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
