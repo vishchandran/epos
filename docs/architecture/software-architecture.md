@@ -132,6 +132,7 @@ Infrastructure
 flowchart TB
 
 subgraph Channels
+    Branch[Branch]
     Web[Web Banking]
     Mobile[Mobile Banking]
     ATM[ATM]
@@ -180,6 +181,7 @@ subgraph Intelligence[Intelligence]
     AI[Enterprise AI Copilot]
 end
 
+Branch --> EnterpriseBanking
 Web --> EnterpriseBanking
 Mobile --> EnterpriseBanking
 ATM --> EnterpriseBanking
