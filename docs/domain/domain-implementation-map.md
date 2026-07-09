@@ -31,17 +31,17 @@ No implementation decisions in this document introduce new business concepts. Th
 
 # 3. Capability Mapping
 
-| Business Capability | Bounded Context | Aggregate Root | Initial Module |
-|---|---|---|---|
-| Register Party | Identity | Party | identity |
-| Create Customer | Customer | Customer | customer |
-| Create Product | Product | Product | product |
-| Create Agreement | Agreement | Agreement | agreement |
-| Open Account | Account | Account | account |
-| Authorize Transaction | Transaction | Transaction | transaction |
-| Post Ledger Entry | Ledger | Ledger | ledger |
-| Record Channel Activity | Channel | Channel | channel |
-| Maintain Branch | Branch | Branch | branch |
+| Business Capability     | Bounded Context | Aggregate Root | Initial Module |
+| ----------------------- | --------------- | -------------- | -------------- |
+| Register Party          | Identity        | Party          | identity       |
+| Create Customer         | Customer        | Customer       | customer       |
+| Create Product          | Product         | Product        | product        |
+| Create Agreement        | Agreement       | Agreement      | agreement      |
+| Open Account            | Account         | Account        | account        |
+| Authorize Transaction   | Transaction     | Transaction    | transaction    |
+| Post Ledger Entry       | Ledger          | Ledger         | ledger         |
+| Record Channel Activity | Channel         | Channel        | channel        |
+| Maintain Branch         | Branch          | Branch         | branch         |
 
 ---
 
@@ -78,16 +78,16 @@ Each directory will eventually contain:
 # 5. Aggregate Responsibilities
 
 | Aggregate Root | Primary Responsibility |
-|---|---|
-| Party | Enterprise identity |
-| Customer | Banking relationship |
-| Product | Product rules |
-| Agreement | Contract lifecycle |
-| Account | Operational servicing |
-| Transaction | Transaction lifecycle |
-| Ledger | Accounting truth |
-| Channel | Origin metadata |
-| Branch | Physical location |
+| -------------- | ---------------------- |
+| Party          | Enterprise identity    |
+| Customer       | Banking relationship   |
+| Product        | Product rules          |
+| Agreement      | Contract lifecycle     |
+| Account        | Operational servicing  |
+| Transaction    | Transaction lifecycle  |
+| Ledger         | Accounting truth       |
+| Channel        | Origin metadata        |
+| Branch         | Physical location      |
 
 ---
 

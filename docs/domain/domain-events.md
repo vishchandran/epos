@@ -5,6 +5,7 @@
 **Status:** Draft  
 **Phase:** Phase 1 – Enterprise Domain Modeling  
 **Related Documents:**
+
 - `docs/domain/core-enterprise-domain-model.md`
 - `docs/domain/bounded-contexts.md`
 - `docs/architecture/adr/ADR-0006-party-as-root-identity-concept.md`
@@ -137,17 +138,17 @@ Events must reflect business language, not storage or API details.
 
 EPOS domain events are grouped by bounded context.
 
-| Bounded Context | Event Category |
-|---|---|
-| Identity Context | Party and identity events |
-| Customer Context | Customer relationship events |
-| Product Context | Product lifecycle events |
-| Agreement Context | Agreement lifecycle events |
-| Account Context | Account lifecycle and servicing events |
-| Transaction Context | Transaction lifecycle events |
-| Ledger Context | Accounting and posting events |
-| Channel Context | Activity origin events |
-| Branch Context | Physical location events |
+| Bounded Context     | Event Category                         |
+| ------------------- | -------------------------------------- |
+| Identity Context    | Party and identity events              |
+| Customer Context    | Customer relationship events           |
+| Product Context     | Product lifecycle events               |
+| Agreement Context   | Agreement lifecycle events             |
+| Account Context     | Account lifecycle and servicing events |
+| Transaction Context | Transaction lifecycle events           |
+| Ledger Context      | Accounting and posting events          |
+| Channel Context     | Activity origin events                 |
+| Branch Context      | Physical location events               |
 
 ---
 
@@ -155,17 +156,17 @@ EPOS domain events are grouped by bounded context.
 
 The Identity Context owns events related to Party identity and enterprise-recognized actors.
 
-| Event | Meaning |
-|---|---|
-| Party Registered | A new Party was registered in the enterprise identity model. |
-| Party Updated | Identity information for a Party was updated. |
-| Party Deactivated | A Party was deactivated for enterprise use. |
-| Party Reactivated | A previously deactivated Party was reactivated. |
-| Party Role Assigned | A business role was assigned to a Party. |
-| Party Role Removed | A business role was removed from a Party. |
-| Employee Registered | A Party was registered as an Employee. |
-| Employee Activated | An Employee was activated. |
-| Employee Deactivated | An Employee was deactivated. |
+| Event                | Meaning                                                      |
+| -------------------- | ------------------------------------------------------------ |
+| Party Registered     | A new Party was registered in the enterprise identity model. |
+| Party Updated        | Identity information for a Party was updated.                |
+| Party Deactivated    | A Party was deactivated for enterprise use.                  |
+| Party Reactivated    | A previously deactivated Party was reactivated.              |
+| Party Role Assigned  | A business role was assigned to a Party.                     |
+| Party Role Removed   | A business role was removed from a Party.                    |
+| Employee Registered  | A Party was registered as an Employee.                       |
+| Employee Activated   | An Employee was activated.                                   |
+| Employee Deactivated | An Employee was deactivated.                                 |
 
 Example flow:
 
@@ -185,15 +186,15 @@ Employee Activated
 
 The Customer Context owns events related to the banking relationship between a Party and the institution.
 
-| Event | Meaning |
-|---|---|
-| Customer Created | A Party became a Customer. |
-| Customer Activated | A Customer relationship became active. |
-| Customer Suspended | A Customer relationship was suspended. |
-| Customer Reactivated | A suspended Customer relationship was reactivated. |
-| Customer Closed | A Customer relationship was closed. |
-| Customer Segment Assigned | A Customer was assigned to a segment. |
-| Customer Relationship Updated | Customer relationship attributes were updated. |
+| Event                         | Meaning                                            |
+| ----------------------------- | -------------------------------------------------- |
+| Customer Created              | A Party became a Customer.                         |
+| Customer Activated            | A Customer relationship became active.             |
+| Customer Suspended            | A Customer relationship was suspended.             |
+| Customer Reactivated          | A suspended Customer relationship was reactivated. |
+| Customer Closed               | A Customer relationship was closed.                |
+| Customer Segment Assigned     | A Customer was assigned to a segment.              |
+| Customer Relationship Updated | Customer relationship attributes were updated.     |
 
 Example flow:
 
@@ -211,16 +212,16 @@ Customer Activated
 
 The Product Context owns events related to financial product definitions and product rules.
 
-| Event | Meaning |
-|---|---|
-| Product Created | A new financial product was defined. |
-| Product Activated | A Product became available for use. |
-| Product Updated | Product configuration or business rules were updated. |
-| Product Retired | A Product was retired and is no longer available for new agreements. |
-| Product Eligibility Rule Added | A new eligibility rule was added to a Product. |
-| Product Eligibility Rule Updated | An eligibility rule was updated. |
-| Product Fee Rule Updated | Product fee rules were updated. |
-| Product Interest Rule Updated | Product interest rules were updated. |
+| Event                            | Meaning                                                              |
+| -------------------------------- | -------------------------------------------------------------------- |
+| Product Created                  | A new financial product was defined.                                 |
+| Product Activated                | A Product became available for use.                                  |
+| Product Updated                  | Product configuration or business rules were updated.                |
+| Product Retired                  | A Product was retired and is no longer available for new agreements. |
+| Product Eligibility Rule Added   | A new eligibility rule was added to a Product.                       |
+| Product Eligibility Rule Updated | An eligibility rule was updated.                                     |
+| Product Fee Rule Updated         | Product fee rules were updated.                                      |
+| Product Interest Rule Updated    | Product interest rules were updated.                                 |
 
 Example flow:
 
@@ -238,15 +239,15 @@ Product Activated
 
 The Agreement Context owns events related to contractual relationships between Customers and Products.
 
-| Event | Meaning |
-|---|---|
-| Agreement Created | An Agreement was created for a Customer and Product. |
-| Agreement Signed | An Agreement was signed or accepted. |
-| Agreement Activated | An Agreement became active. |
-| Agreement Updated | Agreement terms or metadata were updated. |
-| Agreement Suspended | An Agreement was suspended. |
-| Agreement Expired | An Agreement reached its expiry date. |
-| Agreement Terminated | An Agreement was terminated before or at closure. |
+| Event                | Meaning                                              |
+| -------------------- | ---------------------------------------------------- |
+| Agreement Created    | An Agreement was created for a Customer and Product. |
+| Agreement Signed     | An Agreement was signed or accepted.                 |
+| Agreement Activated  | An Agreement became active.                          |
+| Agreement Updated    | Agreement terms or metadata were updated.            |
+| Agreement Suspended  | An Agreement was suspended.                          |
+| Agreement Expired    | An Agreement reached its expiry date.                |
+| Agreement Terminated | An Agreement was terminated before or at closure.    |
 
 Example flow:
 
@@ -268,17 +269,17 @@ Agreement Activated
 
 The Account Context owns events related to operational account servicing.
 
-| Event | Meaning |
-|---|---|
-| Account Opening Requested | A request was made to open an Account under an Agreement. |
-| Account Opened | An Account was created under an Agreement. |
-| Account Activated | An Account became active for servicing. |
-| Account Frozen | An Account was frozen or restricted. |
-| Account Unfrozen | A frozen Account was restored to normal servicing. |
-| Account Closed | An Account was closed. |
-| Account Limit Changed | An operational limit was changed for an Account. |
-| Account Status Changed | The Account status changed. |
-| Account Servicing State Updated | Operational servicing state was updated. |
+| Event                           | Meaning                                                   |
+| ------------------------------- | --------------------------------------------------------- |
+| Account Opening Requested       | A request was made to open an Account under an Agreement. |
+| Account Opened                  | An Account was created under an Agreement.                |
+| Account Activated               | An Account became active for servicing.                   |
+| Account Frozen                  | An Account was frozen or restricted.                      |
+| Account Unfrozen                | A frozen Account was restored to normal servicing.        |
+| Account Closed                  | An Account was closed.                                    |
+| Account Limit Changed           | An operational limit was changed for an Account.          |
+| Account Status Changed          | The Account status changed.                               |
+| Account Servicing State Updated | Operational servicing state was updated.                  |
 
 Example flow:
 
@@ -298,19 +299,19 @@ Account Activated
 
 The Transaction Context owns events related to movement lifecycle.
 
-| Event | Meaning |
-|---|---|
-| Transaction Initiated | A Transaction request was initiated. |
-| Transaction Validated | A Transaction request passed validation. |
-| Transaction Rejected | A Transaction request failed validation. |
-| Transaction Authorized | A Transaction was authorized. |
-| Transaction Declined | A Transaction was declined. |
-| Transaction Reversed | A Transaction was reversed. |
-| Transaction Failed | A Transaction failed during processing. |
-| Transaction Completed | A Transaction completed its lifecycle. |
-| Transaction Posted | A Transaction was marked as posted to accounting flow. |
-| Transaction Settlement Pending | A Transaction is pending settlement. |
-| Transaction Settled | A Transaction was settled. |
+| Event                          | Meaning                                                |
+| ------------------------------ | ------------------------------------------------------ |
+| Transaction Initiated          | A Transaction request was initiated.                   |
+| Transaction Validated          | A Transaction request passed validation.               |
+| Transaction Rejected           | A Transaction request failed validation.               |
+| Transaction Authorized         | A Transaction was authorized.                          |
+| Transaction Declined           | A Transaction was declined.                            |
+| Transaction Reversed           | A Transaction was reversed.                            |
+| Transaction Failed             | A Transaction failed during processing.                |
+| Transaction Completed          | A Transaction completed its lifecycle.                 |
+| Transaction Posted             | A Transaction was marked as posted to accounting flow. |
+| Transaction Settlement Pending | A Transaction is pending settlement.                   |
+| Transaction Settled            | A Transaction was settled.                             |
 
 Successful flow:
 
@@ -342,14 +343,14 @@ Transaction Declined
 
 The Ledger Context owns events related to accounting truth and financial postings.
 
-| Event | Meaning |
-|---|---|
-| Ledger Entry Created | A Ledger Entry was created. |
-| Ledger Entry Posted | A Ledger Entry was posted to the Ledger. |
-| Ledger Posting Failed | A Ledger posting failed. |
-| Ledger Reconciled | Ledger records were reconciled. |
-| Ledger Imbalance Detected | A Ledger imbalance was detected. |
-| Ledger Correction Posted | A corrective Ledger posting was made. |
+| Event                     | Meaning                                  |
+| ------------------------- | ---------------------------------------- |
+| Ledger Entry Created      | A Ledger Entry was created.              |
+| Ledger Entry Posted       | A Ledger Entry was posted to the Ledger. |
+| Ledger Posting Failed     | A Ledger posting failed.                 |
+| Ledger Reconciled         | Ledger records were reconciled.          |
+| Ledger Imbalance Detected | A Ledger imbalance was detected.         |
+| Ledger Correction Posted  | A corrective Ledger posting was made.    |
 
 Example flow:
 
@@ -369,13 +370,13 @@ Transaction Completed
 
 The Channel Context owns events related to how activity enters the bank.
 
-| Event | Meaning |
-|---|---|
-| Channel Registered | A Channel was registered for use. |
-| Channel Activated | A Channel became active. |
-| Channel Deactivated | A Channel was deactivated. |
-| Channel Session Started | A Channel session started. |
-| Channel Session Ended | A Channel session ended. |
+| Event                     | Meaning                                  |
+| ------------------------- | ---------------------------------------- |
+| Channel Registered        | A Channel was registered for use.        |
+| Channel Activated         | A Channel became active.                 |
+| Channel Deactivated       | A Channel was deactivated.               |
+| Channel Session Started   | A Channel session started.               |
+| Channel Session Ended     | A Channel session ended.                 |
 | Channel Activity Recorded | Activity was recorded against a Channel. |
 
 Example flow:
@@ -396,14 +397,14 @@ Channel Session Ended
 
 The Branch Context owns events related to physical banking locations.
 
-| Event | Meaning |
-|---|---|
-| Branch Created | A Branch record was created. |
-| Branch Opened | A Branch became operational. |
-| Branch Updated | Branch information was updated. |
-| Branch Temporarily Closed | A Branch was temporarily closed. |
-| Branch Permanently Closed | A Branch was permanently closed. |
-| Branch Region Assigned | A Branch was assigned to a region. |
+| Event                     | Meaning                            |
+| ------------------------- | ---------------------------------- |
+| Branch Created            | A Branch record was created.       |
+| Branch Opened             | A Branch became operational.       |
+| Branch Updated            | Branch information was updated.    |
+| Branch Temporarily Closed | A Branch was temporarily closed.   |
+| Branch Permanently Closed | A Branch was permanently closed.   |
+| Branch Region Assigned    | A Branch was assigned to a region. |
 
 Example flow:
 
@@ -618,30 +619,30 @@ These event types must remain separate.
 
 ## Appendix A – Initial Event Catalogue
 
-| Context | Events |
-|---|---|
-| Identity | Party Registered, Party Updated, Party Deactivated, Party Reactivated, Party Role Assigned, Party Role Removed |
-| Customer | Customer Created, Customer Activated, Customer Suspended, Customer Reactivated, Customer Closed |
-| Product | Product Created, Product Activated, Product Updated, Product Retired |
-| Agreement | Agreement Created, Agreement Signed, Agreement Activated, Agreement Suspended, Agreement Expired, Agreement Terminated |
-| Account | Account Opening Requested, Account Opened, Account Activated, Account Frozen, Account Unfrozen, Account Closed |
+| Context     | Events                                                                                                                                                      |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity    | Party Registered, Party Updated, Party Deactivated, Party Reactivated, Party Role Assigned, Party Role Removed                                              |
+| Customer    | Customer Created, Customer Activated, Customer Suspended, Customer Reactivated, Customer Closed                                                             |
+| Product     | Product Created, Product Activated, Product Updated, Product Retired                                                                                        |
+| Agreement   | Agreement Created, Agreement Signed, Agreement Activated, Agreement Suspended, Agreement Expired, Agreement Terminated                                      |
+| Account     | Account Opening Requested, Account Opened, Account Activated, Account Frozen, Account Unfrozen, Account Closed                                              |
 | Transaction | Transaction Initiated, Transaction Validated, Transaction Authorized, Transaction Declined, Transaction Reversed, Transaction Failed, Transaction Completed |
-| Ledger | Ledger Entry Created, Ledger Entry Posted, Ledger Posting Failed, Ledger Reconciled |
-| Channel | Channel Registered, Channel Activated, Channel Session Started, Channel Activity Recorded |
-| Branch | Branch Created, Branch Opened, Branch Updated, Branch Temporarily Closed, Branch Permanently Closed |
+| Ledger      | Ledger Entry Created, Ledger Entry Posted, Ledger Posting Failed, Ledger Reconciled                                                                         |
+| Channel     | Channel Registered, Channel Activated, Channel Session Started, Channel Activity Recorded                                                                   |
+| Branch      | Branch Created, Branch Opened, Branch Updated, Branch Temporarily Closed, Branch Permanently Closed                                                         |
 
 ---
 
 ## Appendix B – Glossary
 
-| Term | Definition |
-|---|---|
-| Domain Event | A business fact that has occurred within a bounded context |
-| Command | A request to perform an action |
-| Integration Event | Event published for external consumers |
-| Audit Record | Governance record of system or user activity |
-| Aggregate | Consistency boundary for related business objects |
-| Aggregate Root | Main entity that controls access to an aggregate |
-| Correlation ID | Identifier linking related operations across a workflow |
-| Causation ID | Identifier showing what caused an event |
-| Event Envelope | Standard structure around event payload metadata |
+| Term              | Definition                                                 |
+| ----------------- | ---------------------------------------------------------- |
+| Domain Event      | A business fact that has occurred within a bounded context |
+| Command           | A request to perform an action                             |
+| Integration Event | Event published for external consumers                     |
+| Audit Record      | Governance record of system or user activity               |
+| Aggregate         | Consistency boundary for related business objects          |
+| Aggregate Root    | Main entity that controls access to an aggregate           |
+| Correlation ID    | Identifier linking related operations across a workflow    |
+| Causation ID      | Identifier showing what caused an event                    |
+| Event Envelope    | Standard structure around event payload metadata           |

@@ -93,14 +93,14 @@ Each bounded context follows the same structure.
 
 # 6. Domain Building Blocks
 
-| Building Block | Responsibility |
-|---|---|
+| Building Block | Responsibility                               |
+| -------------- | -------------------------------------------- |
 | Aggregate Root | Consistency boundary and business invariants |
-| Entity | Object with identity and lifecycle |
-| Value Object | Immutable business concept without identity |
-| Repository | Persistence abstraction |
-| Domain Service | Business logic spanning aggregates |
-| Domain Event | Business fact that occurred |
+| Entity         | Object with identity and lifecycle           |
+| Value Object   | Immutable business concept without identity  |
+| Repository     | Persistence abstraction                      |
+| Domain Service | Business logic spanning aggregates           |
+| Domain Event   | Business fact that occurred                  |
 
 ---
 
@@ -134,17 +134,17 @@ Repositories expose domain objects, not database rows.
 
 # 8. Initial Aggregate Mapping
 
-| Context | Aggregate Root |
-|---|---|
-| Identity | Party |
-| Customer | Customer |
-| Product | Product |
-| Agreement | Agreement |
-| Account | Account |
-| Transaction | Transaction |
-| Ledger | Ledger |
-| Channel | Channel |
-| Branch | Branch |
+| Context     | Aggregate Root |
+| ----------- | -------------- |
+| Identity    | Party          |
+| Customer    | Customer       |
+| Product     | Product        |
+| Agreement   | Agreement      |
+| Account     | Account        |
+| Transaction | Transaction    |
+| Ledger      | Ledger         |
+| Channel     | Channel        |
+| Branch      | Branch         |
 
 ---
 

@@ -3,7 +3,7 @@ export class PartyId {
 
   public constructor(value: string) {
     if (!value || value.trim().length === 0) {
-      throw new Error('PartyId cannot be empty.');
+      throw new Error("PartyId cannot be empty.");
     }
 
     this.value = value;

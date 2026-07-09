@@ -141,7 +141,7 @@ customer.close();
 Avoid:
 
 ```ts
-customer.setStatus('ACTIVE');
+customer.setStatus("ACTIVE");
 ```
 
 Business methods communicate intent better than generic setters.

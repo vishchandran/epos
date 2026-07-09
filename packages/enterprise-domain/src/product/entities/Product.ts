@@ -1,8 +1,10 @@
-import { ProductId } from '../value-objects/ProductId.js';
+import { ProductId } from "../value-objects/ProductId.js";
 
-type ProductCategory = 'DEPOSIT' | 'LOAN' | 'MORTGAGE' | 'LINE_OF_CREDIT' | 'CREDIT_CARD';
+type ProductCategory =
+  "DEPOSIT" | "LOAN" | "MORTGAGE" | "LINE_OF_CREDIT" | "CREDIT_CARD";
 
-type ProductStatus = 'DESIGNED' | 'APPROVED' | 'AVAILABLE' | 'SUSPENDED' | 'RETIRED';
+type ProductStatus =
+  "DESIGNED" | "APPROVED" | "AVAILABLE" | "SUSPENDED" | "RETIRED";
 
 type ProductProps = {
   code: string;
@@ -17,11 +19,11 @@ export class Product {
 
   public constructor(id: ProductId, props: ProductProps) {
     if (!props.code || props.code.trim().length === 0) {
-      throw new Error('Product code cannot be empty.');
+      throw new Error("Product code cannot be empty.");
     }
 
     if (!props.name || props.name.trim().length === 0) {
-      throw new Error('Product name cannot be empty.');
+      throw new Error("Product name cannot be empty.");
     }
 
     this.id = id;
@@ -49,24 +51,24 @@ export class Product {
   }
 
   public approve(): void {
-    this.props.status = 'APPROVED';
+    this.props.status = "APPROVED";
   }
 
   public makeAvailable(): void {
-    this.props.status = 'AVAILABLE';
+    this.props.status = "AVAILABLE";
   }
 
   public suspend(): void {
-    this.props.status = 'SUSPENDED';
+    this.props.status = "SUSPENDED";
   }
 
   public retire(): void {
-    this.props.status = 'RETIRED';
+    this.props.status = "RETIRED";
   }
 
   public rename(name: string): void {
     if (!name || name.trim().length === 0) {
-      throw new Error('Product name cannot be empty.');
+      throw new Error("Product name cannot be empty.");
     }
 
     this.props.name = name;

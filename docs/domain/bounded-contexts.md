@@ -5,6 +5,7 @@
 **Status:** Draft  
 **Phase:** Phase 1 – Enterprise Domain Modeling  
 **Related Documents:**
+
 - `docs/domain/core-enterprise-domain-model.md`
 - `docs/architecture/adr/ADR-0006-party-as-root-identity-concept.md`
 
@@ -56,17 +57,17 @@ EPOS follows these bounded context principles:
 
 The initial EPOS bounded contexts are:
 
-| Bounded Context | Primary Responsibility |
-|---|---|
-| Identity Context | Enterprise identity and known parties |
-| Customer Context | Banking relationship with the institution |
-| Product Context | Financial product definitions and rules |
-| Agreement Context | Contractual relationship between customer and product |
-| Account Context | Operational account servicing |
-| Transaction Context | Movement lifecycle and transaction state |
-| Ledger Context | Accounting truth and financial postings |
-| Channel Context | Origin of activity entering the bank |
-| Branch Context | Physical banking location context |
+| Bounded Context     | Primary Responsibility                                |
+| ------------------- | ----------------------------------------------------- |
+| Identity Context    | Enterprise identity and known parties                 |
+| Customer Context    | Banking relationship with the institution             |
+| Product Context     | Financial product definitions and rules               |
+| Agreement Context   | Contractual relationship between customer and product |
+| Account Context     | Operational account servicing                         |
+| Transaction Context | Movement lifecycle and transaction state              |
+| Ledger Context      | Accounting truth and financial postings               |
+| Channel Context     | Origin of activity entering the bank                  |
+| Branch Context      | Physical banking location context                     |
 
 ---
 
@@ -136,10 +137,10 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Party | A person or organization known to the enterprise |
-| Individual Party | A human person |
+| Term               | Meaning                                                 |
+| ------------------ | ------------------------------------------------------- |
+| Party              | A person or organization known to the enterprise        |
+| Individual Party   | A human person                                          |
 | Organization Party | A business, institution, trust, estate, or legal entity |
 
 ## References
@@ -185,17 +186,17 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Customer | A Party with an active or historical banking relationship |
-| Customer Status | The lifecycle state of the banking relationship |
-| Customer Relationship | The relationship between the bank and the Party |
+| Term                  | Meaning                                                   |
+| --------------------- | --------------------------------------------------------- |
+| Customer              | A Party with an active or historical banking relationship |
+| Customer Status       | The lifecycle state of the banking relationship           |
+| Customer Relationship | The relationship between the bank and the Party           |
 
 ## References
 
-| Referenced Context | Reason |
-|---|---|
-| Identity Context | Customer references Party |
+| Referenced Context | Reason                    |
+| ------------------ | ------------------------- |
+| Identity Context   | Customer references Party |
 
 ## Example Business Rules
 
@@ -236,10 +237,10 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Product | A bank-offered financial product |
-| Product Rule | A rule that governs how the product may be used |
+| Term         | Meaning                                                              |
+| ------------ | -------------------------------------------------------------------- |
+| Product      | A bank-offered financial product                                     |
+| Product Rule | A rule that governs how the product may be used                      |
 | Product Type | A category such as chequing, savings, loan, mortgage, or credit card |
 
 ## References
@@ -285,18 +286,18 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Agreement | Contractual relationship between a Customer and the bank |
-| Effective Date | Date the agreement becomes active |
-| Term | A contractual condition that governs the relationship |
+| Term           | Meaning                                                  |
+| -------------- | -------------------------------------------------------- |
+| Agreement      | Contractual relationship between a Customer and the bank |
+| Effective Date | Date the agreement becomes active                        |
+| Term           | A contractual condition that governs the relationship    |
 
 ## References
 
-| Referenced Context | Reason |
-|---|---|
-| Customer Context | Agreement is entered into by a Customer |
-| Product Context | Agreement is for a Product |
+| Referenced Context | Reason                                  |
+| ------------------ | --------------------------------------- |
+| Customer Context   | Agreement is entered into by a Customer |
+| Product Context    | Agreement is for a Product              |
 
 ## Example Business Rules
 
@@ -338,17 +339,17 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Account | Operational servicing record governed by an Agreement |
-| Account Status | State such as active, suspended, closed, or restricted |
-| Servicing State | Operational state used to manage the account |
+| Term            | Meaning                                                |
+| --------------- | ------------------------------------------------------ |
+| Account         | Operational servicing record governed by an Agreement  |
+| Account Status  | State such as active, suspended, closed, or restricted |
+| Servicing State | Operational state used to manage the account           |
 
 ## References
 
-| Referenced Context | Reason |
-|---|---|
-| Agreement Context | Account is governed by an Agreement |
+| Referenced Context | Reason                              |
+| ------------------ | ----------------------------------- |
+| Agreement Context  | Account is governed by an Agreement |
 
 ## Example Business Rules
 
@@ -390,19 +391,19 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Transaction | Business event that changes, attempts to change, or records movement |
-| Authorization | Decision to approve or decline a transaction request |
-| Settlement | Completion of financial movement obligations |
-| Posting | Recording financial impact in the Ledger |
+| Term          | Meaning                                                              |
+| ------------- | -------------------------------------------------------------------- |
+| Transaction   | Business event that changes, attempts to change, or records movement |
+| Authorization | Decision to approve or decline a transaction request                 |
+| Settlement    | Completion of financial movement obligations                         |
+| Posting       | Recording financial impact in the Ledger                             |
 
 ## References
 
-| Referenced Context | Reason |
-|---|---|
-| Account Context | Transaction is against an Account |
-| Channel Context | Transaction originates from a Channel |
+| Referenced Context | Reason                                |
+| ------------------ | ------------------------------------- |
+| Account Context    | Transaction is against an Account     |
+| Channel Context    | Transaction originates from a Channel |
 
 ## Example Business Rules
 
@@ -443,17 +444,17 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Ledger | Accounting source of truth |
-| Ledger Entry | Individual accounting posting |
-| Posting | Recording financial movement in the ledger |
+| Term         | Meaning                                                      |
+| ------------ | ------------------------------------------------------------ |
+| Ledger       | Accounting source of truth                                   |
+| Ledger Entry | Individual accounting posting                                |
+| Posting      | Recording financial movement in the ledger                   |
 | Double Entry | Accounting model requiring balanced debit and credit entries |
 
 ## References
 
-| Referenced Context | Reason |
-|---|---|
+| Referenced Context  | Reason                                               |
+| ------------------- | ---------------------------------------------------- |
 | Transaction Context | Ledger postings are caused by financial Transactions |
 
 ## Example Business Rules
@@ -493,11 +494,11 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Channel | Access path used to initiate or service activity |
-| Channel Type | Branch, ATM, Mobile, Web, Call Centre, Batch, or API |
-| Origin Context | Information about where activity came from |
+| Term           | Meaning                                              |
+| -------------- | ---------------------------------------------------- |
+| Channel        | Access path used to initiate or service activity     |
+| Channel Type   | Branch, ATM, Mobile, Web, Call Centre, Batch, or API |
+| Origin Context | Information about where activity came from           |
 
 ## References
 
@@ -541,11 +542,11 @@ It answers:
 
 ## Key Language
 
-| Term | Meaning |
-|---|---|
-| Branch | Physical banking location |
-| Region | Geographic or organizational grouping of branches |
-| Branch Context | Physical servicing context for activity |
+| Term           | Meaning                                           |
+| -------------- | ------------------------------------------------- |
+| Branch         | Physical banking location                         |
+| Region         | Geographic or organizational grouping of branches |
+| Branch Context | Physical servicing context for activity           |
 
 ## References
 
@@ -564,17 +565,17 @@ Branch may be referenced by Employee or Channel activity.
 
 # 15. Context Dependency Matrix
 
-| Context | Depends On | Referenced By |
-|---|---|---|
-| Identity | None | Customer, Employee-related workflows |
-| Customer | Identity | Agreement |
-| Product | None | Agreement |
-| Agreement | Customer, Product | Account |
-| Account | Agreement | Transaction |
-| Transaction | Account, Channel | Ledger |
-| Ledger | Transaction | Reporting, Audit, Finance |
-| Channel | None | Transaction |
-| Branch | None | Channel, Employee servicing workflows |
+| Context     | Depends On        | Referenced By                         |
+| ----------- | ----------------- | ------------------------------------- |
+| Identity    | None              | Customer, Employee-related workflows  |
+| Customer    | Identity          | Agreement                             |
+| Product     | None              | Agreement                             |
+| Agreement   | Customer, Product | Account                               |
+| Account     | Agreement         | Transaction                           |
+| Transaction | Account, Channel  | Ledger                                |
+| Ledger      | Transaction       | Reporting, Audit, Finance             |
+| Channel     | None              | Transaction                           |
+| Branch      | None              | Channel, Employee servicing workflows |
 
 ---
 
@@ -619,13 +620,13 @@ As EPOS evolves, some contexts may need anti-corruption layers to protect the in
 Potential future examples:
 
 | External System Type | Protected Context |
-|---|---|
-| Core banking system | Account, Ledger |
-| Payment network | Transaction |
-| Identity provider | Identity |
-| CRM | Customer |
-| Product catalogue | Product |
-| Branch directory | Branch |
+| -------------------- | ----------------- |
+| Core banking system  | Account, Ledger   |
+| Payment network      | Transaction       |
+| Identity provider    | Identity          |
+| CRM                  | Customer          |
+| Product catalogue    | Product           |
+| Branch directory     | Branch            |
 
 Anti-corruption layers translate external models into EPOS domain language.
 
@@ -777,17 +778,17 @@ Branch
 
 # Appendix B – Glossary
 
-| Term | Definition |
-|---|---|
+| Term            | Definition                                                    |
+| --------------- | ------------------------------------------------------------- |
 | Bounded Context | Business boundary where a domain model has a specific meaning |
-| Context | A domain area with clear ownership and language |
-| Aggregate | Consistency boundary around related business entities |
-| Aggregate Root | Main entity used to access an aggregate |
-| Party | Enterprise identity |
-| Customer | Banking relationship role |
-| Agreement | Contractual relationship |
-| Account | Operational servicing record |
-| Transaction | Movement or attempted movement |
-| Ledger | Accounting source of truth |
-| Channel | Origin of activity |
-| Branch | Physical banking location |
+| Context         | A domain area with clear ownership and language               |
+| Aggregate       | Consistency boundary around related business entities         |
+| Aggregate Root  | Main entity used to access an aggregate                       |
+| Party           | Enterprise identity                                           |
+| Customer        | Banking relationship role                                     |
+| Agreement       | Contractual relationship                                      |
+| Account         | Operational servicing record                                  |
+| Transaction     | Movement or attempted movement                                |
+| Ledger          | Accounting source of truth                                    |
+| Channel         | Origin of activity                                            |
+| Branch          | Physical banking location                                     |

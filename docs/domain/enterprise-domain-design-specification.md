@@ -50,14 +50,14 @@ The Enterprise Domain shall adhere to the following principles.
 
 # 4. Ubiquitous Language
 
-| Term | Definition |
-|------|------------|
-| Party | A person or organization known to the enterprise. |
-| Customer | A Party that has a banking relationship with the bank. |
-| Product | A financial product offered by the bank. |
+| Term      | Definition                                                                |
+| --------- | ------------------------------------------------------------------------- |
+| Party     | A person or organization known to the enterprise.                         |
+| Customer  | A Party that has a banking relationship with the bank.                    |
+| Product   | A financial product offered by the bank.                                  |
 | Agreement | A contractual relationship between a Customer and the bank for a Product. |
-| Account | An operational banking record created under an Agreement. |
-| Ledger | The authoritative financial record of postings against Accounts. |
+| Account   | An operational banking record created under an Agreement.                 |
+| Ledger    | The authoritative financial record of postings against Accounts.          |
 
 ---
 
@@ -1407,14 +1407,14 @@ EPOS aggregate design follows these principles:
 
 ## 9.2 Release 1 Aggregate Candidates
 
-| Aggregate Root | Owns | References | Responsibility |
-|---|---|---|---|
-| **Party** | Party identity state | None | Protects enterprise identity information. |
-| **Customer** | Customer relationship state | PartyId | Protects banking relationship lifecycle. |
-| **Product** | Product definition state | None | Protects product definition and lifecycle. |
-| **Agreement** | Contractual relationship state | CustomerId, ProductId | Protects accepted terms between Customer and Product. |
-| **Account** | Operational account state | AgreementId | Protects account lifecycle and operational status. |
-| **Ledger** | Ledger state and postings | AccountId | Protects financial posting integrity. |
+| Aggregate Root | Owns                           | References            | Responsibility                                        |
+| -------------- | ------------------------------ | --------------------- | ----------------------------------------------------- |
+| **Party**      | Party identity state           | None                  | Protects enterprise identity information.             |
+| **Customer**   | Customer relationship state    | PartyId               | Protects banking relationship lifecycle.              |
+| **Product**    | Product definition state       | None                  | Protects product definition and lifecycle.            |
+| **Agreement**  | Contractual relationship state | CustomerId, ProductId | Protects accepted terms between Customer and Product. |
+| **Account**    | Operational account state      | AgreementId           | Protects account lifecycle and operational status.    |
+| **Ledger**     | Ledger state and postings      | AccountId             | Protects financial posting integrity.                 |
 
 ---
 
@@ -1536,14 +1536,14 @@ No single aggregate owns the entire workflow.
 
 The Release 1 objects are intentionally modeled as separate aggregates because they have different lifecycles and consistency rules.
 
-| Object | Why Separate? |
-|---|---|
-| **Party** | Identity can exist before and after customer relationship. |
-| **Customer** | Customer lifecycle is independent from Party lifecycle. |
-| **Product** | Product definitions exist independently of customers. |
-| **Agreement** | Contractual terms must remain historically accurate. |
-| **Account** | Operational status changes independently of Agreement. |
-| **Ledger** | Financial history must remain immutable and auditable. |
+| Object        | Why Separate?                                              |
+| ------------- | ---------------------------------------------------------- |
+| **Party**     | Identity can exist before and after customer relationship. |
+| **Customer**  | Customer lifecycle is independent from Party lifecycle.    |
+| **Product**   | Product definitions exist independently of customers.      |
+| **Agreement** | Contractual terms must remain historically accurate.       |
+| **Account**   | Operational status changes independently of Agreement.     |
+| **Ledger**    | Financial history must remain immutable and auditable.     |
 
 ---
 

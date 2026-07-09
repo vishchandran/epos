@@ -3,7 +3,7 @@ export class CustomerId {
 
   public constructor(value: string) {
     if (!value || value.trim().length === 0) {
-      throw new Error('CustomerId cannot be empty.');
+      throw new Error("CustomerId cannot be empty.");
     }
 
     this.value = value;

@@ -1,9 +1,9 @@
-import { PartyId } from '../../identity/value-objects/PartyId.js';
-import { CustomerId } from '../value-objects/CustomerId.js';
+import { PartyId } from "../../identity/value-objects/PartyId.js";
+import { CustomerId } from "../value-objects/CustomerId.js";
 
-type CustomerStatus = 'PENDING' | 'ACTIVE' | 'SUSPENDED' | 'CLOSED';
+type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
 
-type CustomerSegment = 'RETAIL' | 'SMALL_BUSINESS' | 'COMMERCIAL';
+type CustomerSegment = "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
 
 type CustomerProps = {
   partyId: PartyId;
@@ -42,15 +42,15 @@ export class Customer {
   }
 
   public activate(): void {
-    this.props.status = 'ACTIVE';
+    this.props.status = "ACTIVE";
   }
 
   public suspend(): void {
-    this.props.status = 'SUSPENDED';
+    this.props.status = "SUSPENDED";
   }
 
   public close(): void {
-    this.props.status = 'CLOSED';
+    this.props.status = "CLOSED";
   }
 
   public changeSegment(segment: CustomerSegment): void {

@@ -205,17 +205,17 @@ Branch ──────► Channel
 
 ## 6. Capability to Domain Mapping
 
-| Capability | Primary Domain |
-|------------|----------------|
-| Register Party | Identity |
-| Create Customer | Customer |
-| Create Product | Product |
-| Create Agreement | Agreement |
-| Open Account | Account |
-| Authorize Transaction | Transaction |
-| Post Ledger Entry | Ledger |
-| Record Channel Activity | Channel |
-| Manage Branch | Branch |
+| Capability              | Primary Domain |
+| ----------------------- | -------------- |
+| Register Party          | Identity       |
+| Create Customer         | Customer       |
+| Create Product          | Product        |
+| Create Agreement        | Agreement      |
+| Open Account            | Account        |
+| Authorize Transaction   | Transaction    |
+| Post Ledger Entry       | Ledger         |
+| Record Channel Activity | Channel        |
+| Manage Branch           | Branch         |
 
 ---
 

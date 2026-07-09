@@ -18,15 +18,15 @@ The enterprise web portal will be introduced incrementally as the platform matur
 
 ## Program Roadmap
 
-| Release | Objective | Phase Progress | Status |
-| ------- | --------- | -------------- | ------ |
-| **1.0** | Enterprise Foundation | **Phases -1 to 4** *(Current: Phase 1 • Phases -1 & 0 Complete)* | 🟢 In Progress |
-| **2.0** | Core Platform Services | **Phases 5–9** | ⚪ Planned |
-| **3.0** | Core Banking Platform & API Foundation | **Phases 10–15** | ⚪ Planned |
-| **4.0** | Enterprise Banking Platform | **Phases 16–20** | ⚪ Planned |
-| **5.0** | Distributed Systems & Platform Operations | **Phases 21–24** | ⚪ Planned |
-| **6.0** | Platform Engineering & Reliability | **Phases 25–27** | ⚪ Planned |
-| **7.0** | Enterprise Intelligence & AI | **Phases 28–30** | ⚪ Planned |
+| Release | Objective                                 | Phase Progress                                                   | Status         |
+| ------- | ----------------------------------------- | ---------------------------------------------------------------- | -------------- |
+| **1.0** | Enterprise Foundation                     | **Phases -1 to 4** _(Current: Phase 1 • Phases -1 & 0 Complete)_ | 🟢 In Progress |
+| **2.0** | Core Platform Services                    | **Phases 5–9**                                                   | ⚪ Planned     |
+| **3.0** | Core Banking Platform & API Foundation    | **Phases 10–15**                                                 | ⚪ Planned     |
+| **4.0** | Enterprise Banking Platform               | **Phases 16–20**                                                 | ⚪ Planned     |
+| **5.0** | Distributed Systems & Platform Operations | **Phases 21–24**                                                 | ⚪ Planned     |
+| **6.0** | Platform Engineering & Reliability        | **Phases 25–27**                                                 | ⚪ Planned     |
+| **7.0** | Enterprise Intelligence & AI              | **Phases 28–30**                                                 | ⚪ Planned     |
 
 > **Detailed phase planning is available in `program/core-roadmap.md`.**
 
@@ -64,11 +64,11 @@ This approach ensures that every backend capability is designed with the end use
 
 ## Current Status
 
-| Item | Value |
-| ---- | ----- |
-| **Current Release** | 1.0 |
-| **Current Phase** | Phase 1 – Enterprise Domain Modeling |
-| **Status** | 🟢 In Progress |
+| Item                     | Value                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------- |
+| **Current Release**      | 1.0                                                                                 |
+| **Current Phase**        | Phase 1 – Enterprise Domain Modeling                                                |
+| **Status**               | 🟢 In Progress                                                                      |
 | **Completed Milestones** | Phase -1 – Technology & Platform Baseline ✅<br>Phase 0 – Engineering Foundation ✅ |
 
 ---
