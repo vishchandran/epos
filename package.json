@@ -9,10 +9,9 @@
     "node": "24.x"
   },
   "scripts": {
-    "build": "echo \"Build pipeline not configured\"",
-    "lint": "eslint .",
-    "test": "echo \"Test pipeline not configured\"",
-    "start": "echo \"No application configured\"",
+    "build": "pnpm -r --if-present build",
+    "lint": "pnpm -r --if-present lint",
+    "test": "pnpm -r --if-present test",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

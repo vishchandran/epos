@@ -20,7 +20,7 @@ export class Party {
     }
 
     this.id = id;
-    this.props = props;
+    this.props = { ...props };
   }
 
   public getId(): PartyId {
