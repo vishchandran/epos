@@ -15,6 +15,18 @@ export class Party {
   private readonly id: PartyId;
   private readonly props: PartyProps;
 
+  public static register(
+    id: PartyId,
+    type: PartyType,
+    displayName: string
+  ): Party {
+    return new Party(id, {
+      type,
+      displayName,
+      status: "ACTIVE"
+    });
+  }
+
   public constructor(id: PartyId, props: PartyProps) {
     if (!props.displayName || props.displayName.trim().length === 0) {
       throw new InvalidPartyDisplayNameError();

@@ -4,6 +4,18 @@ import { Party } from "../../src/identity/entities/Party.js";
 import { PartyId } from "../../src/identity/value-objects/PartyId.js";
 
 describe("Party", () => {
+  it("registers a new party as active", () => {
+    const party = Party.register(
+      new PartyId("PTY-1001"),
+      "PERSON",
+      "John Smith"
+    );
+
+    expect(party.getId().toString()).toBe("PTY-1001");
+    expect(party.getType()).toBe("PERSON");
+    expect(party.getDisplayName()).toBe("John Smith");
+    expect(party.getStatus()).toBe("ACTIVE");
+  });
   it("creates a person party", () => {
     const party = new Party(new PartyId("PTY-1001"), {
       type: "PERSON",
