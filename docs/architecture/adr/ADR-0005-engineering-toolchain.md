@@ -2,74 +2,99 @@
 
 ## Status
 
-Accepted
+Accepted — Amended
 
 ## Date
 
 2026-07-05
 
+## Last Amended
+
+2026-07-28
+
 ## Context
 
 EPOS is being developed as a long-term enterprise engineering platform using a monorepo architecture.
 
-A standardized engineering toolchain is required to provide a consistent developer experience, improve code quality, simplify dependency management, and support scalable builds across multiple applications and shared packages.
+A standardized engineering toolchain is required to provide a consistent developer experience, improve code quality, simplify dependency management, and support builds across multiple applications and shared packages.
 
-The selected toolchain should support modern cloud-native development while remaining simple enough for incremental adoption.
+The toolchain should remain simple during the early stages of the program. Additional orchestration and caching tools should be introduced only when repository scale and build performance justify their operational cost.
 
 ## Decision
 
 EPOS will adopt the following engineering toolchain.
 
-| Component          | Technology                | Purpose                                |
-| ------------------ | ------------------------- | -------------------------------------- |
-| Runtime            | Node.js (LTS)             | Execute backend applications           |
-| Language           | TypeScript                | Primary backend language               |
-| Package Manager    | pnpm                      | Dependency and workspace management    |
-| Build System       | Turborepo                 | Monorepo builds and task orchestration |
-| Compiler           | TypeScript Compiler (tsc) | Compile TypeScript to JavaScript       |
-| Linter             | ESLint                    | Static code analysis                   |
-| Formatter          | Prettier                  | Consistent code formatting             |
-| Version Control    | Git                       | Source control                         |
-| Repository Hosting | GitHub                    | Repository and collaboration           |
+| Component          | Technology                       | Purpose                                   |
+| ------------------ | -------------------------------- | ----------------------------------------- |
+| Runtime            | Node.js LTS                      | Execute backend applications              |
+| Language           | TypeScript                       | Primary backend language                  |
+| Package Manager    | pnpm                             | Dependency and workspace management       |
+| Workspace Model    | pnpm workspaces                  | Manage monorepo applications and packages |
+| Task Orchestration | pnpm recursive workspace scripts | Run builds, tests, and linting            |
+| Compiler           | TypeScript Compiler (`tsc`)      | Compile TypeScript to JavaScript          |
+| Linter             | ESLint                           | Static code analysis                      |
+| Formatter          | Prettier                         | Consistent code formatting                |
+| Test Framework     | Vitest                           | Automated testing                         |
+| Version Control    | Git                              | Source control                            |
+| Repository Hosting | GitHub                           | Repository and collaboration              |
+
+Turborepo is not required for the initial EPOS monorepo.
+
+It may be introduced later if repository growth creates a demonstrated need for:
+
+- Local and remote task caching
+- A formal task dependency graph
+- Faster selective builds
+- More advanced affected-package execution
+- Improved CI performance across many workspaces
+
+Adoption of Turborepo or another orchestration tool must be supported by measured need and recorded through a future ADR.
 
 ## Rationale
 
-This toolchain provides:
+pnpm workspaces already provide the capabilities EPOS currently requires:
 
-- Modern TypeScript development
-- Efficient dependency management
-- Scalable monorepo support
-- Fast incremental builds
-- Consistent coding standards
-- Strong IDE integration
-- Broad community adoption
-- Excellent long-term maintainability
+- Monorepo workspace discovery
+- Workspace dependency linking
+- Recursive script execution
+- Dependency-aware package execution
+- Centralized dependency management
+- Workspace filtering
+
+Using pnpm alone keeps the initial toolchain understandable and reduces configuration overhead.
+
+This follows the EPOS engineering principles of simplicity, maintainability, incremental evolution, and introducing complexity only when justified.
 
 ## Consequences
 
 ### Benefits
 
-- Standardized development environment
-- Faster builds through workspace caching
-- Consistent formatting and linting
-- Improved developer productivity
-- Better support for large-scale repository growth
+- Simple initial monorepo configuration
+- Fewer tools and configuration files
+- Lower maintenance overhead
+- Consistent workspace dependency management
+- Build orchestration remains adequate for the current repository size
+- Turborepo can still be adopted later without changing the monorepo architecture
 
 ### Trade-offs
 
-- Developers must learn additional tooling.
-- Initial setup is more involved than a single-project repository.
-- Toolchain maintenance is required as dependencies evolve.
+- No remote build cache
+- Less advanced task-graph visualization
+- CI may run more work than necessary as the repository grows
+- Build performance must be monitored as more applications and packages are added
 
-## Notes
+## Adoption Triggers
 
-This ADR establishes the engineering toolchain only.
+A dedicated build orchestrator should be reconsidered when one or more of the following occur:
 
-Future ADRs will define:
+1. Local or CI build times become materially disruptive.
+2. The repository contains enough workspaces that recursive execution becomes inefficient.
+3. Remote caching would produce measurable CI savings.
+4. Task dependencies become difficult to manage with package scripts.
+5. Reliable affected-package execution becomes a delivery requirement.
 
-- Data Platform
-- Event Platform
-- Container Platform
-- Cloud Platform
-- CI/CD Strategy
-- Observability Strategy
+## Amendment
+
+The original decision selected Turborepo as the monorepo build system.
+
+On 2026-07-28, the decision was amended to use pnpm recursive workspace scripts as the initial task-orchestration mechanism. Turborepo became an optional future capability whose adoption requires demonstrated need and a separate architectural decision.
