@@ -14,6 +14,10 @@ class FixedIdGenerator implements IdGenerator {
 class InMemoryPartyRepository implements PartyRepository {
   public savedParty: Party | undefined;
 
+  public findById(): Promise<Party | null> {
+    return Promise.resolve(this.savedParty ?? null);
+  }
+
   public save(party: Party): Promise<void> {
     this.savedParty = party;
     return Promise.resolve();
