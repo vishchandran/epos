@@ -8,3 +8,7 @@ export * from "./register-party/RegisterPartyUseCase.js";
 export * from "./deactivate-party/DeactivatePartyCommand.js";
 export * from "./deactivate-party/DeactivatePartyResult.js";
 export * from "./deactivate-party/DeactivatePartyUseCase.js";
+
+export * from "./activate-party/ActivatePartyCommand.js";
+export * from "./activate-party/ActivatePartyResult.js";
+export * from "./activate-party/ActivatePartyUseCase.js";
