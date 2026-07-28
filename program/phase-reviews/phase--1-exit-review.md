@@ -1,199 +1,272 @@
-# Phase 1 Exit Review
+# Phase -1 Exit Review
 
 **Document ID:** EPOS-PR-001  
 **Version:** 1.0  
 **Status:** Approved  
 **Release:** 1.0 – Enterprise Foundation  
-**Phase:** Phase 1 – Enterprise Domain Modeling
+**Phase:** Phase -1 – Technology & Platform Baseline
 
 ---
 
 # 1. Executive Summary
 
-Phase 1 established the enterprise domain foundation for EPOS by translating the approved enterprise business architecture into an implementation-ready software domain model.
+Phase -1 established the technology, architecture, engineering, repository, and governance baseline for the EPOS program.
 
-The phase delivered the initial enterprise domain package, implemented the foundational bounded contexts, established reusable domain abstractions, and validated the implementation through automated quality gates while maintaining a strict separation between domain, application, and infrastructure concerns.
+The phase defined EPOS as a long-term enterprise banking platform program, established its release-based delivery model, selected the foundational engineering technologies, documented the initial architecture decisions, and created the governance artifacts required for controlled delivery.
 
-The resulting domain layer provides a stable business foundation upon which future application services, repositories, APIs, and infrastructure components will be built.
-
----
-
-# 2. Phase Objectives
-
-The objectives of Phase 1 were to:
-
-- Translate the approved enterprise business architecture into an implementation-ready domain architecture.
-- Establish the Enterprise Domain package.
-- Implement the foundational bounded contexts.
-- Define reusable domain abstractions.
-- Maintain complete independence from application and infrastructure layers.
-- Validate implementation through automated quality gates.
+This baseline enabled the program to proceed into Phase 0 – Engineering Foundation with clear architectural direction and consistent engineering standards.
 
 ---
 
-# 3. Planned Deliverables
+# 2. Phase Summary
 
-| Deliverable                | Status |
-| -------------------------- | :----: |
-| Enterprise Domain Package  |   ✅   |
-| Identity Bounded Context   |   ✅   |
-| Customer Bounded Context   |   ✅   |
-| Product Bounded Context    |   ✅   |
-| Agreement Bounded Context  |   ✅   |
-| Account Bounded Context    |   ✅   |
-| Ledger Bounded Context     |   ✅   |
-| Shared Domain Abstractions |   ✅   |
-| Domain Identifiers         |   ✅   |
-| Domain-Specific Exceptions |   ✅   |
-| Public Package Exports     |   ✅   |
-| Automated Unit Tests       |   ✅   |
+| Item                | Value                          |
+| ------------------- | ------------------------------ |
+| **Phase**           | -1                             |
+| **Name**            | Technology & Platform Baseline |
+| **Release**         | 1.0 – Enterprise Foundation    |
+| **Status**          | Complete                       |
+| **Start Date**      | July 5, 2026                   |
+| **Completion Date** | July 5, 2026                   |
+
+---
+
+# 3. Objectives Review
+
+| Objective                                     | Status |
+| --------------------------------------------- | :----: |
+| Define the EPOS program baseline              |   ✅   |
+| Establish the release-based delivery model    |   ✅   |
+| Establish architecture principles             |   ✅   |
+| Establish engineering standards               |   ✅   |
+| Select the repository architecture            |   ✅   |
+| Define the monorepo workspace structure       |   ✅   |
+| Select the primary backend language           |   ✅   |
+| Select the foundational engineering toolchain |   ✅   |
+| Establish program governance artifacts        |   ✅   |
+| Approve ADR-0001 through ADR-0005             |   ✅   |
 
 ---
 
 # 4. Delivered Artifacts
 
-## Business Architecture
+## Architecture
 
-- Core Enterprise Domain Model
-- Entity Relationships
-- Aggregate Design
-- Enterprise Bounded Contexts
-- Enterprise Domain Events
-- Business Capability Model
-- Domain Implementation Map
-- Domain Layer Architecture
-- ADR-0006 — Party as the Root Identity Concept
+- EPOS Architecture Principles
+- ADR-0001 – Establish EPOS Program Baseline
+- ADR-0002 – Adopt Monorepo Architecture for EPOS
+- ADR-0003 – Monorepo Workspace Structure
+- ADR-0004 – Primary Backend Language
+- ADR-0005 – Engineering Toolchain
 
-## Implementation
+## Engineering Standards
 
-Package:
+- Repository standards
+- Branching strategy
+- Conventional Commit standard
+- API standards
+- Error-handling standards
+- Logging standards
+- Configuration standards
+- Security standards
+- Testing standards
+- Documentation standards
+- Definition of Done
 
+## Program Governance
+
+- Core program roadmap
+- Release 1.0 plan
+- Phase log
+- RAID register
+- Dependency matrix
+- Phase exit-review process
+
+## Repository Baseline
+
+The following top-level repository structure was approved:
+
+```text
+apps/
+packages/
+platform/
+infrastructure/
+docs/
+program/
+assets/
+scripts/
 ```
-packages/enterprise-domain/
+
+---
+
+# 5. Architecture Decisions
+
+Phase -1 approved the following decisions:
+
+1. EPOS will be developed as a long-term, production-inspired enterprise banking platform program.
+2. EPOS will follow a release-based delivery model.
+3. EPOS will use a monorepo architecture.
+4. Deployable applications will be placed under `apps/`.
+5. Reusable libraries will be placed under `packages/`.
+6. Shared platform capabilities will be placed under `platform/`.
+7. Deployment and provisioning definitions will be placed under `infrastructure/`.
+8. Architecture and engineering documentation will be maintained under `docs/`.
+9. Program governance artifacts will be maintained under `program/`.
+10. TypeScript will be the primary backend language.
+11. Node.js LTS will be the primary backend runtime.
+12. pnpm will be used for package and workspace management.
+13. TypeScript Compiler, ESLint, Prettier, Git, and GitHub will form part of the standard engineering toolchain.
+14. Toolchain implementation and validation will occur incrementally in subsequent engineering phases.
+
+---
+
+# 6. Engineering Outcomes
+
+Phase -1 established:
+
+- A single source of truth for the EPOS platform.
+- Clear separation between applications, reusable packages, platform capabilities, infrastructure, documentation, and governance.
+- A consistent backend language and runtime direction.
+- Standard repository and code-quality expectations.
+- Documentation as a maintained engineering asset.
+- Architecture Decision Records as the formal mechanism for significant technical decisions.
+- A repeatable delivery lifecycle:
+
+```text
+Minimal Theory
+    ↓
+Architecture
+    ↓
+Design
+    ↓
+Build
+    ↓
+Test
+    ↓
+Break
+    ↓
+Observe
+    ↓
+Improve
+    ↓
+Document
+    ↓
+Commit
 ```
 
-Implemented bounded contexts:
+---
 
-- Identity
-- Customer
-- Product
-- Agreement
-- Account
-- Ledger
+# 7. Governance Outcomes
 
-Shared components:
+Phase -1 established:
 
-- Entity
-- UniqueEntityID
-- DomainId
-- DomainError
+- Release-based planning
+- Phase-level objectives and exit reviews
+- Architecture decision traceability
+- Risk, assumption, issue, and dependency tracking
+- Dependency governance
+- Documentation standards
+- Definition of Done
+- Conventional Commit standards
+
+These controls provide a consistent basis for future implementation and architectural evolution.
 
 ---
 
-# 5. Engineering Outcomes
+# 8. Quality Review
 
-Phase 1 successfully established:
+| Quality Criterion                  |  Status   |
+| ---------------------------------- | :-------: |
+| Program baseline documented        | ✅ Passed |
+| Architecture principles documented | ✅ Passed |
+| Engineering standards documented   | ✅ Passed |
+| Repository architecture approved   | ✅ Passed |
+| Workspace taxonomy approved        | ✅ Passed |
+| Technology decisions recorded      | ✅ Passed |
+| ADR-0001 through ADR-0005 accepted | ✅ Passed |
+| Release plan established           | ✅ Passed |
+| Governance artifacts established   | ✅ Passed |
 
-- Strongly typed domain identifiers
-- Encapsulated domain entities
-- Immutable domain model where appropriate
-- Shared reusable domain abstractions
-- Domain-specific business exceptions
-- Public package exports
-- Infrastructure-independent domain layer
-- Consistent implementation across bounded contexts
-
----
-
-# 6. Architecture Decisions
-
-The following architectural decisions were established during Phase 1:
-
-- Party is the enterprise root identity concept.
-- Bounded contexts define module boundaries.
-- Aggregate roots own business invariants.
-- Domain logic remains independent of application and infrastructure layers.
-- Shared abstractions are implemented within the shared package.
-- Domain-specific business exceptions belong to their owning bounded context.
-- Business identifiers are implemented as strongly typed value objects derived from a common DomainId abstraction.
+Phase -1 was primarily a planning and architecture phase. Runtime build, lint, test, and deployment validation were therefore deferred to Phase 0.
 
 ---
 
-# 7. Quality Summary
+# 9. Outstanding Items
 
-| Quality Gate           |  Status   |
-| ---------------------- | :-------: |
-| Code Formatting        | ✅ Passed |
-| Static Analysis (Lint) | ✅ Passed |
-| Build Verification     | ✅ Passed |
-| Automated Tests        | ✅ Passed |
+The following work was intentionally deferred:
 
-## Test Summary
+- Engineering toolchain implementation
+- pnpm workspace implementation
+- TypeScript project configuration
+- Initial runnable application
+- Automated testing
+- Static analysis and formatting automation
+- Containerization
+- Continuous integration
+- Domain modeling
+- Application, infrastructure, and API implementation
 
-| Component         |  Tests |
-| ----------------- | -----: |
-| Enterprise Domain |     32 |
-| System API        |      3 |
-| **Total**         | **35** |
-
----
-
-# 8. Risks and Technical Debt
-
-The following work has been intentionally deferred to future phases:
-
-- Repository interfaces (Phase 2)
-- Application services (Phase 2)
-- Persistence implementation (Phase 3)
-- Database schema and migrations (Phase 3)
-- Infrastructure adapters (Phase 3)
-- REST API implementation (Phase 4)
-- External integrations (Future Releases)
-- Additional domain value objects as the enterprise model expands
-
-No critical technical debt was identified that would prevent progression to the next phase.
+These items were assigned to Phase 0 and later phases.
 
 ---
 
-# 9. Exit Criteria
+# 10. Risks
 
-| Exit Criterion                            | Status |
-| ----------------------------------------- | :----: |
-| Enterprise business architecture approved |   ✅   |
-| Domain architecture established           |   ✅   |
-| Domain package implemented                |   ✅   |
-| Planned bounded contexts completed        |   ✅   |
-| Shared abstractions implemented           |   ✅   |
-| Quality gates passed                      |   ✅   |
-| Automated tests passing                   |   ✅   |
-| Architecture ready for Phase 2            |   ✅   |
+No critical risk prevented progression into Phase 0.
 
----
+The principal ongoing risks were:
 
-# 10. Readiness Assessment
+- Long-term scope expansion
+- Repository growth and structural complexity
+- Technology learning curve
+- Toolchain maintenance
+- Delivery timeline variance
+- Governance documentation becoming outdated
 
-Phase 1 has successfully established the enterprise domain foundation required for subsequent phases.
-
-The domain layer now provides stable business abstractions that can be consumed by the application layer without introducing dependencies on infrastructure or persistence technologies.
-
-The program is ready to proceed to **Phase 2 – Application Layer**, where repository interfaces and application services will be introduced.
+These risks are managed through incremental delivery, ADRs, phase reviews, repository conventions, and the program RAID register.
 
 ---
 
-# 11. Lessons Learned
+# 11. Exit Criteria
 
-Key observations from Phase 1 include:
-
-- Completing the business architecture before implementation significantly reduced design rework.
-- Bounded contexts provided clear ownership and module boundaries.
-- Shared abstractions reduced duplication and improved consistency.
-- Strongly typed identifiers improved domain clarity and type safety.
-- Continuous quality verification (format, lint, build, and tests) maintained engineering quality throughout implementation.
-- Incremental reviews helped ensure consistency across all domain modules.
+| Exit Criterion                              | Status |
+| ------------------------------------------- | :----: |
+| EPOS program identity established           |   ✅   |
+| Release structure established               |   ✅   |
+| Architecture principles approved            |   ✅   |
+| Engineering standards approved              |   ✅   |
+| Repository architecture approved            |   ✅   |
+| Workspace structure approved                |   ✅   |
+| Primary backend language selected           |   ✅   |
+| Foundational engineering toolchain selected |   ✅   |
+| Program governance established              |   ✅   |
+| Phase 0 ready to begin                      |   ✅   |
 
 ---
 
-# 12. Approval
+# 12. Readiness Assessment
+
+Phase -1 successfully established the decisions and governance required to begin implementation.
+
+The program had a defined purpose, repository model, workspace taxonomy, backend technology direction, engineering standards, delivery roadmap, and decision-making process.
+
+EPOS was ready to proceed to **Phase 0 – Engineering Foundation**, where the approved baseline would be implemented and validated through a runnable application and automated quality controls.
+
+---
+
+# 13. Lessons Learned
+
+- Establishing governance early provides a stable foundation for long-term engineering.
+- Technology decisions should be recorded before implementation.
+- A clear repository taxonomy becomes increasingly important as a monorepo grows.
+- Documentation-first planning reduces architectural ambiguity.
+- Release and phase boundaries make large programs easier to manage.
+- Architecture decisions must distinguish between selecting a technology and completing its implementation.
+- Governance artifacts must remain aligned with the repository’s actual state.
+
+---
+
+# 14. Approval
 
 | Role                |   Status    |
 | ------------------- | :---------: |
@@ -201,14 +274,12 @@ Key observations from Phase 1 include:
 | Architecture Review | ✅ Approved |
 | Phase Status        | ✅ Complete |
 
+**Outcome:** ✅ Approved to proceed to **Phase 0 – Engineering Foundation**.
+
 ---
 
-## Phase Summary
+# 15. Revision History
 
-**Release:** 1.0 – Enterprise Foundation
-
-**Phase:** Phase 1 – Enterprise Domain Modeling
-
-**Outcome:** Successfully completed.
-
-**Next Phase:** Phase 2 – Application Layer
+| Version | Date         | Description                  |
+| ------- | ------------ | ---------------------------- |
+| **1.0** | July 5, 2026 | Initial Phase -1 Exit Review |
