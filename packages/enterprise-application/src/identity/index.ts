@@ -16,3 +16,7 @@ export * from "./activate-party/ActivatePartyUseCase.js";
 export * from "./get-party/GetPartyQuery.js";
 export * from "./get-party/PartyDto.js";
 export * from "./get-party/GetPartyQueryHandler.js";
+
+export * from "./change-party-display-name/ChangePartyDisplayNameCommand.js";
+export * from "./change-party-display-name/ChangePartyDisplayNameResult.js";
+export * from "./change-party-display-name/ChangePartyDisplayNameUseCase.js";
