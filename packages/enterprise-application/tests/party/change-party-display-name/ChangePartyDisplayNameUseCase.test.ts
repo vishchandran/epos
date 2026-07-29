@@ -5,9 +5,9 @@ import {
   PartyId
 } from "@epos/enterprise-domain";
 
-import type { PartyRepository } from "../../../src/identity/PartyRepository.js";
-import { PartyNotFoundError } from "../../../src/identity/errors/PartyNotFoundError.js";
-import { ChangePartyDisplayNameUseCase } from "../../../src/identity/change-party-display-name/ChangePartyDisplayNameUseCase.js";
+import type { PartyRepository } from "../../../src/party/PartyRepository.js";
+import { PartyNotFoundError } from "../../../src/party/errors/PartyNotFoundError.js";
+import { ChangePartyDisplayNameUseCase } from "../../../src/party/change-party-display-name/ChangePartyDisplayNameUseCase.js";
 
 class InMemoryPartyRepository implements PartyRepository {
   private readonly parties = new Map<string, Party>();

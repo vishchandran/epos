@@ -57,24 +57,24 @@ EPOS follows these bounded context principles:
 
 The initial EPOS bounded contexts are:
 
-| Bounded Context     | Primary Responsibility                                |
-| ------------------- | ----------------------------------------------------- |
-| Identity Context    | Enterprise identity and known parties                 |
-| Customer Context    | Banking relationship with the institution             |
-| Product Context     | Financial product definitions and rules               |
-| Agreement Context   | Contractual relationship between customer and product |
-| Account Context     | Operational account servicing                         |
-| Transaction Context | Movement lifecycle and transaction state              |
-| Ledger Context      | Accounting truth and financial postings               |
-| Channel Context     | Origin of activity entering the bank                  |
-| Branch Context      | Physical banking location context                     |
+| Bounded Context          | Primary Responsibility                                |
+| ------------------------ | ----------------------------------------------------- |
+| Party Management Context | Enterprise identity and known parties                 |
+| Customer Context         | Banking relationship with the institution             |
+| Product Context          | Financial product definitions and rules               |
+| Agreement Context        | Contractual relationship between customer and product |
+| Account Context          | Operational account servicing                         |
+| Transaction Context      | Movement lifecycle and transaction state              |
+| Ledger Context           | Accounting truth and financial postings               |
+| Channel Context          | Origin of activity entering the bank                  |
+| Branch Context           | Physical banking location context                     |
 
 ---
 
 ## 5. Context Relationship Overview
 
 ```text
-Identity
+Party Management
    │
    ▼
 Customer
@@ -100,11 +100,11 @@ It does not mean every context calls another context directly. Implementation ma
 
 ---
 
-# 6. Identity Context
+# 6. Party Management Context
 
 ## Purpose
 
-The Identity Context owns enterprise identity.
+The Party Management Context owns enterprise identity.
 
 It answers:
 
@@ -147,7 +147,7 @@ It answers:
 
 None.
 
-Identity is one of the root enterprise contexts.
+Party Management is one of the root enterprise contexts.
 
 ## Example Business Rules
 
@@ -194,16 +194,16 @@ It answers:
 
 ## References
 
-| Referenced Context | Reason                    |
-| ------------------ | ------------------------- |
-| Identity Context   | Customer references Party |
+| Referenced Context       | Reason                    |
+| ------------------------ | ------------------------- |
+| Party Management Context | Customer references Party |
 
 ## Example Business Rules
 
 1. A Customer must reference exactly one Party.
 2. A Party may exist without a Customer record.
 3. A Customer does not own identity information.
-4. Customer status belongs to the Customer Context, not the Identity Context.
+4. Customer status belongs to the Customer Context, not the Party Management Context.
 
 ---
 
@@ -565,23 +565,23 @@ Branch may be referenced by Employee or Channel activity.
 
 # 15. Context Dependency Matrix
 
-| Context     | Depends On        | Referenced By                         |
-| ----------- | ----------------- | ------------------------------------- |
-| Identity    | None              | Customer, Employee-related workflows  |
-| Customer    | Identity          | Agreement                             |
-| Product     | None              | Agreement                             |
-| Agreement   | Customer, Product | Account                               |
-| Account     | Agreement         | Transaction                           |
-| Transaction | Account, Channel  | Ledger                                |
-| Ledger      | Transaction       | Reporting, Audit, Finance             |
-| Channel     | None              | Transaction                           |
-| Branch      | None              | Channel, Employee servicing workflows |
+| Context          | Depends On        | Referenced By                         |
+| ---------------- | ----------------- | ------------------------------------- |
+| Party Management | None              | Customer, Employee-related workflows  |
+| Customer         | Party Management  | Agreement                             |
+| Product          | None              | Agreement                             |
+| Agreement        | Customer, Product | Account                               |
+| Account          | Agreement         | Transaction                           |
+| Transaction      | Account, Channel  | Ledger                                |
+| Ledger           | Transaction       | Reporting, Audit, Finance             |
+| Channel          | None              | Transaction                           |
+| Branch           | None              | Channel, Employee servicing workflows |
 
 ---
 
 # 16. Context Interaction Rules
 
-1. Identity information is retrieved from the Identity Context.
+1. Identity information is retrieved from the Party Management Context.
 2. Customer relationship status is retrieved from the Customer Context.
 3. Product configuration is retrieved from the Product Context.
 4. Agreement rules govern Account creation.
@@ -623,7 +623,7 @@ Potential future examples:
 | -------------------- | ----------------- |
 | Core banking system  | Account, Ledger   |
 | Payment network      | Transaction       |
-| Identity provider    | Identity          |
+| Identity provider    | Party Management  |
 | CRM                  | Customer          |
 | Product catalogue    | Product           |
 | Branch directory     | Branch            |
@@ -644,7 +644,7 @@ Potential future structure:
 
 ```text
 apps/system-api/src/domain/
-├── identity/
+├── party/
 ├── customer/
 ├── product/
 ├── agreement/
@@ -696,7 +696,7 @@ Each future context must define:
 
 # 21. Open Questions
 
-1. Should Employee remain inside Identity Context or become part of a Workforce Context later?
+1. Should Employee remain inside Party Management Context or become part of a Workforce Context later?
 2. Should Branch remain independent or be grouped under Channel and Servicing?
 3. Should Ledger be introduced immediately in implementation or after Transaction modeling?
 4. Should Product versioning be modeled before Agreement implementation?
@@ -708,9 +708,9 @@ Each future context must define:
 
 # 22. Decisions
 
-## Decision 1: Identity is separated from Customer
+## Decision 1: Party Management is separated from Customer
 
-Party belongs to the Identity Context.
+Party belongs to the Party Management Context.
 
 Customer belongs to the Customer Context.
 
@@ -741,7 +741,7 @@ Channel does not own Customer, Account, Transaction, or Ledger state.
 # Appendix A – Context Summary
 
 ```text
-Identity
+Party Management
   Owns Party
 
 Customer

@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { Party, PartyId } from "@epos/enterprise-domain";
 
-import type { PartyRepository } from "../../../src/identity/PartyRepository.js";
-import { PartyNotFoundError } from "../../../src/identity/errors/PartyNotFoundError.js";
-import { GetPartyQueryHandler } from "../../../src/identity/get-party/GetPartyQueryHandler.js";
+import type { PartyRepository } from "../../../src/party/PartyRepository.js";
+import { PartyNotFoundError } from "../../../src/party/errors/PartyNotFoundError.js";
+import { GetPartyQueryHandler } from "../../../src/party/get-party/GetPartyQueryHandler.js";
 
 class InMemoryPartyRepository implements PartyRepository {
   private readonly parties = new Map<string, Party>();

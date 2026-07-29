@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { Party } from "../../src/identity/entities/Party.js";
-import { PartyId } from "../../src/identity/value-objects/PartyId.js";
+import { Party } from "../../src/party/entities/Party.js";
+import { PartyId } from "../../src/party/value-objects/PartyId.js";
 
 describe("Party", () => {
   it("registers a new party as active", () => {

@@ -138,23 +138,23 @@ Events must reflect business language, not storage or API details.
 
 EPOS domain events are grouped by bounded context.
 
-| Bounded Context     | Event Category                         |
-| ------------------- | -------------------------------------- |
-| Identity Context    | Party and identity events              |
-| Customer Context    | Customer relationship events           |
-| Product Context     | Product lifecycle events               |
-| Agreement Context   | Agreement lifecycle events             |
-| Account Context     | Account lifecycle and servicing events |
-| Transaction Context | Transaction lifecycle events           |
-| Ledger Context      | Accounting and posting events          |
-| Channel Context     | Activity origin events                 |
-| Branch Context      | Physical location events               |
+| Bounded Context          | Event Category                         |
+| ------------------------ | -------------------------------------- |
+| Party Management Context | Party and identity events              |
+| Customer Context         | Customer relationship events           |
+| Product Context          | Product lifecycle events               |
+| Agreement Context        | Agreement lifecycle events             |
+| Account Context          | Account lifecycle and servicing events |
+| Transaction Context      | Transaction lifecycle events           |
+| Ledger Context           | Accounting and posting events          |
+| Channel Context          | Activity origin events                 |
+| Branch Context           | Physical location events               |
 
 ---
 
-## 6. Identity Context Events
+## 6. Party Management Context Events
 
-The Identity Context owns events related to Party identity and enterprise-recognized actors.
+The Party Management Context owns events related to Party identity and enterprise-recognized actors.
 
 | Event                | Meaning                                                      |
 | -------------------- | ------------------------------------------------------------ |
@@ -619,17 +619,17 @@ These event types must remain separate.
 
 ## Appendix A – Initial Event Catalogue
 
-| Context     | Events                                                                                                                                                      |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity    | Party Registered, Party Updated, Party Deactivated, Party Reactivated, Party Role Assigned, Party Role Removed                                              |
-| Customer    | Customer Created, Customer Activated, Customer Suspended, Customer Reactivated, Customer Closed                                                             |
-| Product     | Product Created, Product Activated, Product Updated, Product Retired                                                                                        |
-| Agreement   | Agreement Created, Agreement Signed, Agreement Activated, Agreement Suspended, Agreement Expired, Agreement Terminated                                      |
-| Account     | Account Opening Requested, Account Opened, Account Activated, Account Frozen, Account Unfrozen, Account Closed                                              |
-| Transaction | Transaction Initiated, Transaction Validated, Transaction Authorized, Transaction Declined, Transaction Reversed, Transaction Failed, Transaction Completed |
-| Ledger      | Ledger Entry Created, Ledger Entry Posted, Ledger Posting Failed, Ledger Reconciled                                                                         |
-| Channel     | Channel Registered, Channel Activated, Channel Session Started, Channel Activity Recorded                                                                   |
-| Branch      | Branch Created, Branch Opened, Branch Updated, Branch Temporarily Closed, Branch Permanently Closed                                                         |
+| Context          | Events                                                                                                                                                      |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Party Management | Party Registered, Party Updated, Party Deactivated, Party Reactivated, Party Role Assigned, Party Role Removed                                              |
+| Customer         | Customer Created, Customer Activated, Customer Suspended, Customer Reactivated, Customer Closed                                                             |
+| Product          | Product Created, Product Activated, Product Updated, Product Retired                                                                                        |
+| Agreement        | Agreement Created, Agreement Signed, Agreement Activated, Agreement Suspended, Agreement Expired, Agreement Terminated                                      |
+| Account          | Account Opening Requested, Account Opened, Account Activated, Account Frozen, Account Unfrozen, Account Closed                                              |
+| Transaction      | Transaction Initiated, Transaction Validated, Transaction Authorized, Transaction Declined, Transaction Reversed, Transaction Failed, Transaction Completed |
+| Ledger           | Ledger Entry Created, Ledger Entry Posted, Ledger Posting Failed, Ledger Reconciled                                                                         |
+| Channel          | Channel Registered, Channel Activated, Channel Session Started, Channel Activity Recorded                                                                   |
+| Branch           | Branch Created, Branch Opened, Branch Updated, Branch Temporarily Closed, Branch Permanently Closed                                                         |
 
 ---
 

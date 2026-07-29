@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import type { Party } from "@epos/enterprise-domain";
 
 import type { IdGenerator } from "../../../src/shared/IdGenerator.js";
-import type { PartyRepository } from "../../../src/identity/PartyRepository.js";
-import { RegisterPartyUseCase } from "../../../src/identity/register-party/RegisterPartyUseCase.js";
+import type { PartyRepository } from "../../../src/party/PartyRepository.js";
+import { RegisterPartyUseCase } from "../../../src/party/register-party/RegisterPartyUseCase.js";
 
 class FixedIdGenerator implements IdGenerator {
   public generate(): string {

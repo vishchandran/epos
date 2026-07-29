@@ -32,28 +32,28 @@ The resulting domain layer provides the core business foundation upon which futu
 
 # 3. Objectives Review
 
-| Objective                              | Status |
-| -------------------------------------- | :----: |
-| Enterprise Domain Model completed      |   ✅   |
-| Entity Relationships documented        |   ✅   |
-| Aggregate Design completed             |   ✅   |
-| Enterprise Bounded Contexts defined    |   ✅   |
-| Enterprise Domain Events defined       |   ✅   |
-| Business Capability Model completed    |   ✅   |
-| Domain Implementation Map completed    |   ✅   |
-| Domain Layer Architecture documented   |   ✅   |
-| ADR-0006 approved                      |   ✅   |
-| Enterprise Domain package created      |   ✅   |
-| Identity bounded context implemented   |   ✅   |
-| Customer bounded context implemented   |   ✅   |
-| Product bounded context implemented    |   ✅   |
-| Agreement bounded context implemented  |   ✅   |
-| Account bounded context implemented    |   ✅   |
-| Ledger bounded context implemented     |   ✅   |
-| Shared domain abstractions implemented |   ✅   |
-| Domain-specific exceptions implemented |   ✅   |
-| Public package exports completed       |   ✅   |
-| Automated unit tests completed         |   ✅   |
+| Objective                                    | Status |
+| -------------------------------------------- | :----: |
+| Enterprise Domain Model completed            |   ✅   |
+| Entity Relationships documented              |   ✅   |
+| Aggregate Design completed                   |   ✅   |
+| Enterprise Bounded Contexts defined          |   ✅   |
+| Enterprise Domain Events defined             |   ✅   |
+| Business Capability Model completed          |   ✅   |
+| Domain Implementation Map completed          |   ✅   |
+| Domain Layer Architecture documented         |   ✅   |
+| ADR-0006 approved                            |   ✅   |
+| Enterprise Domain package created            |   ✅   |
+| Party Management bounded context implemented |   ✅   |
+| Customer bounded context implemented         |   ✅   |
+| Product bounded context implemented          |   ✅   |
+| Agreement bounded context implemented        |   ✅   |
+| Account bounded context implemented          |   ✅   |
+| Ledger bounded context implemented           |   ✅   |
+| Shared domain abstractions implemented       |   ✅   |
+| Domain-specific exceptions implemented       |   ✅   |
+| Public package exports completed             |   ✅   |
+| Automated unit tests completed               |   ✅   |
 
 ---
 
@@ -101,7 +101,7 @@ packages/enterprise-domain/
 
 ### Implemented Bounded Contexts
 
-- Identity
+- Party Management
 - Customer
 - Product
 - Agreement
@@ -117,7 +117,7 @@ packages/enterprise-domain/
 
 ### Implemented Domain Components
 
-#### Identity
+#### Party Management
 
 - Party
 - PartyId

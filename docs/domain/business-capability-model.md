@@ -26,7 +26,7 @@ This document defines the core business capabilities EPOS must provide. A busine
 ```text
 Enterprise Banking
 │
-├── Identity Management
+├── Party Management
 ├── Customer Management
 ├── Product Management
 ├── Agreement Management
@@ -41,7 +41,7 @@ Enterprise Banking
 
 ## 4. Capability Definitions
 
-### Identity Management
+### Party Management
 
 Purpose:
 Manage enterprise identities.
@@ -185,7 +185,7 @@ Capabilities:
 ## 5. Capability Dependencies
 
 ```text
-Identity
+Party Management
     ↓
 Customer
     ↓
@@ -205,17 +205,17 @@ Branch ──────► Channel
 
 ## 6. Capability to Domain Mapping
 
-| Capability              | Primary Domain |
-| ----------------------- | -------------- |
-| Register Party          | Identity       |
-| Create Customer         | Customer       |
-| Create Product          | Product        |
-| Create Agreement        | Agreement      |
-| Open Account            | Account        |
-| Authorize Transaction   | Transaction    |
-| Post Ledger Entry       | Ledger         |
-| Record Channel Activity | Channel        |
-| Manage Branch           | Branch         |
+| Capability              | Primary Domain   |
+| ----------------------- | ---------------- |
+| Register Party          | Party Management |
+| Create Customer         | Customer         |
+| Create Product          | Product          |
+| Create Agreement        | Agreement        |
+| Open Account            | Account          |
+| Authorize Transaction   | Transaction      |
+| Post Ledger Entry       | Ledger           |
+| Record Channel Activity | Channel          |
+| Manage Branch           | Branch           |
 
 ---
 
@@ -262,7 +262,7 @@ Future EPOS releases may introduce:
 ```text
 Enterprise Banking
 │
-├── Identity
+├── Party Management
 │   ├── Register Party
 │   ├── Maintain Party
 │   └── Assign Roles

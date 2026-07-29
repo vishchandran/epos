@@ -56,7 +56,7 @@ Dependencies always point downward.
 apps/system-api/src/
 ├── application/
 ├── domain/
-│   ├── identity/
+│   ├── party/
 │   ├── customer/
 │   ├── product/
 │   ├── agreement/
@@ -134,23 +134,23 @@ Repositories expose domain objects, not database rows.
 
 # 8. Initial Aggregate Mapping
 
-| Context     | Aggregate Root |
-| ----------- | -------------- |
-| Identity    | Party          |
-| Customer    | Customer       |
-| Product     | Product        |
-| Agreement   | Agreement      |
-| Account     | Account        |
-| Transaction | Transaction    |
-| Ledger      | Ledger         |
-| Channel     | Channel        |
-| Branch      | Branch         |
+| Context          | Aggregate Root |
+| ---------------- | -------------- |
+| Party Management | Party          |
+| Customer         | Customer       |
+| Product          | Product        |
+| Agreement        | Agreement      |
+| Account          | Account        |
+| Transaction      | Transaction    |
+| Ledger           | Ledger         |
+| Channel          | Channel        |
+| Branch           | Branch         |
 
 ---
 
 # 9. Initial Implementation Order
 
-1. Identity (Party)
+1. Party Management (Party)
 2. Customer
 3. Product
 4. Agreement

@@ -64,11 +64,11 @@ SystemAPI -. Future Integration .-> Party
 flowchart LR
     API[System API]
     Domain[Enterprise Domain Package]
-    Identity[Identity Context<br/>Party, PartyId]
+    PartyManagement[Party Management Context<br/>Party, PartyId]
     Foundation[Foundation Contexts<br/>Customer, Product, Agreement, Account, Ledger]
 
     API -. future integration .-> Domain
-    Domain --> Identity
+    Domain --> PartyManagement
     Domain --> Foundation
 ```
 

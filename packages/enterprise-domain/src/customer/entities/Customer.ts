@@ -1,4 +1,4 @@
-import { PartyId } from "../../identity/value-objects/PartyId.js";
+import { PartyId } from "../../party/value-objects/PartyId.js";
 import { CustomerId } from "../value-objects/CustomerId.js";
 
 type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";

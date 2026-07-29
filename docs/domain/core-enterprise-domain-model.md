@@ -16,7 +16,7 @@ This document intentionally focuses on **business concepts**, not technical impl
 Enterprise Banking Platform
 │
 ├── Enterprise Foundation
-│   ├── Identity
+│   ├── Party Management
 │   ├── Customer
 │   ├── Products
 │   ├── Agreements

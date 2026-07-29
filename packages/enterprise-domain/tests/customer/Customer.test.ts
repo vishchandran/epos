@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { PartyId } from "../../src/identity/value-objects/PartyId.js";
+import { PartyId } from "../../src/party/value-objects/PartyId.js";
 import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
 import { Customer } from "../../src/customer/entities/Customer.js";
 

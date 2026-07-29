@@ -31,17 +31,17 @@ No implementation decisions in this document introduce new business concepts. Th
 
 # 3. Capability Mapping
 
-| Business Capability     | Bounded Context | Aggregate Root | Initial Module |
-| ----------------------- | --------------- | -------------- | -------------- |
-| Register Party          | Identity        | Party          | identity       |
-| Create Customer         | Customer        | Customer       | customer       |
-| Create Product          | Product         | Product        | product        |
-| Create Agreement        | Agreement       | Agreement      | agreement      |
-| Open Account            | Account         | Account        | account        |
-| Authorize Transaction   | Transaction     | Transaction    | transaction    |
-| Post Ledger Entry       | Ledger          | Ledger         | ledger         |
-| Record Channel Activity | Channel         | Channel        | channel        |
-| Maintain Branch         | Branch          | Branch         | branch         |
+| Business Capability     | Bounded Context  | Aggregate Root | Initial Module |
+| ----------------------- | ---------------- | -------------- | -------------- |
+| Register Party          | Party Management | Party          | party          |
+| Create Customer         | Customer         | Customer       | customer       |
+| Create Product          | Product          | Product        | product        |
+| Create Agreement        | Agreement        | Agreement      | agreement      |
+| Open Account            | Account          | Account        | account        |
+| Authorize Transaction   | Transaction      | Transaction    | transaction    |
+| Post Ledger Entry       | Ledger           | Ledger         | ledger         |
+| Record Channel Activity | Channel          | Channel        | channel        |
+| Maintain Branch         | Branch           | Branch         | branch         |
 
 ---
 
@@ -49,7 +49,7 @@ No implementation decisions in this document introduce new business concepts. Th
 
 ```text
 apps/system-api/src/domain/
-├── identity/
+├── party/
 ├── customer/
 ├── product/
 ├── agreement/
@@ -93,7 +93,7 @@ Each directory will eventually contain:
 
 # 6. Implementation Sequence
 
-1. Identity
+1. Party Management
 2. Customer
 3. Product
 4. Agreement

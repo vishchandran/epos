@@ -2,11 +2,15 @@
 
 ## Status
 
-Accepted
+Accepted — Amended
 
 ## Date
 
 2026-07-07
+
+## Last Amended
+
+2026-07-29
 
 ## Context
 
@@ -22,6 +26,10 @@ EPOS will use **Party** as the root enterprise identity concept.
 
 A **Party** represents any person or organization known to the enterprise.
 
+The bounded context that owns Party will be named the **Party Management Context**. Its TypeScript module and repository directory will use the concise name `party`.
+
+The term **identity** will continue to describe the enterprise identity information owned by Party, but it will not be used as the bounded-context or module name. This prevents ambiguity with the future Identity and Access Management capability responsible for authentication, credentials, authorization, and technical user identities.
+
 Business roles such as **Customer** and **Employee** will reference **Party** rather than owning identity information themselves.
 
 The initial enterprise identity model is:
@@ -33,6 +41,20 @@ Party
 ```
 
 ## Rationale
+
+### Bounded-Context Naming
+
+The original bounded-context name, **Identity Context**, was broader than its implemented responsibility and could be confused with technical Identity and Access Management.
+
+The context owns Party and Party-related enterprise identity information. Naming it **Party Management Context** makes its ownership explicit while allowing Party to remain the root enterprise identity concept.
+
+```text
+Party Management
+→ People and organizations known to the enterprise
+
+Identity and Access Management
+→ Authentication, credentials, users, roles, and permissions
+```
 
 This decision provides a clear separation between identity and business relationships.
 
@@ -81,6 +103,14 @@ Using Customer as the identity root would tightly couple identity with business 
 
 Allowing each business domain to maintain its own identity model would duplicate information, increase synchronization complexity, and create inconsistent representations of the same person or organization.
 
+### Alternative 3: Retain Identity Context as the Name
+
+**Decision:** Rejected
+
+**Reason:**
+
+The name Identity Context could be confused with the future Identity and Security Platform and technical Identity and Access Management. Party Management more precisely describes the bounded context’s business ownership.
+
 ## Implications
 
 Future business domains should reference Party whenever enterprise identity is required.
@@ -88,6 +118,12 @@ Future business domains should reference Party whenever enterprise identity is r
 Customer, Employee, and future roles such as Authorized Representative, Beneficial Owner, Guarantor, or Vendor Contact should extend or reference Party rather than creating independent identity roots.
 
 This decision establishes the foundation for enterprise identity across EPOS.
+
+## Amendment
+
+On 2026-07-29, the decision was amended to name the owning bounded context **Party Management Context** and its code module `party`.
+
+Party remains the root enterprise identity concept. The amendment changes the context and module name only; it does not change Party’s business meaning or its relationships with Customer, Employee, and other enterprise roles.
 
 ## References
 

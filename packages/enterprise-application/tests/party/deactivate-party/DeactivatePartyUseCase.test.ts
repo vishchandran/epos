@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { Party, PartyId } from "@epos/enterprise-domain";
 
-import type { PartyRepository } from "../../../src/identity/PartyRepository.js";
-import { PartyNotFoundError } from "../../../src/identity/errors/PartyNotFoundError.js";
-import { ActivatePartyUseCase } from "../../../src/identity/activate-party/ActivatePartyUseCase.js";
+import type { PartyRepository } from "../../../src/party/PartyRepository.js";
+import { PartyNotFoundError } from "../../../src/party/errors/PartyNotFoundError.js";
+import { DeactivatePartyUseCase } from "../../../src/party/deactivate-party/DeactivatePartyUseCase.js";
 
 class InMemoryPartyRepository implements PartyRepository {
   private party: Party | null;
@@ -28,18 +28,16 @@ class InMemoryPartyRepository implements PartyRepository {
   }
 }
 
-describe("ActivatePartyUseCase", () => {
-  it("activates and saves an inactive party", async () => {
+describe("DeactivatePartyUseCase", () => {
+  it("deactivates and saves an existing party", async () => {
     const party = Party.register(
       new PartyId("PTY-1001"),
       "PERSON",
       "John Smith"
     );
 
-    party.deactivate();
-
     const repository = new InMemoryPartyRepository(party);
-    const useCase = new ActivatePartyUseCase(repository);
+    const useCase = new DeactivatePartyUseCase(repository);
 
     const result = await useCase.execute({
       partyId: "PTY-1001"
@@ -47,16 +45,16 @@ describe("ActivatePartyUseCase", () => {
 
     expect(result).toEqual({
       partyId: "PTY-1001",
-      status: "ACTIVE"
+      status: "INACTIVE"
     });
 
-    expect(party.getStatus()).toBe("ACTIVE");
+    expect(party.getStatus()).toBe("INACTIVE");
     expect(repository.saveCount).toBe(1);
   });
 
   it("throws PartyNotFoundError when the party does not exist", async () => {
     const repository = new InMemoryPartyRepository(null);
-    const useCase = new ActivatePartyUseCase(repository);
+    const useCase = new DeactivatePartyUseCase(repository);
 
     await expect(
       useCase.execute({

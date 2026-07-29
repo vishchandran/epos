@@ -119,7 +119,7 @@ Established the enterprise business and software domain foundation for the platf
 - ✅ Domain Layer Architecture
 - ✅ ADR-0006 – Party as the Root Identity Concept
 - ✅ Enterprise Domain package
-- ✅ Identity, Customer, Product, Agreement, Account, and Ledger bounded contexts
+- ✅ Party Management, Customer, Product, Agreement, Account, and Ledger bounded contexts
 - ✅ Shared domain abstractions
 - ✅ Strongly typed domain identifiers
 - ✅ Domain-specific business exceptions
