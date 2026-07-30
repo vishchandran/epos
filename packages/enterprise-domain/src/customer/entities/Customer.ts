@@ -16,6 +16,20 @@ export class Customer {
   private readonly id: CustomerId;
   private readonly props: CustomerProps;
 
+  public static create(
+    id: CustomerId,
+    partyId: PartyId,
+    segment: CustomerSegment,
+    customerSince: Date
+  ): Customer {
+    return new Customer(id, {
+      partyId,
+      status: "PENDING",
+      segment,
+      customerSince
+    });
+  }
+
   public constructor(id: CustomerId, props: CustomerProps) {
     if (Number.isNaN(props.customerSince.getTime())) {
       throw new Error("Customer since date must be valid.");

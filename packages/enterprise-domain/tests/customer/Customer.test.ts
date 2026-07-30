@@ -5,6 +5,22 @@ import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
 import { Customer } from "../../src/customer/entities/Customer.js";
 
 describe("Customer", () => {
+  it("creates a new customer as pending", () => {
+    const customerSince = new Date("2026-07-30T10:00:00.000Z");
+
+    const customer = Customer.create(
+      new CustomerId("CUST-1001"),
+      new PartyId("PARTY-1001"),
+      "RETAIL",
+      customerSince
+    );
+
+    expect(customer.getId().toString()).toBe("CUST-1001");
+    expect(customer.getPartyId().toString()).toBe("PARTY-1001");
+    expect(customer.getStatus()).toBe("PENDING");
+    expect(customer.getSegment()).toBe("RETAIL");
+    expect(customer.getCustomerSince()).toEqual(customerSince);
+  });
   it("creates a customer", () => {
     const customer = new Customer(new CustomerId("CUST-1001"), {
       partyId: new PartyId("PARTY-1001"),
