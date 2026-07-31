@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { PartyId } from "../../src/party/value-objects/PartyId.js";
 import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
 import { Customer } from "../../src/customer/entities/Customer.js";
+import { InvalidCustomerStatusTransitionError } from "../../src/customer/errors/InvalidCustomerStatusTransitionError.js";
 
 describe("Customer", () => {
   it("creates a new customer as pending", () => {
@@ -85,5 +86,100 @@ describe("Customer", () => {
     customer.changeSegment("COMMERCIAL");
 
     expect(customer.getSegment()).toBe("COMMERCIAL");
+  });
+
+  it("reactivates a suspended customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2001"),
+      new PartyId("PARTY-2001"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    customer.activate();
+    customer.suspend();
+    customer.activate();
+
+    expect(customer.getStatus()).toBe("ACTIVE");
+  });
+
+  it("rejects activation when the customer is already active", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2002"),
+      new PartyId("PARTY-2002"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    customer.activate();
+
+    expect(() => customer.activate()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
+  });
+
+  it("rejects suspension of a pending customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2003"),
+      new PartyId("PARTY-2003"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    expect(() => customer.suspend()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
+  });
+
+  it("closes a suspended customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2004"),
+      new PartyId("PARTY-2004"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    customer.activate();
+    customer.suspend();
+    customer.close();
+
+    expect(customer.getStatus()).toBe("CLOSED");
+  });
+
+  it("rejects closing a pending customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2005"),
+      new PartyId("PARTY-2005"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    expect(() => customer.close()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
+  });
+
+  it("rejects every transition after the customer is closed", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-2006"),
+      new PartyId("PARTY-2006"),
+      "RETAIL",
+      new Date("2026-07-31")
+    );
+
+    customer.activate();
+    customer.close();
+
+    expect(() => customer.activate()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
+
+    expect(() => customer.suspend()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
+
+    expect(() => customer.close()).toThrow(
+      InvalidCustomerStatusTransitionError
+    );
   });
 });

@@ -1,9 +1,10 @@
 import { PartyId } from "../../party/value-objects/PartyId.js";
 import { CustomerId } from "../value-objects/CustomerId.js";
+import { InvalidCustomerStatusTransitionError } from "../errors/InvalidCustomerStatusTransitionError.js";
 
-type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
+export type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
 
-type CustomerSegment = "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+export type CustomerSegment = "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
 
 type CustomerProps = {
   partyId: PartyId;
@@ -63,14 +64,32 @@ export class Customer {
   }
 
   public activate(): void {
+    if (this.props.status !== "PENDING" && this.props.status !== "SUSPENDED") {
+      throw new InvalidCustomerStatusTransitionError(
+        `Customer cannot be activated from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "ACTIVE";
   }
 
   public suspend(): void {
+    if (this.props.status !== "ACTIVE") {
+      throw new InvalidCustomerStatusTransitionError(
+        `Customer cannot be suspended from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "SUSPENDED";
   }
 
   public close(): void {
+    if (this.props.status !== "ACTIVE" && this.props.status !== "SUSPENDED") {
+      throw new InvalidCustomerStatusTransitionError(
+        `Customer cannot be closed from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "CLOSED";
   }
 

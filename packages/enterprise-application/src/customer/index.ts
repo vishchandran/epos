@@ -6,3 +6,6 @@ export * from "./errors/CustomerNotFoundError.js";
 export * from "./get-customer/GetCustomerQuery.js";
 export * from "./get-customer/CustomerDto.js";
 export * from "./get-customer/GetCustomerQueryHandler.js";
+export * from "./activate-customer/ActivateCustomerCommand.js";
+export * from "./activate-customer/ActivateCustomerResult.js";
+export * from "./activate-customer/ActivateCustomerUseCase.js";
