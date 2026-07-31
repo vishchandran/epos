@@ -39,6 +39,10 @@ class InMemoryPartyRepository implements PartyRepository {
 class InMemoryCustomerRepository implements CustomerRepository {
   public savedCustomer: Customer | undefined;
 
+  public findById(): Promise<Customer | null> {
+    return Promise.resolve(this.savedCustomer ?? null);
+  }
+
   public save(customer: Customer): Promise<void> {
     this.savedCustomer = customer;
     return Promise.resolve();

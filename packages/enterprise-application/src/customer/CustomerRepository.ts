@@ -1,5 +1,6 @@
-import type { Customer } from "@epos/enterprise-domain";
+import type { Customer, CustomerId } from "@epos/enterprise-domain";
 
 export interface CustomerRepository {
+  findById(customerId: CustomerId): Promise<Customer | null>;
   save(customer: Customer): Promise<void>;
 }
