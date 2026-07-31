@@ -9,3 +9,6 @@ export * from "./get-customer/GetCustomerQueryHandler.js";
 export * from "./activate-customer/ActivateCustomerCommand.js";
 export * from "./activate-customer/ActivateCustomerResult.js";
 export * from "./activate-customer/ActivateCustomerUseCase.js";
+export * from "./suspend-customer/SuspendCustomerCommand.js";
+export * from "./suspend-customer/SuspendCustomerResult.js";
+export * from "./suspend-customer/SuspendCustomerUseCase.js";
