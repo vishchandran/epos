@@ -6,3 +6,6 @@ export { AccountNotFoundError } from "./errors/AccountNotFoundError.js";
 export type { GetAccountQuery } from "./get-account/GetAccountQuery.js";
 export type { AccountDto } from "./get-account/AccountDto.js";
 export { GetAccountQueryHandler } from "./get-account/GetAccountQueryHandler.js";
+export type { ActivateAccountCommand } from "./activate-account/ActivateAccountCommand.js";
+export type { ActivateAccountResult } from "./activate-account/ActivateAccountResult.js";
+export { ActivateAccountUseCase } from "./activate-account/ActivateAccountUseCase.js";
