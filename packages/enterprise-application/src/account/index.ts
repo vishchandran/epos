@@ -12,3 +12,6 @@ export { ActivateAccountUseCase } from "./activate-account/ActivateAccountUseCas
 export type { SuspendAccountCommand } from "./suspend-account/SuspendAccountCommand.js";
 export type { SuspendAccountResult } from "./suspend-account/SuspendAccountResult.js";
 export { SuspendAccountUseCase } from "./suspend-account/SuspendAccountUseCase.js";
+export type { CloseAccountCommand } from "./close-account/CloseAccountCommand.js";
+export type { CloseAccountResult } from "./close-account/CloseAccountResult.js";
+export { CloseAccountUseCase } from "./close-account/CloseAccountUseCase.js";

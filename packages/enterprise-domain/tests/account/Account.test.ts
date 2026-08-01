@@ -95,6 +95,18 @@ describe("Account", () => {
     expect(account.getStatus()).toBe("CLOSED");
   });
 
+  it("closes a suspended account", () => {
+    const account = Account.open(
+      new AccountId("ACC-1001"),
+      new AgreementId("AGR-1001")
+    );
+    account.activate();
+    account.suspend();
+    account.close();
+
+    expect(account.getStatus()).toBe("CLOSED");
+  });
+
   it("prevents closing a pending account", () => {
     const account = new Account(
       new AccountId("ACC-1001"),
@@ -117,6 +129,19 @@ describe("Account", () => {
 
     expect(() => account.activate()).toThrow(
       "Account cannot be activated from status CLOSED."
+    );
+  });
+
+  it("prevents closing an already closed account", () => {
+    const account = Account.open(
+      new AccountId("ACC-1001"),
+      new AgreementId("AGR-1001")
+    );
+    account.activate();
+    account.close();
+
+    expect(() => account.close()).toThrow(
+      "Account cannot be closed from status CLOSED."
     );
   });
 
