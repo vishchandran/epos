@@ -2,16 +2,15 @@ import {
   Account,
   AccountId,
   AccountNotActiveForLedgerOpeningError,
-  AgreementId,
-  type Ledger
+  AgreementId
 } from "@epos/enterprise-domain";
 import { describe, expect, it } from "vitest";
 
 import type { AccountRepository } from "../../../src/account/AccountRepository.js";
 import { AccountNotFoundError } from "../../../src/account/errors/AccountNotFoundError.js";
-import type { LedgerRepository } from "../../../src/ledger/LedgerRepository.js";
 import { OpenLedgerUseCase } from "../../../src/ledger/open-ledger/OpenLedgerUseCase.js";
 import type { IdGenerator } from "../../../src/shared/IdGenerator.js";
+import { InMemoryLedgerRepository } from "../support/LedgerTestSupport.js";
 
 class AccountStub implements AccountRepository {
   public constructor(private readonly account: Account | null) {}
@@ -19,14 +18,6 @@ class AccountStub implements AccountRepository {
     return Promise.resolve(this.account);
   }
   public save(): Promise<void> {
-    return Promise.resolve();
-  }
-}
-
-class InMemoryLedgerRepository implements LedgerRepository {
-  public savedLedger: Ledger | undefined;
-  public save(ledger: Ledger): Promise<void> {
-    this.savedLedger = ledger;
     return Promise.resolve();
   }
 }
