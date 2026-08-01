@@ -9,6 +9,10 @@ export class Ledger {
   private readonly accountId: AccountId;
   private status: LedgerStatus;
 
+  public static open(id: LedgerId, accountId: AccountId): Ledger {
+    return new Ledger(id, accountId);
+  }
+
   public constructor(id: LedgerId, accountId: AccountId) {
     this.id = id;
     this.accountId = accountId;
