@@ -66,14 +66,14 @@ The following roadmap identifies when implementation of each major business doma
 
 ## Current Release 1.0 Status
 
-| Phase | Focus                          | Status         |
-| ----: | ------------------------------ | -------------- |
-|    -1 | Technology & Platform Baseline | ✅ Complete    |
-|     0 | Engineering Foundation         | ✅ Complete    |
-|     1 | Enterprise Domain Modeling     | ✅ Complete    |
-|     2 | Application Layer              | 🟢 In Progress |
-|     3 | Infrastructure Layer           | ⏳ Planned     |
-|     4 | Enterprise Service Integration | ⏳ Planned     |
+| Phase | Focus                          | Status      |
+| ----: | ------------------------------ | ----------- |
+|    -1 | Technology & Platform Baseline | ✅ Complete |
+|     0 | Engineering Foundation         | ✅ Complete |
+|     1 | Enterprise Domain Modeling     | ✅ Complete |
+|     2 | Application Layer              | ✅ Complete |
+|     3 | Infrastructure Layer           | ⏳ Planned  |
+|     4 | Enterprise Service Integration | ⏳ Planned  |
 
 |  Phase | Release | Primary Focus                               |
 | -----: | :-----: | ------------------------------------------- |

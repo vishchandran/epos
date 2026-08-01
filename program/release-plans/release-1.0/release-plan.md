@@ -32,14 +32,14 @@ Build a production-inspired enterprise foundation spanning engineering standards
 
 Release 1.0 includes the following phases:
 
-|  Phase | Focus                          | Status         |
-| -----: | ------------------------------ | -------------- |
-| **-1** | Technology & Platform Baseline | ✅ Complete    |
-|  **0** | Engineering Foundation         | ✅ Complete    |
-|  **1** | Enterprise Domain Modeling     | ✅ Complete    |
-|  **2** | Application Layer              | 🟢 In Progress |
-|  **3** | Infrastructure Layer           | ⏳ Planned     |
-|  **4** | Enterprise Service Integration | ⏳ Planned     |
+|  Phase | Focus                          | Status      |
+| -----: | ------------------------------ | ----------- |
+| **-1** | Technology & Platform Baseline | ✅ Complete |
+|  **0** | Engineering Foundation         | ✅ Complete |
+|  **1** | Enterprise Domain Modeling     | ✅ Complete |
+|  **2** | Application Layer              | ✅ Complete |
+|  **3** | Infrastructure Layer           | ⏳ Planned  |
+|  **4** | Enterprise Service Integration | ⏳ Planned  |
 
 ---
 
@@ -171,3 +171,4 @@ Release 1.0 can be formally closed when:
 | ------- | -------------- | --------------------------------------------------- |
 | **1.0** | July 5, 2026   | Initial Release 1.0 plan                            |
 | **1.1** | August 1, 2026 | Aligned Phases 2–4 with active implementation scope |
+| **1.2** | August 1, 2026 | Recorded completion of Phase 2                      |

@@ -14,7 +14,7 @@ The objective is not only to produce working banking software. EPOS is a practic
 | **Approach**      | Product-led, domain-driven, backend-first, and end-to-end by design                      |
 | **Architecture**  | Modular monorepo with strict Domain, Application, Infrastructure, and API boundaries     |
 | **Delivery**      | Incremental releases, vertical slices, automated quality gates, and documented decisions |
-| **Current focus** | Release 1.0 — Enterprise Foundation · Phase 2 — Application Layer                        |
+| **Current focus** | Release 1.0 — Enterprise Foundation · Phase 3 — Infrastructure Layer                     |
 
 ## One program, the whole bank
 
@@ -98,9 +98,9 @@ Dependencies point toward business behavior. Domain code remains independent of 
 | **-1 — Technology & Platform Baseline** | Architecture, engineering standards, monorepo, toolchain, and governance   |   ✅   |
 | **0 — Engineering Foundation**          | Runnable System API, TypeScript, testing, logging, Docker, and CI          |   ✅   |
 | **1 — Enterprise Domain**               | Party Management, Customer, Product, Agreement, Account, and Ledger models |   ✅   |
-| **2 — Application Layer**               | Commands, queries, DTOs, repositories, and application use cases           |   🟢   |
+| **2 — Application Layer**               | Commands, queries, DTOs, repositories, and application use cases           |   ✅   |
 
-Current Application Layer capabilities include registering, retrieving, activating, deactivating, and renaming a Party. Customer, Product, Agreement, Account, and Ledger workflows follow incrementally.
+The Phase 2 Application Layer now coordinates Party Management, Customer, Product, Agreement, Account, and Ledger workflows. Phase 3 introduces persistence and infrastructure implementations behind the completed application contracts.
 
 ## Repository
 
@@ -134,6 +134,7 @@ pnpm --filter @epos/system-api dev
 ## Explore the program
 
 - [Architecture principles](docs/architecture/core-architecture-principles.md)
+- [Application Layer architecture](docs/architecture/application-layer-architecture.md)
 - [Architecture decisions](docs/architecture/adr/)
 - [Enterprise domain](docs/domain/)
 - [Engineering standards](docs/architecture/core-engineering-standards.md)

@@ -17,9 +17,9 @@ It is maintained throughout the life of the program and illustrates:
 
 # Current State Architecture
 
-**Status:** Release 1 – Phase 2 (In Progress)
+**Status:** Release 1 – Phase 2 (Complete)
 
-The current implementation provides the engineering foundation, the enterprise domain package, and an evolving Application Layer.
+The current implementation provides the engineering foundation, the Enterprise Domain package, and the completed Release 1 Application Layer scope.
 
 ```mermaid
 flowchart LR
@@ -33,13 +33,24 @@ SystemAPI["apps/system-api"]
 Application["packages/enterprise-application"]
 end
 
-subgraph Enterprise Domain
-Party["Party"]
-PartyId["PartyId"]
+subgraph Application Contexts
+PartyApp["Party Management"]
+CustomerApp["Customer"]
+ProductApp["Product"]
+AgreementApp["Agreement"]
+AccountApp["Account"]
+LedgerApp["Ledger"]
 end
 
 SystemAPI -. Future Integration .-> Application
-Application --> Party
+Application --> PartyApp
+Application --> CustomerApp
+Application --> ProductApp
+Application --> AgreementApp
+Application --> AccountApp
+Application --> LedgerApp
+
+Application --> Domain["packages/enterprise-domain"]
 
 ```
 
@@ -51,11 +62,12 @@ Application --> Party
 - Readiness endpoints
 - Enterprise Domain package
 - Enterprise Application package
-- Party entity
-- PartyId value object
-- Party Management application use cases
-- Customer application use cases in progress
-- Commands, queries, DTOs, and repository interfaces
+- Party Management, Customer, Product, Agreement, Account, and Ledger domain models
+- Complete Phase 2 workflows across all six bounded contexts
+- Commands, queries, results, DTOs, and repository interfaces
+- Application validation and consistent application errors
+- Transaction boundary contract and transactional use-case decorator
+- Governed package entry points
 - Build pipeline
 - ADR governance
 - Program governance
@@ -356,7 +368,7 @@ Enterprise Intelligence
 | Entity               | Release 1        | ✅               |
 | Value Object         | Release 1        | ✅               |
 | Factory Method       | Release 1        | ✅               |
-| Repository Pattern   | Release 1        | In Progress      |
+| Repository Pattern   | Release 1        | Contract Defined |
 | Domain Events        | Release 1        | Planned          |
 | Aggregate Root       | Release 1        | ✅               |
 | Shared Kernel        | Release 1        | Not Introduced   |
@@ -437,6 +449,7 @@ Business logic should remain stable regardless of whether the platform is operat
 
 # Revision History
 
-| Version | Release   | Description                              |
-| ------- | --------- | ---------------------------------------- |
-| 1.0     | Release 1 | Initial enterprise architecture baseline |
+| Version | Release   | Description                                   |
+| ------- | --------- | --------------------------------------------- |
+| 1.0     | Release 1 | Initial enterprise architecture baseline      |
+| 1.1     | Release 1 | Recorded Phase 2 Application Layer completion |
