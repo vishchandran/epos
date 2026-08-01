@@ -130,4 +130,19 @@ describe("Product", () => {
       );
     }
   );
+  it.each(["DESIGNED", "APPROVED", "SUSPENDED", "RETIRED"] as const)(
+    "rejects suspension when the product status is %s",
+    (status) => {
+      const product = new Product(new ProductId("PROD-2004"), {
+        code: "CC-002",
+        name: "Rewards Credit Card",
+        category: "CREDIT_CARD",
+        status
+      });
+
+      expect(() => product.suspend()).toThrow(
+        InvalidProductStatusTransitionError
+      );
+    }
+  );
 });

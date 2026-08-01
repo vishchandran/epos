@@ -86,6 +86,12 @@ export class Product {
   }
 
   public suspend(): void {
+    if (this.props.status !== "AVAILABLE") {
+      throw new InvalidProductStatusTransitionError(
+        `Product cannot be suspended from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "SUSPENDED";
   }
 

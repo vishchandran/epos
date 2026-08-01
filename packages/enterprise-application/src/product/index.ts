@@ -12,3 +12,6 @@ export { ApproveProductUseCase } from "./approve-product/ApproveProductUseCase.j
 export type { MakeProductAvailableCommand } from "./make-product-available/MakeProductAvailableCommand.js";
 export type { MakeProductAvailableResult } from "./make-product-available/MakeProductAvailableResult.js";
 export { MakeProductAvailableUseCase } from "./make-product-available/MakeProductAvailableUseCase.js";
+export type { SuspendProductCommand } from "./suspend-product/SuspendProductCommand.js";
+export type { SuspendProductResult } from "./suspend-product/SuspendProductResult.js";
+export { SuspendProductUseCase } from "./suspend-product/SuspendProductUseCase.js";
