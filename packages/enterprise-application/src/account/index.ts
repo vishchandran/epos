@@ -9,3 +9,6 @@ export { GetAccountQueryHandler } from "./get-account/GetAccountQueryHandler.js"
 export type { ActivateAccountCommand } from "./activate-account/ActivateAccountCommand.js";
 export type { ActivateAccountResult } from "./activate-account/ActivateAccountResult.js";
 export { ActivateAccountUseCase } from "./activate-account/ActivateAccountUseCase.js";
+export type { SuspendAccountCommand } from "./suspend-account/SuspendAccountCommand.js";
+export type { SuspendAccountResult } from "./suspend-account/SuspendAccountResult.js";
+export { SuspendAccountUseCase } from "./suspend-account/SuspendAccountUseCase.js";
