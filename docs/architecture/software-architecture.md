@@ -17,9 +17,9 @@ It is maintained throughout the life of the program and illustrates:
 
 # Current State Architecture
 
-**Status:** Release 1 – Phase 1
+**Status:** Release 1 – Phase 2 (In Progress)
 
-The current implementation provides the engineering foundation and the first enterprise domain package.
+The current implementation provides the engineering foundation, the enterprise domain package, and an evolving Application Layer.
 
 ```mermaid
 flowchart LR
@@ -30,6 +30,7 @@ Developer --> SystemAPI
 
 subgraph Applications
 SystemAPI["apps/system-api"]
+Application["packages/enterprise-application"]
 end
 
 subgraph Enterprise Domain
@@ -37,7 +38,8 @@ Party["Party"]
 PartyId["PartyId"]
 end
 
-SystemAPI -. Future Integration .-> Party
+SystemAPI -. Future Integration .-> Application
+Application --> Party
 
 ```
 
@@ -48,8 +50,12 @@ SystemAPI -. Future Integration .-> Party
 - Health endpoints
 - Readiness endpoints
 - Enterprise Domain package
+- Enterprise Application package
 - Party entity
 - PartyId value object
+- Party Management application use cases
+- Customer application use cases in progress
+- Commands, queries, DTOs, and repository interfaces
 - Build pipeline
 - ADR governance
 - Program governance
@@ -345,29 +351,29 @@ Enterprise Intelligence
 
 # Architecture Patterns
 
-| Pattern              | First Introduced | Status  |
-| -------------------- | ---------------- | ------- |
-| Entity               | Release 1        | ✅      |
-| Value Object         | Release 1        | ✅      |
-| Factory Method       | Release 1        | Planned |
-| Repository Pattern   | Release 1        | Planned |
-| Domain Events        | Release 1        | Planned |
-| Aggregate Root       | Release 1        | Planned |
-| Shared Kernel        | Release 1        | Planned |
-| Transaction Boundary | Release 4        | Planned |
-| Unit of Work         | Release 4        | Planned |
-| Idempotency          | Release 4        | Planned |
-| Outbox Pattern       | Release 4        | Planned |
-| Event Streaming      | Release 5        | Planned |
-| Saga Pattern         | Release 5        | Planned |
-| Retry Pattern        | Release 5        | Planned |
-| Dead Letter Queue    | Release 5        | Planned |
-| CQRS                 | Release 5        | Planned |
-| Event Sourcing       | Release 5        | Planned |
-| Circuit Breaker      | Release 6        | Planned |
-| Bulkhead             | Release 6        | Planned |
-| Service Mesh         | Release 6        | Planned |
-| AI Copilot           | Release 7        | Planned |
+| Pattern              | First Introduced | Status         |
+| -------------------- | ---------------- | -------------- |
+| Entity               | Release 1        | ✅             |
+| Value Object         | Release 1        | ✅             |
+| Factory Method       | Release 1        | ✅             |
+| Repository Pattern   | Release 1        | In Progress    |
+| Domain Events        | Release 1        | Planned        |
+| Aggregate Root       | Release 1        | ✅             |
+| Shared Kernel        | Release 1        | Not Introduced |
+| Transaction Boundary | Release 1        | Planned        |
+| Unit of Work         | Release 1        | Planned        |
+| Idempotency          | Release 4        | Planned        |
+| Outbox Pattern       | Release 4        | Planned        |
+| Event Streaming      | Release 5        | Planned        |
+| Saga Pattern         | Release 5        | Planned        |
+| Retry Pattern        | Release 5        | Planned        |
+| Dead Letter Queue    | Release 5        | Planned        |
+| CQRS                 | Release 5        | Planned        |
+| Event Sourcing       | Release 5        | Planned        |
+| Circuit Breaker      | Release 6        | Planned        |
+| Bulkhead             | Release 6        | Planned        |
+| Service Mesh         | Release 6        | Planned        |
+| AI Copilot           | Release 7        | Planned        |
 
 ---
 
@@ -399,7 +405,7 @@ Although migration infrastructure is introduced in later releases, all applicati
 | Stable Business Identity    | Business entities use immutable identifiers to support coexistence and migration between legacy and modern platforms.                       | Release 1  |
 | Explicit Business State     | Entity lifecycle is represented through explicit business states rather than implicit logic to enable controlled rollback.                  | Release 1  |
 | Repository Abstraction      | Persistence is accessed through repository interfaces, allowing multiple storage implementations during migration.                          | Release 1  |
-| Application Orchestration   | Transaction boundaries, migration logic, and infrastructure orchestration belong in the Application Layer rather than the Domain Layer.     | Release 2  |
+| Application Orchestration   | Transaction boundaries, migration logic, and infrastructure orchestration belong in the Application Layer rather than the Domain Layer.     | Release 1  |
 | Feature-driven Deployment   | New capabilities should support progressive enablement through configuration or feature flags.                                              | Release 4  |
 | Migration Routing           | Requests should be capable of being routed to legacy or modern implementations based on configurable migration rules.                       | Release 4  |
 | Idempotent Processing       | Operations that may be retried or replayed must support idempotent execution.                                                               | Release 4  |

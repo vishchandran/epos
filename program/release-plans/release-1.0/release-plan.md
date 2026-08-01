@@ -2,9 +2,9 @@
 
 ## Overview
 
-Release 1.0 establishes the engineering and architectural foundation for EPOS.
+Release 1.0 establishes the engineering, domain, application, persistence, and service-integration foundation for EPOS.
 
-The objective of this release is to build the core platform capabilities required before introducing enterprise banking business domains.
+The objective of this release is to create the governed software architecture required to model enterprise banking domains and progressively expose them through reliable application and integration boundaries.
 
 ---
 
@@ -24,7 +24,7 @@ The objective of this release is to build the core platform capabilities require
 
 # Release Objective
 
-Build a production-inspired enterprise platform foundation by establishing the engineering, architecture, networking, identity, and platform capabilities required to support future enterprise banking domains.
+Build a production-inspired enterprise foundation spanning engineering standards, Domain modeling, Application Layer orchestration, infrastructure adapters, and enterprise service integration.
 
 ---
 
@@ -32,14 +32,14 @@ Build a production-inspired enterprise platform foundation by establishing the e
 
 Release 1.0 includes the following phases:
 
-|  Phase | Focus                          |
-| -----: | ------------------------------ |
-| **-1** | Technology & Platform Baseline |
-|  **0** | Engineering Foundation         |
-|  **1** | Enterprise Domain Modeling     |
-|  **2** | Networking Platform            |
-|  **3** | Identity & Security Platform   |
-|  **4** | Kubernetes Platform            |
+|  Phase | Focus                          | Status         |
+| -----: | ------------------------------ | -------------- |
+| **-1** | Technology & Platform Baseline | ✅ Complete    |
+|  **0** | Engineering Foundation         | ✅ Complete    |
+|  **1** | Enterprise Domain Modeling     | ✅ Complete    |
+|  **2** | Application Layer              | 🟢 In Progress |
+|  **3** | Infrastructure Layer           | ⏳ Planned     |
+|  **4** | Enterprise Service Integration | ⏳ Planned     |
 
 ---
 
@@ -53,9 +53,9 @@ At the completion of Release 1.0, EPOS should include:
 - Architecture Decision Records (ADRs)
 - Program Governance
 - Enterprise Domain Model
-- Networking Foundation
-- Identity & Security Platform
-- Kubernetes Platform Foundation
+- Application Layer use cases and contracts
+- Infrastructure and persistence adapters
+- Enterprise APIs and service-integration boundaries
 
 ---
 
@@ -63,8 +63,8 @@ At the completion of Release 1.0, EPOS should include:
 
 The following capabilities are intentionally deferred to future releases:
 
-- Customer Management
-- Accounts & Ledger
+- Production-ready customer servicing
+- Production-ready accounts and ledger operations
 - Payments
 - Cards
 - FX & Treasury
@@ -167,6 +167,7 @@ Release 1.0 can be formally closed when:
 
 # Revision History
 
-| Version | Date         | Description              |
-| ------- | ------------ | ------------------------ |
-| **1.0** | July 5, 2026 | Initial Release 1.0 plan |
+| Version | Date           | Description                                         |
+| ------- | -------------- | --------------------------------------------------- |
+| **1.0** | July 5, 2026   | Initial Release 1.0 plan                            |
+| **1.1** | August 1, 2026 | Aligned Phases 2–4 with active implementation scope |
