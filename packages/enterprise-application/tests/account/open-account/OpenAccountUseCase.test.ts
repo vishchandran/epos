@@ -3,16 +3,15 @@ import {
   AgreementId,
   AgreementNotActiveForAccountOpeningError,
   CustomerId,
-  ProductId,
-  type Account
+  ProductId
 } from "@epos/enterprise-domain";
 import { describe, expect, it } from "vitest";
 
-import type { AccountRepository } from "../../../src/account/AccountRepository.js";
 import { OpenAccountUseCase } from "../../../src/account/open-account/OpenAccountUseCase.js";
 import type { AgreementRepository } from "../../../src/agreement/AgreementRepository.js";
 import { AgreementNotFoundError } from "../../../src/agreement/errors/AgreementNotFoundError.js";
 import type { IdGenerator } from "../../../src/shared/IdGenerator.js";
+import { InMemoryAccountRepository } from "../support/AccountTestSupport.js";
 
 class AgreementStub implements AgreementRepository {
   public constructor(private readonly agreement: Agreement | null) {}
@@ -20,14 +19,6 @@ class AgreementStub implements AgreementRepository {
     return Promise.resolve(this.agreement);
   }
   public save(): Promise<void> {
-    return Promise.resolve();
-  }
-}
-
-class InMemoryAccountRepository implements AccountRepository {
-  public savedAccount: Account | undefined;
-  public save(account: Account): Promise<void> {
-    this.savedAccount = account;
     return Promise.resolve();
   }
 }
