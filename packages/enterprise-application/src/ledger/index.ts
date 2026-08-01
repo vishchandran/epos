@@ -6,3 +6,6 @@ export { LedgerNotFoundError } from "./errors/LedgerNotFoundError.js";
 export type { GetLedgerQuery } from "./get-ledger/GetLedgerQuery.js";
 export type { LedgerDto } from "./get-ledger/LedgerDto.js";
 export { GetLedgerQueryHandler } from "./get-ledger/GetLedgerQueryHandler.js";
+export type { CloseLedgerCommand } from "./close-ledger/CloseLedgerCommand.js";
+export type { CloseLedgerResult } from "./close-ledger/CloseLedgerResult.js";
+export { CloseLedgerUseCase } from "./close-ledger/CloseLedgerUseCase.js";
