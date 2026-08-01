@@ -12,3 +12,6 @@ export * from "./activate-customer/ActivateCustomerUseCase.js";
 export * from "./suspend-customer/SuspendCustomerCommand.js";
 export * from "./suspend-customer/SuspendCustomerResult.js";
 export * from "./suspend-customer/SuspendCustomerUseCase.js";
+export * from "./close-customer/CloseCustomerCommand.js";
+export * from "./close-customer/CloseCustomerResult.js";
+export * from "./close-customer/CloseCustomerUseCase.js";
