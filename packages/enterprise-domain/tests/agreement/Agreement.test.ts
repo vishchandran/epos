@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   Agreement,
   AgreementId,
+  InvalidAgreementEffectiveDateError,
   InvalidAgreementStatusTransitionError
 } from "../../src/agreement/index.js";
 import { CustomerId } from "../../src/customer/index.js";
@@ -50,7 +51,7 @@ describe("Agreement", () => {
         new ProductId("PROD-1001"),
         new Date("invalid")
       )
-    ).toThrow("Agreement effective date must be valid.");
+    ).toThrow(InvalidAgreementEffectiveDateError);
   });
 
   it("submits a draft agreement for acceptance", () => {

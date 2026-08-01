@@ -5,8 +5,20 @@ import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
 import { Customer } from "../../src/customer/entities/Customer.js";
 import { InvalidCustomerStatusTransitionError } from "../../src/customer/errors/InvalidCustomerStatusTransitionError.js";
 import { CustomerSegmentChangeNotAllowedError } from "../../src/customer/errors/CustomerSegmentChangeNotAllowedError.js";
+import { InvalidCustomerSinceDateError } from "../../src/customer/errors/InvalidCustomerSinceDateError.js";
 
 describe("Customer", () => {
+  it("rejects an invalid customer-since date", () => {
+    expect(() =>
+      Customer.create(
+        new CustomerId("CUST-1001"),
+        new PartyId("PARTY-1001"),
+        "RETAIL",
+        new Date("invalid")
+      )
+    ).toThrow(InvalidCustomerSinceDateError);
+  });
+
   it("creates a new customer as pending", () => {
     const customerSince = new Date("2026-07-30T10:00:00.000Z");
 

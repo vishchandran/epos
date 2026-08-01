@@ -1,9 +1,11 @@
+import { InvalidDomainIdError } from "../errors/InvalidDomainIdError.js";
+
 export abstract class DomainId {
   protected readonly value: string;
 
   protected constructor(value: string, idType: string) {
     if (!value || value.trim().length === 0) {
-      throw new Error(`${idType} cannot be empty.`);
+      throw new InvalidDomainIdError(idType);
     }
 
     this.value = value;

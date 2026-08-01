@@ -1,6 +1,7 @@
 import { CustomerId } from "../../customer/value-objects/CustomerId.js";
 import { ProductId } from "../../product/value-objects/ProductId.js";
 import { InvalidAgreementStatusTransitionError } from "../errors/InvalidAgreementStatusTransitionError.js";
+import { InvalidAgreementEffectiveDateError } from "../errors/InvalidAgreementEffectiveDateError.js";
 import { AgreementId } from "../value-objects/AgreementId.js";
 
 export type AgreementStatus =
@@ -38,7 +39,7 @@ export class Agreement {
 
   public constructor(id: AgreementId, props: AgreementProps) {
     if (Number.isNaN(props.effectiveDate.getTime())) {
-      throw new Error("Agreement effective date must be valid.");
+      throw new InvalidAgreementEffectiveDateError();
     }
 
     this.id = id;

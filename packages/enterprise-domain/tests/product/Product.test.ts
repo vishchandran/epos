@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  InvalidProductCodeError,
+  InvalidProductNameError,
   InvalidProductStatusTransitionError,
   Product,
   ProductId,
@@ -7,6 +9,30 @@ import {
 } from "../../src/product/index.js";
 
 describe("Product", () => {
+  it("rejects an empty product code", () => {
+    expect(
+      () =>
+        new Product(new ProductId("PROD-1001"), {
+          code: "   ",
+          name: "Everyday Chequing",
+          category: "DEPOSIT",
+          status: "DESIGNED"
+        })
+    ).toThrow(InvalidProductCodeError);
+  });
+
+  it("rejects an empty product name", () => {
+    expect(
+      () =>
+        new Product(new ProductId("PROD-1001"), {
+          code: "CHK-001",
+          name: "   ",
+          category: "DEPOSIT",
+          status: "DESIGNED"
+        })
+    ).toThrow(InvalidProductNameError);
+  });
+
   it("creates a product", () => {
     const product = new Product(new ProductId("PROD-1001"), {
       code: "CHK-001",
@@ -199,6 +225,6 @@ describe("Product", () => {
       "MORTGAGE"
     );
 
-    expect(() => product.rename(name)).toThrow("Product name cannot be empty.");
+    expect(() => product.rename(name)).toThrow(InvalidProductNameError);
   });
 });

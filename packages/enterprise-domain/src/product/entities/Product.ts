@@ -1,6 +1,8 @@
 import { ProductId } from "../value-objects/ProductId.js";
 import { InvalidProductStatusTransitionError } from "../errors/InvalidProductStatusTransitionError.js";
 import { ProductRenameNotAllowedError } from "../errors/ProductRenameNotAllowedError.js";
+import { InvalidProductCodeError } from "../errors/InvalidProductCodeError.js";
+import { InvalidProductNameError } from "../errors/InvalidProductNameError.js";
 
 export type ProductCategory =
   "DEPOSIT" | "LOAN" | "MORTGAGE" | "LINE_OF_CREDIT" | "CREDIT_CARD";
@@ -35,11 +37,11 @@ export class Product {
 
   public constructor(id: ProductId, props: ProductProps) {
     if (!props.code || props.code.trim().length === 0) {
-      throw new Error("Product code cannot be empty.");
+      throw new InvalidProductCodeError();
     }
 
     if (!props.name || props.name.trim().length === 0) {
-      throw new Error("Product name cannot be empty.");
+      throw new InvalidProductNameError();
     }
 
     this.id = id;
@@ -116,7 +118,7 @@ export class Product {
     }
 
     if (!name || name.trim().length === 0) {
-      throw new Error("Product name cannot be empty.");
+      throw new InvalidProductNameError();
     }
 
     this.props.name = name;

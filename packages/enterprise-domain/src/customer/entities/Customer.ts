@@ -2,6 +2,7 @@ import { PartyId } from "../../party/value-objects/PartyId.js";
 import { CustomerId } from "../value-objects/CustomerId.js";
 import { InvalidCustomerStatusTransitionError } from "../errors/InvalidCustomerStatusTransitionError.js";
 import { CustomerSegmentChangeNotAllowedError } from "../errors/CustomerSegmentChangeNotAllowedError.js";
+import { InvalidCustomerSinceDateError } from "../errors/InvalidCustomerSinceDateError.js";
 
 export type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
 
@@ -34,7 +35,7 @@ export class Customer {
 
   public constructor(id: CustomerId, props: CustomerProps) {
     if (Number.isNaN(props.customerSince.getTime())) {
-      throw new Error("Customer since date must be valid.");
+      throw new InvalidCustomerSinceDateError();
     }
 
     this.id = id;
