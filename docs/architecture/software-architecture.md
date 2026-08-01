@@ -351,29 +351,29 @@ Enterprise Intelligence
 
 # Architecture Patterns
 
-| Pattern              | First Introduced | Status         |
-| -------------------- | ---------------- | -------------- |
-| Entity               | Release 1        | ✅             |
-| Value Object         | Release 1        | ✅             |
-| Factory Method       | Release 1        | ✅             |
-| Repository Pattern   | Release 1        | In Progress    |
-| Domain Events        | Release 1        | Planned        |
-| Aggregate Root       | Release 1        | ✅             |
-| Shared Kernel        | Release 1        | Not Introduced |
-| Transaction Boundary | Release 1        | Planned        |
-| Unit of Work         | Release 1        | Planned        |
-| Idempotency          | Release 4        | Planned        |
-| Outbox Pattern       | Release 4        | Planned        |
-| Event Streaming      | Release 5        | Planned        |
-| Saga Pattern         | Release 5        | Planned        |
-| Retry Pattern        | Release 5        | Planned        |
-| Dead Letter Queue    | Release 5        | Planned        |
-| CQRS                 | Release 5        | Planned        |
-| Event Sourcing       | Release 5        | Planned        |
-| Circuit Breaker      | Release 6        | Planned        |
-| Bulkhead             | Release 6        | Planned        |
-| Service Mesh         | Release 6        | Planned        |
-| AI Copilot           | Release 7        | Planned        |
+| Pattern              | First Introduced | Status           |
+| -------------------- | ---------------- | ---------------- |
+| Entity               | Release 1        | ✅               |
+| Value Object         | Release 1        | ✅               |
+| Factory Method       | Release 1        | ✅               |
+| Repository Pattern   | Release 1        | In Progress      |
+| Domain Events        | Release 1        | Planned          |
+| Aggregate Root       | Release 1        | ✅               |
+| Shared Kernel        | Release 1        | Not Introduced   |
+| Transaction Boundary | Release 1        | Contract Defined |
+| Unit of Work         | Release 1        | Planned          |
+| Idempotency          | Release 4        | Planned          |
+| Outbox Pattern       | Release 4        | Planned          |
+| Event Streaming      | Release 5        | Planned          |
+| Saga Pattern         | Release 5        | Planned          |
+| Retry Pattern        | Release 5        | Planned          |
+| Dead Letter Queue    | Release 5        | Planned          |
+| CQRS                 | Release 5        | Planned          |
+| Event Sourcing       | Release 5        | Planned          |
+| Circuit Breaker      | Release 6        | Planned          |
+| Bulkhead             | Release 6        | Planned          |
+| Service Mesh         | Release 6        | Planned          |
+| AI Copilot           | Release 7        | Planned          |
 
 ---
 
