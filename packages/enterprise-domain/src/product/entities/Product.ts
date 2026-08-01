@@ -1,5 +1,6 @@
 import { ProductId } from "../value-objects/ProductId.js";
 import { InvalidProductStatusTransitionError } from "../errors/InvalidProductStatusTransitionError.js";
+import { ProductRenameNotAllowedError } from "../errors/ProductRenameNotAllowedError.js";
 
 export type ProductCategory =
   "DEPOSIT" | "LOAN" | "MORTGAGE" | "LINE_OF_CREDIT" | "CREDIT_CARD";
@@ -110,6 +111,10 @@ export class Product {
   }
 
   public rename(name: string): void {
+    if (this.props.status === "RETIRED") {
+      throw new ProductRenameNotAllowedError();
+    }
+
     if (!name || name.trim().length === 0) {
       throw new Error("Product name cannot be empty.");
     }

@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   InvalidProductStatusTransitionError,
   Product,
-  ProductId
+  ProductId,
+  ProductRenameNotAllowedError
 } from "../../src/product/index.js";
 
 describe("Product", () => {
@@ -176,4 +177,28 @@ describe("Product", () => {
       );
     }
   );
+
+  it("rejects renaming a retired product", () => {
+    const product = new Product(new ProductId("PROD-2007"), {
+      code: "MTG-002",
+      name: "Fixed Rate Mortgage",
+      category: "MORTGAGE",
+      status: "RETIRED"
+    });
+
+    expect(() => product.rename("Legacy Mortgage")).toThrow(
+      ProductRenameNotAllowedError
+    );
+  });
+
+  it.each(["", "   "] as const)("rejects an invalid product name", (name) => {
+    const product = Product.create(
+      new ProductId("PROD-2008"),
+      "MTG-003",
+      "Fixed Rate Mortgage",
+      "MORTGAGE"
+    );
+
+    expect(() => product.rename(name)).toThrow("Product name cannot be empty.");
+  });
 });

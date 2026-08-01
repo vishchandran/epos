@@ -18,3 +18,6 @@ export { SuspendProductUseCase } from "./suspend-product/SuspendProductUseCase.j
 export type { RetireProductCommand } from "./retire-product/RetireProductCommand.js";
 export type { RetireProductResult } from "./retire-product/RetireProductResult.js";
 export { RetireProductUseCase } from "./retire-product/RetireProductUseCase.js";
+export type { RenameProductCommand } from "./rename-product/RenameProductCommand.js";
+export type { RenameProductResult } from "./rename-product/RenameProductResult.js";
+export { RenameProductUseCase } from "./rename-product/RenameProductUseCase.js";
