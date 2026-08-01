@@ -12,6 +12,7 @@ import { CustomerNotFoundError } from "../../../src/customer/errors/CustomerNotF
 import type { ProductRepository } from "../../../src/product/ProductRepository.js";
 import { ProductNotFoundError } from "../../../src/product/errors/ProductNotFoundError.js";
 import type { IdGenerator } from "../../../src/shared/IdGenerator.js";
+import { ApplicationValidationError } from "../../../src/shared/validation/ApplicationValidationError.js";
 import { CreateAgreementUseCase } from "../../../src/agreement/create-agreement/CreateAgreementUseCase.js";
 import { InMemoryAgreementRepository } from "../support/AgreementTestSupport.js";
 
@@ -110,5 +111,22 @@ describe("CreateAgreementUseCase", () => {
         effectiveDate: "2026-01-01T00:00:00.000Z"
       })
     ).rejects.toBeInstanceOf(ProductNotFoundError);
+  });
+
+  it("rejects an invalid effective date", async () => {
+    const useCase = new CreateAgreementUseCase(
+      new CustomerStub(customer),
+      new ProductStub(product),
+      new InMemoryAgreementRepository(null),
+      new FixedIdGenerator()
+    );
+
+    await expect(
+      useCase.execute({
+        customerId: "CUST-1001",
+        productId: "PROD-1001",
+        effectiveDate: "not-a-date"
+      })
+    ).rejects.toBeInstanceOf(ApplicationValidationError);
   });
 });
