@@ -15,3 +15,6 @@ export { MakeProductAvailableUseCase } from "./make-product-available/MakeProduc
 export type { SuspendProductCommand } from "./suspend-product/SuspendProductCommand.js";
 export type { SuspendProductResult } from "./suspend-product/SuspendProductResult.js";
 export { SuspendProductUseCase } from "./suspend-product/SuspendProductUseCase.js";
+export type { RetireProductCommand } from "./retire-product/RetireProductCommand.js";
+export type { RetireProductResult } from "./retire-product/RetireProductResult.js";
+export { RetireProductUseCase } from "./retire-product/RetireProductUseCase.js";

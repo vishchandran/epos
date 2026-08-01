@@ -145,4 +145,35 @@ describe("Product", () => {
       );
     }
   );
+  it.each(["APPROVED", "SUSPENDED"] as const)(
+    "retires a product from status %s",
+    (status) => {
+      const product = new Product(new ProductId("PROD-2005"), {
+        code: "LOAN-002",
+        name: "Personal Loan",
+        category: "LOAN",
+        status
+      });
+
+      product.retire();
+
+      expect(product.getStatus()).toBe("RETIRED");
+    }
+  );
+
+  it.each(["DESIGNED", "RETIRED"] as const)(
+    "rejects retirement when the product status is %s",
+    (status) => {
+      const product = new Product(new ProductId("PROD-2006"), {
+        code: "LOAN-003",
+        name: "Personal Loan",
+        category: "LOAN",
+        status
+      });
+
+      expect(() => product.retire()).toThrow(
+        InvalidProductStatusTransitionError
+      );
+    }
+  );
 });

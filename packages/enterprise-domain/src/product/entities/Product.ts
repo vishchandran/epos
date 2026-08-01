@@ -96,6 +96,16 @@ export class Product {
   }
 
   public retire(): void {
+    if (
+      this.props.status !== "APPROVED" &&
+      this.props.status !== "AVAILABLE" &&
+      this.props.status !== "SUSPENDED"
+    ) {
+      throw new InvalidProductStatusTransitionError(
+        `Product cannot be retired from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "RETIRED";
   }
 
