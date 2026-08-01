@@ -1,9 +1,9 @@
 import { ProductId } from "../value-objects/ProductId.js";
 
-type ProductCategory =
+export type ProductCategory =
   "DEPOSIT" | "LOAN" | "MORTGAGE" | "LINE_OF_CREDIT" | "CREDIT_CARD";
 
-type ProductStatus =
+export type ProductStatus =
   "DESIGNED" | "APPROVED" | "AVAILABLE" | "SUSPENDED" | "RETIRED";
 
 type ProductProps = {
@@ -16,6 +16,20 @@ type ProductProps = {
 export class Product {
   private readonly id: ProductId;
   private readonly props: ProductProps;
+
+  public static create(
+    id: ProductId,
+    code: string,
+    name: string,
+    category: ProductCategory
+  ): Product {
+    return new Product(id, {
+      code,
+      name,
+      category,
+      status: "DESIGNED"
+    });
+  }
 
   public constructor(id: ProductId, props: ProductProps) {
     if (!props.code || props.code.trim().length === 0) {
