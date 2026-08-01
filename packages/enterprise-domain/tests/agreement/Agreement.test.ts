@@ -1,74 +1,136 @@
 import { describe, expect, it } from "vitest";
 
-import { Agreement } from "../../src/agreement/entities/Agreement.js";
-import { AgreementId } from "../../src/agreement/value-objects/AgreementId.js";
-import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
-import { ProductId } from "../../src/product/value-objects/ProductId.js";
+import {
+  Agreement,
+  AgreementId,
+  InvalidAgreementStatusTransitionError
+} from "../../src/agreement/index.js";
+import { CustomerId } from "../../src/customer/index.js";
+import { ProductId } from "../../src/product/index.js";
+
+const createAgreement = (
+  status:
+    | "DRAFT"
+    | "PENDING_ACCEPTANCE"
+    | "ACTIVE"
+    | "SUSPENDED"
+    | "EXPIRED"
+    | "CLOSED" = "DRAFT"
+): Agreement =>
+  new Agreement(new AgreementId("AGR-1001"), {
+    customerId: new CustomerId("CUST-1001"),
+    productId: new ProductId("PROD-1001"),
+    status,
+    effectiveDate: new Date("2026-01-01T00:00:00.000Z")
+  });
 
 describe("Agreement", () => {
-  it("creates an agreement", () => {
-    const agreement = new Agreement(new AgreementId("AGR-1001"), {
-      customerId: new CustomerId("CUST-1001"),
-      productId: new ProductId("PROD-1001"),
-      status: "DRAFT",
-      effectiveDate: new Date("2026-01-01")
-    });
+  it("creates a draft agreement", () => {
+    const agreement = Agreement.create(
+      new AgreementId("AGR-1001"),
+      new CustomerId("CUST-1001"),
+      new ProductId("PROD-1001"),
+      new Date("2026-01-01T00:00:00.000Z")
+    );
 
     expect(agreement.getId().toString()).toBe("AGR-1001");
     expect(agreement.getCustomerId().toString()).toBe("CUST-1001");
     expect(agreement.getProductId().toString()).toBe("PROD-1001");
     expect(agreement.getStatus()).toBe("DRAFT");
+    expect(agreement.getEffectiveDate().toISOString()).toBe(
+      "2026-01-01T00:00:00.000Z"
+    );
   });
 
-  it("activates an agreement", () => {
-    const agreement = new Agreement(new AgreementId("AGR-1002"), {
-      customerId: new CustomerId("CUST-1002"),
-      productId: new ProductId("PROD-1002"),
-      status: "PENDING_ACCEPTANCE",
-      effectiveDate: new Date()
-    });
+  it("rejects an invalid effective date", () => {
+    expect(() =>
+      Agreement.create(
+        new AgreementId("AGR-1001"),
+        new CustomerId("CUST-1001"),
+        new ProductId("PROD-1001"),
+        new Date("invalid")
+      )
+    ).toThrow("Agreement effective date must be valid.");
+  });
 
+  it("submits a draft agreement for acceptance", () => {
+    const agreement = createAgreement();
+    agreement.submitForAcceptance();
+    expect(agreement.getStatus()).toBe("PENDING_ACCEPTANCE");
+  });
+
+  it("activates a pending agreement", () => {
+    const agreement = createAgreement("PENDING_ACCEPTANCE");
     agreement.activate();
-
     expect(agreement.getStatus()).toBe("ACTIVE");
   });
 
-  it("suspends an agreement", () => {
-    const agreement = new Agreement(new AgreementId("AGR-1003"), {
-      customerId: new CustomerId("CUST-1003"),
-      productId: new ProductId("PROD-1003"),
-      status: "ACTIVE",
-      effectiveDate: new Date()
-    });
+  it("reactivates a suspended agreement", () => {
+    const agreement = createAgreement("SUSPENDED");
+    agreement.activate();
+    expect(agreement.getStatus()).toBe("ACTIVE");
+  });
 
+  it("suspends an active agreement", () => {
+    const agreement = createAgreement("ACTIVE");
     agreement.suspend();
-
     expect(agreement.getStatus()).toBe("SUSPENDED");
   });
 
-  it("expires an agreement", () => {
-    const agreement = new Agreement(new AgreementId("AGR-1004"), {
-      customerId: new CustomerId("CUST-1004"),
-      productId: new ProductId("PROD-1004"),
-      status: "ACTIVE",
-      effectiveDate: new Date()
-    });
+  it.each(["ACTIVE", "SUSPENDED"] as const)(
+    "expires an agreement from status %s",
+    (status) => {
+      const agreement = createAgreement(status);
+      agreement.expire();
+      expect(agreement.getStatus()).toBe("EXPIRED");
+    }
+  );
 
-    agreement.expire();
+  it.each(["ACTIVE", "SUSPENDED"] as const)(
+    "closes an agreement from status %s",
+    (status) => {
+      const agreement = createAgreement(status);
+      agreement.close();
+      expect(agreement.getStatus()).toBe("CLOSED");
+    }
+  );
 
-    expect(agreement.getStatus()).toBe("EXPIRED");
+  it("rejects invalid lifecycle transitions", () => {
+    expect(() => createAgreement("ACTIVE").submitForAcceptance()).toThrow(
+      InvalidAgreementStatusTransitionError
+    );
+    expect(() => createAgreement("DRAFT").activate()).toThrow(
+      InvalidAgreementStatusTransitionError
+    );
+    expect(() => createAgreement("DRAFT").suspend()).toThrow(
+      InvalidAgreementStatusTransitionError
+    );
+    expect(() => createAgreement("DRAFT").expire()).toThrow(
+      InvalidAgreementStatusTransitionError
+    );
+    expect(() => createAgreement("DRAFT").close()).toThrow(
+      InvalidAgreementStatusTransitionError
+    );
   });
 
-  it("closes an agreement", () => {
-    const agreement = new Agreement(new AgreementId("AGR-1005"), {
-      customerId: new CustomerId("CUST-1005"),
-      productId: new ProductId("PROD-1005"),
-      status: "ACTIVE",
-      effectiveDate: new Date()
-    });
+  it("keeps expired and closed agreements terminal", () => {
+    for (const status of ["EXPIRED", "CLOSED"] as const) {
+      expect(() => createAgreement(status).activate()).toThrow(
+        InvalidAgreementStatusTransitionError
+      );
+      expect(() => createAgreement(status).suspend()).toThrow(
+        InvalidAgreementStatusTransitionError
+      );
+      expect(() => createAgreement(status).expire()).toThrow(
+        InvalidAgreementStatusTransitionError
+      );
+      expect(() => createAgreement(status).close()).toThrow(
+        InvalidAgreementStatusTransitionError
+      );
+    }
+  });
 
-    agreement.close();
-
-    expect(agreement.getStatus()).toBe("CLOSED");
+  it("compares agreements by identity", () => {
+    expect(createAgreement().equals(createAgreement("ACTIVE"))).toBe(true);
   });
 });
