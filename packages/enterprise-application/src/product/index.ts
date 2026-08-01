@@ -6,3 +6,6 @@ export type { GetProductQuery } from "./get-product/GetProductQuery.js";
 export type { ProductDto } from "./get-product/ProductDto.js";
 export { GetProductQueryHandler } from "./get-product/GetProductQueryHandler.js";
 export { ProductNotFoundError } from "./errors/ProductNotFoundError.js";
+export type { ApproveProductCommand } from "./approve-product/ApproveProductCommand.js";
+export type { ApproveProductResult } from "./approve-product/ApproveProductResult.js";
+export { ApproveProductUseCase } from "./approve-product/ApproveProductUseCase.js";

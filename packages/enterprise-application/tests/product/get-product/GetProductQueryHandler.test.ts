@@ -16,7 +16,7 @@ class InMemoryProductRepository implements ProductRepository {
     return Promise.resolve(null);
   }
 
-  public save(_product: Product): Promise<void> {
+  public save(): Promise<void> {
     return Promise.resolve();
   }
 }

@@ -1,4 +1,5 @@
 import { ProductId } from "../value-objects/ProductId.js";
+import { InvalidProductStatusTransitionError } from "../errors/InvalidProductStatusTransitionError.js";
 
 export type ProductCategory =
   "DEPOSIT" | "LOAN" | "MORTGAGE" | "LINE_OF_CREDIT" | "CREDIT_CARD";
@@ -65,6 +66,12 @@ export class Product {
   }
 
   public approve(): void {
+    if (this.props.status !== "DESIGNED") {
+      throw new InvalidProductStatusTransitionError(
+        `Product cannot be approved from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "APPROVED";
   }
 

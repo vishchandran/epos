@@ -1,4 +1,4 @@
-import type { Product, ProductId } from "@epos/enterprise-domain";
+import type { Product } from "@epos/enterprise-domain";
 import { describe, expect, it } from "vitest";
 
 import type { ProductRepository } from "../../../src/product/ProductRepository.js";
@@ -8,7 +8,7 @@ import type { IdGenerator } from "../../../src/shared/IdGenerator.js";
 class InMemoryProductRepository implements ProductRepository {
   public savedProduct: Product | undefined;
 
-  public findById(_productId: ProductId): Promise<Product | null> {
+  public findById(): Promise<Product | null> {
     return Promise.resolve(this.savedProduct ?? null);
   }
 

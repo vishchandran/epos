@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
-
-import { Product } from "../../src/product/entities/Product.js";
-import { ProductId } from "../../src/product/value-objects/ProductId.js";
+import {
+  InvalidProductStatusTransitionError,
+  Product,
+  ProductId
+} from "../../src/product/index.js";
 
 describe("Product", () => {
   it("creates a product", () => {
@@ -83,4 +85,20 @@ describe("Product", () => {
 
     expect(product.getName()).toBe("Fixed Rate Mortgage");
   });
+
+  it.each(["APPROVED", "AVAILABLE", "SUSPENDED", "RETIRED"] as const)(
+    "rejects approval when the product status is %s",
+    (status) => {
+      const product = new Product(new ProductId("PROD-2001"), {
+        code: "SAV-001",
+        name: "Premium Savings",
+        category: "DEPOSIT",
+        status
+      });
+
+      expect(() => product.approve()).toThrow(
+        InvalidProductStatusTransitionError
+      );
+    }
+  );
 });
