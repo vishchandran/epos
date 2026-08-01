@@ -4,6 +4,7 @@ import { PartyId } from "../../src/party/value-objects/PartyId.js";
 import { CustomerId } from "../../src/customer/value-objects/CustomerId.js";
 import { Customer } from "../../src/customer/entities/Customer.js";
 import { InvalidCustomerStatusTransitionError } from "../../src/customer/errors/InvalidCustomerStatusTransitionError.js";
+import { CustomerSegmentChangeNotAllowedError } from "../../src/customer/errors/CustomerSegmentChangeNotAllowedError.js";
 
 describe("Customer", () => {
   it("creates a new customer as pending", () => {
@@ -181,5 +182,53 @@ describe("Customer", () => {
     expect(() => customer.close()).toThrow(
       InvalidCustomerStatusTransitionError
     );
+  });
+  it("changes the segment of a pending customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-3001"),
+      new PartyId("PARTY-3001"),
+      "RETAIL",
+      new Date("2026-08-01")
+    );
+
+    customer.changeSegment("SMALL_BUSINESS");
+
+    expect(customer.getSegment()).toBe("SMALL_BUSINESS");
+  });
+
+  it("rejects a segment change for a suspended customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-3002"),
+      new PartyId("PARTY-3002"),
+      "SMALL_BUSINESS",
+      new Date("2026-08-01")
+    );
+
+    customer.activate();
+    customer.suspend();
+
+    expect(() => {
+      customer.changeSegment("COMMERCIAL");
+    }).toThrow(CustomerSegmentChangeNotAllowedError);
+
+    expect(customer.getSegment()).toBe("SMALL_BUSINESS");
+  });
+
+  it("rejects a segment change for a closed customer", () => {
+    const customer = Customer.create(
+      new CustomerId("CUST-3003"),
+      new PartyId("PARTY-3003"),
+      "SMALL_BUSINESS",
+      new Date("2026-08-01")
+    );
+
+    customer.activate();
+    customer.close();
+
+    expect(() => {
+      customer.changeSegment("COMMERCIAL");
+    }).toThrow(CustomerSegmentChangeNotAllowedError);
+
+    expect(customer.getSegment()).toBe("SMALL_BUSINESS");
   });
 });

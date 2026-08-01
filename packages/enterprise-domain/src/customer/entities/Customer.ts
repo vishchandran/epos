@@ -1,6 +1,7 @@
 import { PartyId } from "../../party/value-objects/PartyId.js";
 import { CustomerId } from "../value-objects/CustomerId.js";
 import { InvalidCustomerStatusTransitionError } from "../errors/InvalidCustomerStatusTransitionError.js";
+import { CustomerSegmentChangeNotAllowedError } from "../errors/CustomerSegmentChangeNotAllowedError.js";
 
 export type CustomerStatus = "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
 
@@ -94,6 +95,10 @@ export class Customer {
   }
 
   public changeSegment(segment: CustomerSegment): void {
+    if (this.props.status !== "PENDING" && this.props.status !== "ACTIVE") {
+      throw new CustomerSegmentChangeNotAllowedError(this.props.status);
+    }
+
     this.props.segment = segment;
   }
 
