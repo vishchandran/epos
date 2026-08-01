@@ -1,10 +1,52 @@
 import { describe, expect, it } from "vitest";
 
-import { AgreementId } from "../../src/agreement/value-objects/AgreementId.js";
-import { Account } from "../../src/account/entities/Account.js";
-import { AccountId } from "../../src/account/value-objects/AccountId.js";
+import { Agreement, AgreementId } from "../../src/agreement/index.js";
+import {
+  Account,
+  AccountId,
+  AccountOpeningPolicy,
+  AgreementNotActiveForAccountOpeningError
+} from "../../src/account/index.js";
+import { CustomerId } from "../../src/customer/index.js";
+import { ProductId } from "../../src/product/index.js";
 
 describe("Account", () => {
+  it("opens an account in pending status", () => {
+    const account = Account.open(
+      new AccountId("ACC-1001"),
+      new AgreementId("AGR-1001")
+    );
+
+    expect(account.getStatus()).toBe("PENDING");
+    expect(account.getAgreementId().toString()).toBe("AGR-1001");
+  });
+
+  it("allows account opening under an active agreement", () => {
+    const agreement = new Agreement(new AgreementId("AGR-1001"), {
+      customerId: new CustomerId("CUST-1001"),
+      productId: new ProductId("PROD-1001"),
+      status: "ACTIVE",
+      effectiveDate: new Date("2026-01-01T00:00:00.000Z")
+    });
+
+    expect(() =>
+      AccountOpeningPolicy.ensureAgreementIsActive(agreement)
+    ).not.toThrow();
+  });
+
+  it("rejects account opening under an inactive agreement", () => {
+    const agreement = Agreement.create(
+      new AgreementId("AGR-1001"),
+      new CustomerId("CUST-1001"),
+      new ProductId("PROD-1001"),
+      new Date("2026-01-01T00:00:00.000Z")
+    );
+
+    expect(() =>
+      AccountOpeningPolicy.ensureAgreementIsActive(agreement)
+    ).toThrow(AgreementNotActiveForAccountOpeningError);
+  });
+
   it("starts in PENDING status", () => {
     const account = new Account(
       new AccountId("ACC-1001"),

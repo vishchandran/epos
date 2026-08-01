@@ -9,6 +9,10 @@ export class Account {
   private readonly agreementId: AgreementId;
   private status: AccountStatus;
 
+  public static open(id: AccountId, agreementId: AgreementId): Account {
+    return new Account(id, agreementId);
+  }
+
   public constructor(id: AccountId, agreementId: AgreementId) {
     this.id = id;
     this.agreementId = agreementId;
