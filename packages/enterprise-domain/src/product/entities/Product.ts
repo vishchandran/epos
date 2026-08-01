@@ -76,6 +76,12 @@ export class Product {
   }
 
   public makeAvailable(): void {
+    if (this.props.status !== "APPROVED" && this.props.status !== "SUSPENDED") {
+      throw new InvalidProductStatusTransitionError(
+        `Product cannot be made available from status ${this.props.status}.`
+      );
+    }
+
     this.props.status = "AVAILABLE";
   }
 

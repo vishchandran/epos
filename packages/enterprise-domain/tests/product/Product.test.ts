@@ -101,4 +101,33 @@ describe("Product", () => {
       );
     }
   );
+
+  it("makes a suspended product available again", () => {
+    const product = new Product(new ProductId("PROD-2002"), {
+      code: "SAV-002",
+      name: "Premium Savings",
+      category: "DEPOSIT",
+      status: "SUSPENDED"
+    });
+
+    product.makeAvailable();
+
+    expect(product.getStatus()).toBe("AVAILABLE");
+  });
+
+  it.each(["DESIGNED", "AVAILABLE", "RETIRED"] as const)(
+    "rejects making a product available from status %s",
+    (status) => {
+      const product = new Product(new ProductId("PROD-2003"), {
+        code: "SAV-003",
+        name: "Premium Savings",
+        category: "DEPOSIT",
+        status
+      });
+
+      expect(() => product.makeAvailable()).toThrow(
+        InvalidProductStatusTransitionError
+      );
+    }
+  );
 });

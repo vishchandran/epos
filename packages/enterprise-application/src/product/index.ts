@@ -9,3 +9,6 @@ export { ProductNotFoundError } from "./errors/ProductNotFoundError.js";
 export type { ApproveProductCommand } from "./approve-product/ApproveProductCommand.js";
 export type { ApproveProductResult } from "./approve-product/ApproveProductResult.js";
 export { ApproveProductUseCase } from "./approve-product/ApproveProductUseCase.js";
+export type { MakeProductAvailableCommand } from "./make-product-available/MakeProductAvailableCommand.js";
+export type { MakeProductAvailableResult } from "./make-product-available/MakeProductAvailableResult.js";
+export { MakeProductAvailableUseCase } from "./make-product-available/MakeProductAvailableUseCase.js";
