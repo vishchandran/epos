@@ -17,7 +17,7 @@ async function findMermaidFiles(directory) {
       }
 
       return entry.isFile() && entry.name.endsWith(".mmd") ? [entryPath] : [];
-    }),
+    })
   );
 
   return files.flat().sort();
@@ -29,14 +29,18 @@ function renderDiagram(inputPath) {
     repositoryRoot,
     "node_modules",
     ".bin",
-    process.platform === "win32" ? "mmdc.cmd" : "mmdc",
+    process.platform === "win32" ? "mmdc.cmd" : "mmdc"
   );
 
   return new Promise((resolvePromise, reject) => {
-    const renderer = spawn(command, ["-i", inputPath, "-o", outputPath, "-b", "transparent"], {
-      cwd: repositoryRoot,
-      stdio: "inherit",
-    });
+    const renderer = spawn(
+      command,
+      ["-i", inputPath, "-o", outputPath, "-b", "transparent"],
+      {
+        cwd: repositoryRoot,
+        stdio: "inherit"
+      }
+    );
 
     renderer.on("error", reject);
     renderer.on("exit", (code) => {
