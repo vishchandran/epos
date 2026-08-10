@@ -4,3 +4,4 @@ packages:
   - "platform/*"
 allowBuilds:
   esbuild: true
+  puppeteer: true

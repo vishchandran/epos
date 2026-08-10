@@ -18,51 +18,13 @@ The objective is not only to produce working banking software. EPOS is a practic
 
 ## One program, the whole bank
 
-```mermaid
-flowchart TB
-    EPOS["EPOS<br/>Enterprise Banking Platform"]
-
-    EPOS --> REL["Customers & Relationships"]
-    EPOS --> CORE["Core Banking"]
-    EPOS --> MOVE["Movement of Money"]
-    EPOS --> ENT["Enterprise Banking"]
-    EPOS --> CTRL["Control Functions"]
-    EPOS --> TECH["Technology & Operations"]
-
-    REL --> PARTY["Party & Customer"]
-    REL --> CHANNELS["Web, Mobile, Branch & Partner Channels"]
-
-    CORE --> PRODUCTS["Deposits, Lending & Credit"]
-    CORE --> ACCOUNTS["Agreements, Accounts & Ledger"]
-
-    MOVE --> PAYMENTS["Payments, Clearing & Settlement"]
-    MOVE --> CARDS["Cards & Transaction Processing"]
-
-    ENT --> FX["Foreign Exchange & Treasury"]
-    ENT --> TRADE["Trade Finance"]
-
-    CTRL --> RISK["Risk, Fraud & Compliance"]
-    CTRL --> AUDIT["Audit, Reporting & Governance"]
-
-    TECH --> PLATFORM["Cloud, Kubernetes, Data & Events"]
-    TECH --> OPS["Security, Observability, Reliability & AI"]
-```
+![EPOS capabilities](docs/diagrams/epos-capabilities.svg)
 
 Every capability is designed as part of one connected banking ecosystem rather than as an isolated technical exercise.
 
 ## How EPOS is engineered
 
-```mermaid
-flowchart LR
-    BR["Business need"] --> WF["User & operational workflow"]
-    WF --> DM["Domain model & rules"]
-    DM --> API["Application & API design"]
-    API --> BUILD["Build & test"]
-    BUILD --> RUN["Deploy & operate"]
-    RUN --> LEARN["Observe & learn"]
-    LEARN --> IMPROVE["Refactor & optimize"]
-    IMPROVE --> BR
-```
+![Continuous improvement cycle](docs/diagrams/continuous-improvement-cycle.svg)
 
 This lifecycle keeps product thinking, architecture, implementation, and operations connected. Working software provides evidence; that evidence is used to improve the model and the platform.
 

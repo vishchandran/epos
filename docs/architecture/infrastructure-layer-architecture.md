@@ -14,14 +14,7 @@ only after the relevant design decisions are approved.
 
 # Dependency Direction
 
-```mermaid
-flowchart LR
-    API["HTTP / API"] --> Application["Application Layer"]
-    Application --> Domain["Domain Layer"]
-    Infrastructure["Infrastructure Layer"] --> Application
-    Infrastructure --> Domain
-    Infrastructure --> PostgreSQL[(PostgreSQL)]
-```
+![Infrastructure layer dependency direction](diagrams/infrastructure-layer-dependencies.svg)
 
 Allowed dependencies are:
 

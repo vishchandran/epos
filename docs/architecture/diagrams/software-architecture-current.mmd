@@ -1,0 +1,29 @@
+flowchart LR
+
+Developer[Developer]
+
+Developer --> SystemAPI
+
+subgraph Applications
+SystemAPI["apps/system-api"]
+Application["packages/enterprise-application"]
+end
+
+subgraph Application Contexts
+PartyApp["Party Management"]
+CustomerApp["Customer"]
+ProductApp["Product"]
+AgreementApp["Agreement"]
+AccountApp["Account"]
+LedgerApp["Ledger"]
+end
+
+SystemAPI -. Future Integration .-> Application
+Application --> PartyApp
+Application --> CustomerApp
+Application --> ProductApp
+Application --> AgreementApp
+Application --> AccountApp
+Application --> LedgerApp
+
+Application --> Domain["packages/enterprise-domain"]

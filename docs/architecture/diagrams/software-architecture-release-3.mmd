@@ -1,0 +1,11 @@
+flowchart LR
+    API[System API]
+    CoreBanking[Core Banking Platform]
+    Foundation[Enterprise Foundation]
+    Ledger[Ledger & Transactions]
+    Services[Core Platform Services]
+
+    API --> CoreBanking
+    CoreBanking --> Foundation
+    CoreBanking --> Ledger
+    CoreBanking --> Services

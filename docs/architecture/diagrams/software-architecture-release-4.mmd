@@ -1,0 +1,13 @@
+flowchart LR
+    Channels[Channels<br/>Ops Portal, APIs, Web, Mobile, ATM, POS, IVR, In-Branch]
+    Apps[Application Layer<br/>Use Cases & Orchestration]
+    Banking[Enterprise Banking<br/>Payments, Cards, FX, Trade, Risk]
+    Core[Core Banking<br/>Customer, Accounts, Ledger]
+    Services[Enterprise Services<br/>Audit, Workflow, Documents]
+    External[External Networks<br/>Payment Networks, Switches, Partners]
+
+    Channels --> Apps
+    Apps --> Banking
+    Banking --> Core
+    Banking --> Services
+    Banking --> External

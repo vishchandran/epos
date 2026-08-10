@@ -10,14 +10,7 @@ It does not decide banking policy. Business rules remain in the Enterprise Domai
 
 # Dependency Direction
 
-```mermaid
-flowchart LR
-    API["HTTP / API"] --> Application["Application Layer"]
-    Application --> Domain["Domain Layer"]
-    Application --> Ports["Repository and Transaction Ports"]
-    Infrastructure["Infrastructure Layer"] --> Ports
-    Infrastructure --> Database["Database / Messaging"]
-```
+![Application layer dependency direction](diagrams/application-layer-dependencies.svg)
 
 Dependencies point inward:
 

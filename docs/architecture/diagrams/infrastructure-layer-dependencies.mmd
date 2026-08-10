@@ -1,0 +1,6 @@
+flowchart LR
+    API["HTTP / API"] --> Application["Application Layer"]
+    Application --> Domain["Domain Layer"]
+    Infrastructure["Infrastructure Layer"] --> Application
+    Infrastructure --> Domain
+    Infrastructure --> PostgreSQL[(PostgreSQL)]

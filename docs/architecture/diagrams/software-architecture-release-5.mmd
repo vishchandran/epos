@@ -1,0 +1,11 @@
+flowchart LR
+    Channels[Channels]
+    Banking[Enterprise Banking]
+    Distributed[Distributed Platform<br/>Kafka, Outbox, Saga, DLQ]
+    Data[Data Stores<br/>PostgreSQL, Redis]
+    External[External Integrations]
+
+    Channels --> Banking
+    Banking --> Distributed
+    Distributed --> Data
+    Distributed --> External

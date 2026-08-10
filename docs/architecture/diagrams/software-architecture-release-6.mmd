@@ -1,0 +1,11 @@
+flowchart LR
+    Platform[Enterprise Platform]
+    Reliability[Reliability Platform<br/>Observability, Metrics, Tracing]
+    Engineering[Platform Engineering<br/>CI/CD, IaC, Service Mesh]
+    Runtime[Runtime Platform<br/>Kubernetes]
+    Operations[Operations<br/>Runbooks, DR, Resiliency]
+
+    Platform --> Reliability
+    Platform --> Engineering
+    Engineering --> Runtime
+    Reliability --> Operations

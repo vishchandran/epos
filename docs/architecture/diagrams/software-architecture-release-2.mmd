@@ -1,0 +1,9 @@
+flowchart LR
+    API[System API]
+    Domain[Enterprise Domain]
+    Platform[Core Platform Services]
+    Shared[Shared Services<br/>Config, Audit, Workflow, Notifications]
+
+    API --> Domain
+    API --> Platform
+    Platform --> Shared

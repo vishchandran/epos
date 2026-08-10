@@ -21,38 +21,7 @@ It is maintained throughout the life of the program and illustrates:
 
 The current implementation provides the engineering foundation, the Enterprise Domain package, and the completed Release 1 Application Layer scope.
 
-```mermaid
-flowchart LR
-
-Developer[Developer]
-
-Developer --> SystemAPI
-
-subgraph Applications
-SystemAPI["apps/system-api"]
-Application["packages/enterprise-application"]
-end
-
-subgraph Application Contexts
-PartyApp["Party Management"]
-CustomerApp["Customer"]
-ProductApp["Product"]
-AgreementApp["Agreement"]
-AccountApp["Account"]
-LedgerApp["Ledger"]
-end
-
-SystemAPI -. Future Integration .-> Application
-Application --> PartyApp
-Application --> CustomerApp
-Application --> ProductApp
-Application --> AgreementApp
-Application --> AccountApp
-Application --> LedgerApp
-
-Application --> Domain["packages/enterprise-domain"]
-
-```
+![Current EPOS architecture](diagrams/software-architecture-current.svg)
 
 ### Current Capabilities
 
@@ -78,17 +47,7 @@ Application --> Domain["packages/enterprise-domain"]
 
 ## After Release 1 – Enterprise Foundation
 
-```mermaid
-flowchart LR
-    API[System API]
-    Domain[Enterprise Domain Package]
-    PartyManagement[Party Management Context<br/>Party, PartyId]
-    Foundation[Foundation Contexts<br/>Customer, Product, Agreement, Account, Ledger]
-
-    API -. future integration .-> Domain
-    Domain --> PartyManagement
-    Domain --> Foundation
-```
+![Release 1 architecture](diagrams/software-architecture-release-1.svg)
 
 ### Release Deliverables
 
@@ -109,17 +68,7 @@ flowchart LR
 
 ## After Release 2 – Core Platform Services
 
-```mermaid
-flowchart LR
-    API[System API]
-    Domain[Enterprise Domain]
-    Platform[Core Platform Services]
-    Shared[Shared Services<br/>Config, Audit, Workflow, Notifications]
-
-    API --> Domain
-    API --> Platform
-    Platform --> Shared
-```
+![Release 2 architecture](diagrams/software-architecture-release-2.svg)
 
 ### Release Deliverables
 
@@ -136,19 +85,7 @@ flowchart LR
 
 ## After Release 3 – Core Banking Platform
 
-```mermaid
-flowchart LR
-    API[System API]
-    CoreBanking[Core Banking Platform]
-    Foundation[Enterprise Foundation]
-    Ledger[Ledger & Transactions]
-    Services[Core Platform Services]
-
-    API --> CoreBanking
-    CoreBanking --> Foundation
-    CoreBanking --> Ledger
-    CoreBanking --> Services
-```
+![Release 3 architecture](diagrams/software-architecture-release-3.svg)
 
 ### Release Deliverables
 
@@ -165,21 +102,7 @@ flowchart LR
 
 ## After Release 4 – Enterprise Banking Foundation
 
-```mermaid
-flowchart LR
-    Channels[Channels<br/>Ops Portal, APIs, Web, Mobile, ATM, POS, IVR, In-Branch]
-    Apps[Application Layer<br/>Use Cases & Orchestration]
-    Banking[Enterprise Banking<br/>Payments, Cards, FX, Trade, Risk]
-    Core[Core Banking<br/>Customer, Accounts, Ledger]
-    Services[Enterprise Services<br/>Audit, Workflow, Documents]
-    External[External Networks<br/>Payment Networks, Switches, Partners]
-
-    Channels --> Apps
-    Apps --> Banking
-    Banking --> Core
-    Banking --> Services
-    Banking --> External
-```
+![Release 4 architecture](diagrams/software-architecture-release-4.svg)
 
 ### Release Deliverables
 
@@ -199,19 +122,7 @@ flowchart LR
 
 ## After Release 5 – Enterprise Banking Expansion & Distributed Platform
 
-```mermaid
-flowchart LR
-    Channels[Channels]
-    Banking[Enterprise Banking]
-    Distributed[Distributed Platform<br/>Kafka, Outbox, Saga, DLQ]
-    Data[Data Stores<br/>PostgreSQL, Redis]
-    External[External Integrations]
-
-    Channels --> Banking
-    Banking --> Distributed
-    Distributed --> Data
-    Distributed --> External
-```
+![Release 5 architecture](diagrams/software-architecture-release-5.svg)
 
 ### Release Deliverables
 
@@ -231,19 +142,7 @@ flowchart LR
 
 ## After Release 6 – Platform Engineering & Reliability
 
-```mermaid
-flowchart LR
-    Platform[Enterprise Platform]
-    Reliability[Reliability Platform<br/>Observability, Metrics, Tracing]
-    Engineering[Platform Engineering<br/>CI/CD, IaC, Service Mesh]
-    Runtime[Runtime Platform<br/>Kubernetes]
-    Operations[Operations<br/>Runbooks, DR, Resiliency]
-
-    Platform --> Reliability
-    Platform --> Engineering
-    Engineering --> Runtime
-    Reliability --> Operations
-```
+![Release 6 architecture](diagrams/software-architecture-release-6.svg)
 
 ### Release Deliverables
 
@@ -262,19 +161,7 @@ flowchart LR
 
 ## After Release 7 – Enterprise Intelligence & Operations
 
-```mermaid
-flowchart LR
-    Enterprise[Enterprise Platform]
-    Operations[Unified Operations]
-    Intelligence[Enterprise Intelligence<br/>Analytics, Dashboards, AI Copilots]
-    Knowledge[Knowledge Platform]
-    Reporting[Enterprise Reporting]
-
-    Enterprise --> Operations
-    Enterprise --> Intelligence
-    Intelligence --> Knowledge
-    Intelligence --> Reporting
-```
+![Release 7 architecture](diagrams/software-architecture-release-7.svg)
 
 ### Release Deliverables
 

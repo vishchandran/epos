@@ -13,10 +13,12 @@
     "lint": "pnpm -r --if-present lint",
     "test": "pnpm -r --if-present test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "docs:diagrams": "node scripts/render-mermaid-diagrams.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@mermaid-js/mermaid-cli": "^11.16.0",
     "@types/node": "^26.1.0",
     "@types/supertest": "^7.2.0",
     "eslint": "^10.6.0",

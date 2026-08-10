@@ -1,0 +1,9 @@
+flowchart LR
+    BR["Business need"] --> WF["User & operational workflow"]
+    WF --> DM["Domain model & rules"]
+    DM --> API["Application & API design"]
+    API --> BUILD["Build & test"]
+    BUILD --> RUN["Deploy & operate"]
+    RUN --> LEARN["Observe & learn"]
+    LEARN --> IMPROVE["Refactor & optimize"]
+    IMPROVE --> BR
