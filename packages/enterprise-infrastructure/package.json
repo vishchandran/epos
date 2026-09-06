@@ -1,0 +1,29 @@
+{
+  "name": "@epos/enterprise-infrastructure",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Infrastructure adapters for EPOS application contracts.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src tests",
+    "test": "vitest run --exclude \"dist/**\""
+  },
+  "dependencies": {
+    "@epos/enterprise-application": "workspace:*",
+    "@epos/enterprise-domain": "workspace:*",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "@types/pg": "^8.23.1"
+  }
+}
