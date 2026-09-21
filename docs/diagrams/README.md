@@ -1,13 +1,5 @@
 # Documentation Diagrams
 
-This directory contains the editable Mermaid sources for diagrams displayed in
-the repository root README. Each `.mmd` file produces an SVG with the same
-name.
-
-After changing a source file, regenerate the SVGs from the repository root:
-
-```bash
-pnpm run docs:diagrams
-```
-
-Commit the related `.mmd`, `.svg`, and Markdown document changes together.
+This directory contains the SVG diagrams displayed in the repository root
+README. The SVGs use fixed view boxes, typography, spacing, and alignment so
+they remain compact and legible on desktop and mobile screens.
