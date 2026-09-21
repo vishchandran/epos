@@ -1,9 +1,27 @@
-flowchart LR
-    BR["Business need"] --> WF["User & operational workflow"]
-    WF --> DM["Domain model & rules"]
-    DM --> API["Application & API design"]
-    API --> BUILD["Build & test"]
-    BUILD --> RUN["Deploy & operate"]
-    RUN --> LEARN["Observe & learn"]
-    LEARN --> IMPROVE["Refactor & optimize"]
-    IMPROVE --> BR
+---
+config:
+  theme: base
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    fontSize: 18px
+    primaryColor: '#eef4ff'
+    primaryTextColor: '#172b4d'
+    primaryBorderColor: '#7294c7'
+    lineColor: '#526b8e'
+  flowchart:
+    htmlLabels: false
+    wrappingWidth: 320
+    nodeSpacing: 12
+    rankSpacing: 16
+    padding: 12
+---
+flowchart TB
+    accTitle: EPOS continuous improvement cycle
+    accDescr: Start with business needs, design workflows and domain rules, design application APIs, build and test, deploy and operate, observe and learn, then refactor and repeat.
+    DISCOVER["1. Understand<br/>Business need<br/>User & operational workflow"]
+    DESIGN["2. Design<br/>Domain model & rules<br/>Application & API design"]
+    DELIVER["3. Deliver<br/>Build & test<br/>Deploy & operate"]
+    IMPROVE["4. Improve<br/>Observe & learn<br/>Refactor & optimize"]
+    REPEAT(["Repeat with the next business need"])
+
+    DISCOVER --> DESIGN --> DELIVER --> IMPROVE --> REPEAT
