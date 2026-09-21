@@ -18,7 +18,7 @@ The objective is not only to produce working banking software. EPOS is a practic
 
 ## One program, the whole bank
 
-![EPOS capabilities](docs/diagrams/epos-capabilities.svg)
+![EPOS capabilities](docs/diagrams/epos-capabilities-compact.svg)
 
 Every capability is designed as part of one connected banking ecosystem rather than as an isolated technical exercise.
 
