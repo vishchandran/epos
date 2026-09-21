@@ -4,7 +4,7 @@
   <style>
     text { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172b4d; }
     .section { font-size: 12px; font-weight: 700; }
-    .detail { font-size: 9.5px; fill: #52637a; }
+    .detail { font-size: 9px; fill: #52637a; }
     .card { stroke-width: 1; rx: 8; }
   </style>
   <rect width="420" height="430" rx="12" fill="#f8fafc"/>
@@ -16,9 +16,10 @@
   <g transform="translate(18 102)">
     <rect class="card" width="186" height="82" fill="#eef6ff" stroke="#8ab4df"/>
     <circle cx="18" cy="20" r="8" fill="#377bb5"/>
-    <text class="section" x="34" y="24">Customers &amp; Relationships</text>
-    <text class="detail" x="34" y="44">Party &amp; customer</text>
-    <text class="detail" x="34" y="60">Digital, branch &amp; partner channels</text>
+    <text class="section" x="34" y="19">Customers &amp;</text>
+    <text class="section" x="34" y="33">Relationships</text>
+    <text class="detail" x="34" y="53">Party &amp; customer</text>
+    <text class="detail" x="34" y="69">Digital, branch &amp; partner channels</text>
   </g>
   <g transform="translate(216 102)">
     <rect class="card" width="186" height="82" fill="#eff8f2" stroke="#8cbea0"/>
@@ -51,9 +52,10 @@
   <g transform="translate(216 290)">
     <rect class="card" width="186" height="82" fill="#eef3f7" stroke="#9babb9"/>
     <circle cx="18" cy="20" r="8" fill="#60798f"/>
-    <text class="section" x="34" y="24">Technology &amp; Operations</text>
-    <text class="detail" x="34" y="44">Cloud, data &amp; events</text>
-    <text class="detail" x="34" y="60">Security, reliability &amp; AI</text>
+    <text class="section" x="34" y="19">Technology &amp;</text>
+    <text class="section" x="34" y="33">Operations</text>
+    <text class="detail" x="34" y="53">Cloud, data &amp; events</text>
+    <text class="detail" x="34" y="69">Security, reliability &amp; AI</text>
   </g>
   <text x="210" y="408" text-anchor="middle" font-size="9" fill="#77879a">One connected enterprise banking ecosystem</text>
 </svg>
