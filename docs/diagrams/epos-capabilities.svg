@@ -15,11 +15,12 @@
 
   <g transform="translate(18 102)">
     <rect class="card" width="186" height="82" fill="#eef6ff" stroke="#8ab4df"/>
-    <circle cx="18" cy="20" r="8" fill="#377bb5"/>
-    <text class="section" x="34" y="19">Customers &amp;</text>
-    <text class="section" x="34" y="33">Relationships</text>
-    <text class="detail" x="34" y="53">Party &amp; customer</text>
-    <text class="detail" x="34" y="69">Digital, branch &amp; partner channels</text>
+    <circle cx="170" cy="16" r="6" fill="#377bb5"/>
+    <text class="section" x="16" y="18">Customers &amp;</text>
+    <text class="section" x="16" y="31">Relationships</text>
+    <text class="detail" x="16" y="47">Party &amp; customer</text>
+    <text class="detail" x="16" y="61">Digital, branch &amp;</text>
+    <text class="detail" x="16" y="74">partner channels</text>
   </g>
   <g transform="translate(216 102)">
     <rect class="card" width="186" height="82" fill="#eff8f2" stroke="#8cbea0"/>
