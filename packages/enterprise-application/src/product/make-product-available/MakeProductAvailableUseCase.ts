@@ -2,8 +2,15 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { MakeProductAvailableCommand } from "./MakeProductAvailableCommand.js";
-import type { MakeProductAvailableResult } from "./MakeProductAvailableResult.js";
+
+export type MakeProductAvailableCommand = {
+  readonly productId: string;
+};
+
+export type MakeProductAvailableResult = {
+  readonly productId: string;
+  readonly status: "AVAILABLE";
+};
 
 export class MakeProductAvailableUseCase {
   public constructor(private readonly productRepository: ProductRepository) {}

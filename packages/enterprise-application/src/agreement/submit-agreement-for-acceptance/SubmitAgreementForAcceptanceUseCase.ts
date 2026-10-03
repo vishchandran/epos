@@ -2,8 +2,15 @@ import { AgreementId } from "@epos/enterprise-domain";
 
 import type { AgreementRepository } from "../AgreementRepository.js";
 import { AgreementNotFoundError } from "../errors/AgreementNotFoundError.js";
-import type { SubmitAgreementForAcceptanceCommand } from "./SubmitAgreementForAcceptanceCommand.js";
-import type { SubmitAgreementForAcceptanceResult } from "./SubmitAgreementForAcceptanceResult.js";
+
+export type SubmitAgreementForAcceptanceCommand = {
+  readonly agreementId: string;
+};
+
+export type SubmitAgreementForAcceptanceResult = {
+  readonly agreementId: string;
+  readonly status: "PENDING_ACCEPTANCE";
+};
 
 export class SubmitAgreementForAcceptanceUseCase {
   public constructor(

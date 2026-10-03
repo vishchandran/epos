@@ -2,8 +2,13 @@ import { AgreementId } from "@epos/enterprise-domain";
 
 import type { AgreementRepository } from "../AgreementRepository.js";
 import { AgreementNotFoundError } from "../errors/AgreementNotFoundError.js";
-import type { CloseAgreementCommand } from "./CloseAgreementCommand.js";
-import type { CloseAgreementResult } from "./CloseAgreementResult.js";
+
+export type CloseAgreementCommand = { readonly agreementId: string };
+
+export type CloseAgreementResult = {
+  readonly agreementId: string;
+  readonly status: "CLOSED";
+};
 
 export class CloseAgreementUseCase {
   public constructor(private readonly repository: AgreementRepository) {}

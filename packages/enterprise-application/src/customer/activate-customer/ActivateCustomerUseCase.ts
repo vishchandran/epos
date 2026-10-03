@@ -2,8 +2,15 @@ import { CustomerId } from "@epos/enterprise-domain";
 
 import type { CustomerRepository } from "../CustomerRepository.js";
 import { CustomerNotFoundError } from "../errors/CustomerNotFoundError.js";
-import type { ActivateCustomerCommand } from "./ActivateCustomerCommand.js";
-import type { ActivateCustomerResult } from "./ActivateCustomerResult.js";
+
+export type ActivateCustomerCommand = {
+  readonly customerId: string;
+};
+
+export type ActivateCustomerResult = {
+  readonly customerId: string;
+  readonly status: "ACTIVE";
+};
 
 export class ActivateCustomerUseCase {
   private readonly customerRepository: CustomerRepository;

@@ -2,8 +2,15 @@ import { CustomerId } from "@epos/enterprise-domain";
 
 import type { CustomerRepository } from "../CustomerRepository.js";
 import { CustomerNotFoundError } from "../errors/CustomerNotFoundError.js";
-import type { SuspendCustomerCommand } from "./SuspendCustomerCommand.js";
-import type { SuspendCustomerResult } from "./SuspendCustomerResult.js";
+
+export type SuspendCustomerCommand = {
+  readonly customerId: string;
+};
+
+export type SuspendCustomerResult = {
+  readonly customerId: string;
+  readonly status: "SUSPENDED";
+};
 
 export class SuspendCustomerUseCase {
   private readonly customerRepository: CustomerRepository;

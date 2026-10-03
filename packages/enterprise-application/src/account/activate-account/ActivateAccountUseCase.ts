@@ -2,8 +2,15 @@ import { AccountId } from "@epos/enterprise-domain";
 
 import type { AccountRepository } from "../AccountRepository.js";
 import { AccountNotFoundError } from "../errors/AccountNotFoundError.js";
-import type { ActivateAccountCommand } from "./ActivateAccountCommand.js";
-import type { ActivateAccountResult } from "./ActivateAccountResult.js";
+
+export type ActivateAccountCommand = {
+  readonly accountId: string;
+};
+
+export type ActivateAccountResult = {
+  readonly accountId: string;
+  readonly status: "ACTIVE";
+};
 
 export class ActivateAccountUseCase {
   public constructor(private readonly repository: AccountRepository) {}

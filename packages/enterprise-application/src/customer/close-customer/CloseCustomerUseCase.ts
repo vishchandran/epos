@@ -2,8 +2,15 @@ import { CustomerId } from "@epos/enterprise-domain";
 
 import type { CustomerRepository } from "../CustomerRepository.js";
 import { CustomerNotFoundError } from "../errors/CustomerNotFoundError.js";
-import type { CloseCustomerCommand } from "./CloseCustomerCommand.js";
-import type { CloseCustomerResult } from "./CloseCustomerResult.js";
+
+export type CloseCustomerCommand = {
+  readonly customerId: string;
+};
+
+export type CloseCustomerResult = {
+  readonly customerId: string;
+  readonly status: "CLOSED";
+};
 
 export class CloseCustomerUseCase {
   private readonly customerRepository: CustomerRepository;

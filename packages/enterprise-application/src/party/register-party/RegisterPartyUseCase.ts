@@ -2,8 +2,18 @@ import { Party, PartyId } from "@epos/enterprise-domain";
 
 import type { IdGenerator } from "../../shared/IdGenerator.js";
 import type { PartyRepository } from "../PartyRepository.js";
-import type { RegisterPartyCommand } from "./RegisterPartyCommand.js";
-import type { RegisterPartyResult } from "./RegisterPartyResult.js";
+
+export type RegisterPartyCommand = {
+  readonly type: "PERSON" | "ORGANIZATION";
+  readonly displayName: string;
+};
+
+export type RegisterPartyResult = {
+  readonly partyId: string;
+  readonly type: "PERSON" | "ORGANIZATION";
+  readonly displayName: string;
+  readonly status: "ACTIVE" | "INACTIVE";
+};
 
 export class RegisterPartyUseCase {
   private readonly partyRepository: PartyRepository;

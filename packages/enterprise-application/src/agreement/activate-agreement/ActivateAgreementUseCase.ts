@@ -2,8 +2,13 @@ import { AgreementId } from "@epos/enterprise-domain";
 
 import type { AgreementRepository } from "../AgreementRepository.js";
 import { AgreementNotFoundError } from "../errors/AgreementNotFoundError.js";
-import type { ActivateAgreementCommand } from "./ActivateAgreementCommand.js";
-import type { ActivateAgreementResult } from "./ActivateAgreementResult.js";
+
+export type ActivateAgreementCommand = { readonly agreementId: string };
+
+export type ActivateAgreementResult = {
+  readonly agreementId: string;
+  readonly status: "ACTIVE";
+};
 
 export class ActivateAgreementUseCase {
   public constructor(private readonly repository: AgreementRepository) {}

@@ -9,8 +9,16 @@ import type { AgreementRepository } from "../../agreement/AgreementRepository.js
 import { AgreementNotFoundError } from "../../agreement/errors/AgreementNotFoundError.js";
 import type { IdGenerator } from "../../shared/IdGenerator.js";
 import type { AccountRepository } from "../AccountRepository.js";
-import type { OpenAccountCommand } from "./OpenAccountCommand.js";
-import type { OpenAccountResult } from "./OpenAccountResult.js";
+
+export type OpenAccountCommand = {
+  readonly agreementId: string;
+};
+
+export type OpenAccountResult = {
+  readonly accountId: string;
+  readonly agreementId: string;
+  readonly status: "PENDING";
+};
 
 export class OpenAccountUseCase {
   public constructor(

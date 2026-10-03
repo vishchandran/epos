@@ -2,8 +2,15 @@ import { AccountId } from "@epos/enterprise-domain";
 
 import type { AccountRepository } from "../AccountRepository.js";
 import { AccountNotFoundError } from "../errors/AccountNotFoundError.js";
-import type { CloseAccountCommand } from "./CloseAccountCommand.js";
-import type { CloseAccountResult } from "./CloseAccountResult.js";
+
+export type CloseAccountCommand = {
+  readonly accountId: string;
+};
+
+export type CloseAccountResult = {
+  readonly accountId: string;
+  readonly status: "CLOSED";
+};
 
 export class CloseAccountUseCase {
   public constructor(private readonly repository: AccountRepository) {}

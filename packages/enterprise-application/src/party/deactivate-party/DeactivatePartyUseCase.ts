@@ -2,8 +2,15 @@ import { PartyId } from "@epos/enterprise-domain";
 
 import type { PartyRepository } from "../PartyRepository.js";
 import { PartyNotFoundError } from "../errors/PartyNotFoundError.js";
-import type { DeactivatePartyCommand } from "./DeactivatePartyCommand.js";
-import type { DeactivatePartyResult } from "./DeactivatePartyResult.js";
+
+export type DeactivatePartyCommand = {
+  readonly partyId: string;
+};
+
+export type DeactivatePartyResult = {
+  readonly partyId: string;
+  readonly status: "INACTIVE";
+};
 
 export class DeactivatePartyUseCase {
   private readonly partyRepository: PartyRepository;

@@ -2,8 +2,13 @@ import { AgreementId } from "@epos/enterprise-domain";
 
 import type { AgreementRepository } from "../AgreementRepository.js";
 import { AgreementNotFoundError } from "../errors/AgreementNotFoundError.js";
-import type { SuspendAgreementCommand } from "./SuspendAgreementCommand.js";
-import type { SuspendAgreementResult } from "./SuspendAgreementResult.js";
+
+export type SuspendAgreementCommand = { readonly agreementId: string };
+
+export type SuspendAgreementResult = {
+  readonly agreementId: string;
+  readonly status: "SUSPENDED";
+};
 
 export class SuspendAgreementUseCase {
   public constructor(private readonly repository: AgreementRepository) {}

@@ -2,8 +2,15 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { RetireProductCommand } from "./RetireProductCommand.js";
-import type { RetireProductResult } from "./RetireProductResult.js";
+
+export type RetireProductCommand = {
+  readonly productId: string;
+};
+
+export type RetireProductResult = {
+  readonly productId: string;
+  readonly status: "RETIRED";
+};
 
 export class RetireProductUseCase {
   public constructor(private readonly productRepository: ProductRepository) {}

@@ -9,8 +9,16 @@ import type { AccountRepository } from "../../account/AccountRepository.js";
 import { AccountNotFoundError } from "../../account/errors/AccountNotFoundError.js";
 import type { IdGenerator } from "../../shared/IdGenerator.js";
 import type { LedgerRepository } from "../LedgerRepository.js";
-import type { OpenLedgerCommand } from "./OpenLedgerCommand.js";
-import type { OpenLedgerResult } from "./OpenLedgerResult.js";
+
+export type OpenLedgerCommand = {
+  readonly accountId: string;
+};
+
+export type OpenLedgerResult = {
+  readonly ledgerId: string;
+  readonly accountId: string;
+  readonly status: "OPEN";
+};
 
 export class OpenLedgerUseCase {
   public constructor(

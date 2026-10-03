@@ -1,9 +1,25 @@
-import { Product, ProductId } from "@epos/enterprise-domain";
+import {
+  Product,
+  ProductId,
+  type ProductCategory
+} from "@epos/enterprise-domain";
 
 import type { IdGenerator } from "../../shared/IdGenerator.js";
 import type { ProductRepository } from "../ProductRepository.js";
-import type { CreateProductCommand } from "./CreateProductCommand.js";
-import type { CreateProductResult } from "./CreateProductResult.js";
+
+export type CreateProductCommand = {
+  readonly code: string;
+  readonly name: string;
+  readonly category: ProductCategory;
+};
+
+export type CreateProductResult = {
+  readonly productId: string;
+  readonly code: string;
+  readonly name: string;
+  readonly category: ProductCategory;
+  readonly status: "DESIGNED";
+};
 
 export class CreateProductUseCase {
   public constructor(

@@ -2,8 +2,16 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { RenameProductCommand } from "./RenameProductCommand.js";
-import type { RenameProductResult } from "./RenameProductResult.js";
+
+export type RenameProductCommand = {
+  readonly productId: string;
+  readonly name: string;
+};
+
+export type RenameProductResult = {
+  readonly productId: string;
+  readonly name: string;
+};
 
 export class RenameProductUseCase {
   public constructor(private readonly productRepository: ProductRepository) {}

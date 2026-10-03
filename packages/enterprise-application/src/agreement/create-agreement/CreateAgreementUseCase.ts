@@ -12,8 +12,20 @@ import { ProductNotFoundError } from "../../product/errors/ProductNotFoundError.
 import type { IdGenerator } from "../../shared/IdGenerator.js";
 import { parseDate } from "../../shared/validation/parseDate.js";
 import type { AgreementRepository } from "../AgreementRepository.js";
-import type { CreateAgreementCommand } from "./CreateAgreementCommand.js";
-import type { CreateAgreementResult } from "./CreateAgreementResult.js";
+
+export type CreateAgreementCommand = {
+  readonly customerId: string;
+  readonly productId: string;
+  readonly effectiveDate: string;
+};
+
+export type CreateAgreementResult = {
+  readonly agreementId: string;
+  readonly customerId: string;
+  readonly productId: string;
+  readonly status: "DRAFT";
+  readonly effectiveDate: string;
+};
 
 export class CreateAgreementUseCase {
   public constructor(

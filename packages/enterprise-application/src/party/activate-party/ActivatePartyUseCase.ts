@@ -2,8 +2,15 @@ import { PartyId } from "@epos/enterprise-domain";
 
 import type { PartyRepository } from "../PartyRepository.js";
 import { PartyNotFoundError } from "../errors/PartyNotFoundError.js";
-import type { ActivatePartyCommand } from "./ActivatePartyCommand.js";
-import type { ActivatePartyResult } from "./ActivatePartyResult.js";
+
+export type ActivatePartyCommand = {
+  readonly partyId: string;
+};
+
+export type ActivatePartyResult = {
+  readonly partyId: string;
+  readonly status: "ACTIVE";
+};
 
 export class ActivatePartyUseCase {
   private readonly partyRepository: PartyRepository;

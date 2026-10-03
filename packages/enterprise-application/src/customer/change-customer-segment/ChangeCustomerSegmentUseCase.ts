@@ -2,8 +2,16 @@ import { CustomerId } from "@epos/enterprise-domain";
 
 import type { CustomerRepository } from "../CustomerRepository.js";
 import { CustomerNotFoundError } from "../errors/CustomerNotFoundError.js";
-import type { ChangeCustomerSegmentCommand } from "./ChangeCustomerSegmentCommand.js";
-import type { ChangeCustomerSegmentResult } from "./ChangeCustomerSegmentResult.js";
+
+export type ChangeCustomerSegmentCommand = {
+  readonly customerId: string;
+  readonly segment: "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+};
+
+export type ChangeCustomerSegmentResult = {
+  readonly customerId: string;
+  readonly segment: "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+};
 
 export class ChangeCustomerSegmentUseCase {
   private readonly customerRepository: CustomerRepository;

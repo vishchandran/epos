@@ -2,8 +2,15 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { ApproveProductCommand } from "./ApproveProductCommand.js";
-import type { ApproveProductResult } from "./ApproveProductResult.js";
+
+export type ApproveProductCommand = {
+  readonly productId: string;
+};
+
+export type ApproveProductResult = {
+  readonly productId: string;
+  readonly status: "APPROVED";
+};
 
 export class ApproveProductUseCase {
   public constructor(private readonly productRepository: ProductRepository) {}

@@ -2,8 +2,15 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { SuspendProductCommand } from "./SuspendProductCommand.js";
-import type { SuspendProductResult } from "./SuspendProductResult.js";
+
+export type SuspendProductCommand = {
+  readonly productId: string;
+};
+
+export type SuspendProductResult = {
+  readonly productId: string;
+  readonly status: "SUSPENDED";
+};
 
 export class SuspendProductUseCase {
   public constructor(private readonly productRepository: ProductRepository) {}

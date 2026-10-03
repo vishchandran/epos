@@ -2,8 +2,16 @@ import { PartyId } from "@epos/enterprise-domain";
 
 import type { PartyRepository } from "../PartyRepository.js";
 import { PartyNotFoundError } from "../errors/PartyNotFoundError.js";
-import type { ChangePartyDisplayNameCommand } from "./ChangePartyDisplayNameCommand.js";
-import type { ChangePartyDisplayNameResult } from "./ChangePartyDisplayNameResult.js";
+
+export type ChangePartyDisplayNameCommand = {
+  readonly partyId: string;
+  readonly displayName: string;
+};
+
+export type ChangePartyDisplayNameResult = {
+  readonly partyId: string;
+  readonly displayName: string;
+};
 
 export class ChangePartyDisplayNameUseCase {
   private readonly partyRepository: PartyRepository;

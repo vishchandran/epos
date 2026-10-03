@@ -5,8 +5,19 @@ import type { IdGenerator } from "../../shared/IdGenerator.js";
 import type { PartyRepository } from "../../party/PartyRepository.js";
 import { PartyNotFoundError } from "../../party/errors/PartyNotFoundError.js";
 import type { CustomerRepository } from "../CustomerRepository.js";
-import type { CreateCustomerCommand } from "./CreateCustomerCommand.js";
-import type { CreateCustomerResult } from "./CreateCustomerResult.js";
+
+export type CreateCustomerCommand = {
+  readonly partyId: string;
+  readonly segment: "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+};
+
+export type CreateCustomerResult = {
+  readonly customerId: string;
+  readonly partyId: string;
+  readonly status: "PENDING";
+  readonly segment: "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+  readonly customerSince: string;
+};
 
 export class CreateCustomerUseCase {
   private readonly partyRepository: PartyRepository;

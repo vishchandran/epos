@@ -2,8 +2,15 @@ import { AccountId } from "@epos/enterprise-domain";
 
 import type { AccountRepository } from "../AccountRepository.js";
 import { AccountNotFoundError } from "../errors/AccountNotFoundError.js";
-import type { SuspendAccountCommand } from "./SuspendAccountCommand.js";
-import type { SuspendAccountResult } from "./SuspendAccountResult.js";
+
+export type SuspendAccountCommand = {
+  readonly accountId: string;
+};
+
+export type SuspendAccountResult = {
+  readonly accountId: string;
+  readonly status: "SUSPENDED";
+};
 
 export class SuspendAccountUseCase {
   public constructor(private readonly repository: AccountRepository) {}

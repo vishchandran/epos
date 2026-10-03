@@ -2,8 +2,15 @@ import { LedgerId } from "@epos/enterprise-domain";
 
 import type { LedgerRepository } from "../LedgerRepository.js";
 import { LedgerNotFoundError } from "../errors/LedgerNotFoundError.js";
-import type { CloseLedgerCommand } from "./CloseLedgerCommand.js";
-import type { CloseLedgerResult } from "./CloseLedgerResult.js";
+
+export type CloseLedgerCommand = {
+  readonly ledgerId: string;
+};
+
+export type CloseLedgerResult = {
+  readonly ledgerId: string;
+  readonly status: "CLOSED";
+};
 
 export class CloseLedgerUseCase {
   public constructor(private readonly repository: LedgerRepository) {}
