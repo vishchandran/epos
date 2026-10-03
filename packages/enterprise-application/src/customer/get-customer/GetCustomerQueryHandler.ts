@@ -2,8 +2,18 @@ import { CustomerId } from "@epos/enterprise-domain";
 
 import type { CustomerRepository } from "../CustomerRepository.js";
 import { CustomerNotFoundError } from "../errors/CustomerNotFoundError.js";
-import type { CustomerDto } from "./CustomerDto.js";
-import type { GetCustomerQuery } from "./GetCustomerQuery.js";
+
+export type GetCustomerQuery = {
+  readonly customerId: string;
+};
+
+export type CustomerDto = {
+  readonly customerId: string;
+  readonly partyId: string;
+  readonly status: "PENDING" | "ACTIVE" | "SUSPENDED" | "CLOSED";
+  readonly segment: "RETAIL" | "SMALL_BUSINESS" | "COMMERCIAL";
+  readonly customerSince: string;
+};
 
 export class GetCustomerQueryHandler {
   private readonly customerRepository: CustomerRepository;

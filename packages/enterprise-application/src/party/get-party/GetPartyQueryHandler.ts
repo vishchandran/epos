@@ -2,8 +2,17 @@ import { PartyId } from "@epos/enterprise-domain";
 
 import type { PartyRepository } from "../PartyRepository.js";
 import { PartyNotFoundError } from "../errors/PartyNotFoundError.js";
-import type { GetPartyQuery } from "./GetPartyQuery.js";
-import type { PartyDto } from "./PartyDto.js";
+
+export type GetPartyQuery = {
+  readonly partyId: string;
+};
+
+export type PartyDto = {
+  readonly partyId: string;
+  readonly type: "PERSON" | "ORGANIZATION";
+  readonly displayName: string;
+  readonly status: "ACTIVE" | "INACTIVE";
+};
 
 export class GetPartyQueryHandler {
   private readonly partyRepository: PartyRepository;

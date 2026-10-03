@@ -2,8 +2,20 @@ import { AgreementId } from "@epos/enterprise-domain";
 
 import type { AgreementRepository } from "../AgreementRepository.js";
 import { AgreementNotFoundError } from "../errors/AgreementNotFoundError.js";
-import type { AgreementDto } from "./AgreementDto.js";
-import type { GetAgreementQuery } from "./GetAgreementQuery.js";
+
+export type GetAgreementQuery = {
+  readonly agreementId: string;
+};
+
+import type { AgreementStatus } from "@epos/enterprise-domain";
+
+export type AgreementDto = {
+  readonly agreementId: string;
+  readonly customerId: string;
+  readonly productId: string;
+  readonly status: AgreementStatus;
+  readonly effectiveDate: string;
+};
 
 export class GetAgreementQueryHandler {
   public constructor(

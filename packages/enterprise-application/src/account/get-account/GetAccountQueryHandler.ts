@@ -2,8 +2,18 @@ import { AccountId } from "@epos/enterprise-domain";
 
 import type { AccountRepository } from "../AccountRepository.js";
 import { AccountNotFoundError } from "../errors/AccountNotFoundError.js";
-import type { AccountDto } from "./AccountDto.js";
-import type { GetAccountQuery } from "./GetAccountQuery.js";
+
+export type GetAccountQuery = {
+  readonly accountId: string;
+};
+
+import type { AccountStatus } from "@epos/enterprise-domain";
+
+export type AccountDto = {
+  readonly accountId: string;
+  readonly agreementId: string;
+  readonly status: AccountStatus;
+};
 
 export class GetAccountQueryHandler {
   public constructor(private readonly repository: AccountRepository) {}

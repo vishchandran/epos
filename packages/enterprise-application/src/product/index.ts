@@ -1,8 +1,6 @@
 export type { ProductRepository } from "./ProductRepository.js";
 export * from "./create-product/CreateProductUseCase.js";
-export type { GetProductQuery } from "./get-product/GetProductQuery.js";
-export type { ProductDto } from "./get-product/ProductDto.js";
-export { GetProductQueryHandler } from "./get-product/GetProductQueryHandler.js";
+export * from "./get-product/GetProductQueryHandler.js";
 export { ProductNotFoundError } from "./errors/ProductNotFoundError.js";
 export * from "./approve-product/ApproveProductUseCase.js";
 export * from "./make-product-available/MakeProductAvailableUseCase.js";

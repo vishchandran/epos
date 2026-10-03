@@ -2,8 +2,20 @@ import { ProductId } from "@epos/enterprise-domain";
 
 import type { ProductRepository } from "../ProductRepository.js";
 import { ProductNotFoundError } from "../errors/ProductNotFoundError.js";
-import type { GetProductQuery } from "./GetProductQuery.js";
-import type { ProductDto } from "./ProductDto.js";
+
+export type GetProductQuery = {
+  readonly productId: string;
+};
+
+import type { ProductCategory, ProductStatus } from "@epos/enterprise-domain";
+
+export type ProductDto = {
+  readonly productId: string;
+  readonly code: string;
+  readonly name: string;
+  readonly category: ProductCategory;
+  readonly status: ProductStatus;
+};
 
 export class GetProductQueryHandler {
   public constructor(private readonly productRepository: ProductRepository) {}

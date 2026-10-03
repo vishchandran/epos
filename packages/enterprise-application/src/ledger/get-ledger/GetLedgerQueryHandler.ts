@@ -2,8 +2,18 @@ import { LedgerId } from "@epos/enterprise-domain";
 
 import type { LedgerRepository } from "../LedgerRepository.js";
 import { LedgerNotFoundError } from "../errors/LedgerNotFoundError.js";
-import type { GetLedgerQuery } from "./GetLedgerQuery.js";
-import type { LedgerDto } from "./LedgerDto.js";
+
+export type GetLedgerQuery = {
+  readonly ledgerId: string;
+};
+
+import type { LedgerStatus } from "@epos/enterprise-domain";
+
+export type LedgerDto = {
+  readonly ledgerId: string;
+  readonly accountId: string;
+  readonly status: LedgerStatus;
+};
 
 export class GetLedgerQueryHandler {
   public constructor(private readonly repository: LedgerRepository) {}
