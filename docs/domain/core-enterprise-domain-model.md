@@ -10,6 +10,12 @@ This document intentionally focuses on **business concepts**, not technical impl
 
 ---
 
+## Strategic Coverage Proposal
+
+The [six-vertical coverage proposal](../../program/core-roadmap.md#business-vertical-coverage--strategic-proposal) groups existing domains and identifies proposed future coverage. The hierarchy and domain responsibilities in this document remain the existing foundation; the proposal does not create approved bounded contexts or scheduled delivery. Before implementation, approved scope additions must be reflected here and traced through the business capability model, bounded contexts, and domain implementation map.
+
+---
+
 # Enterprise Domain Hierarchy
 
 ```text

@@ -221,6 +221,12 @@ Branch ──────► Channel
 
 ## 7. Future Capabilities
 
+The [Business Vertical Coverage — Strategic Proposal](../../program/core-roadmap.md#business-vertical-coverage--strategic-proposal) distinguishes existing scheduled capabilities from proposed, unscheduled coverage across Core Banking, Transaction Banking, Capital Markets, Brokerage & Wealth, Enterprise Risk & Finance, and Enterprise Shared Services. It is the reference for the six-vertical coverage view; this Phase 1 capability model does not assign release dates or approve that expansion.
+
+Proposed additions include Cash Management; Trading, Securities, Derivatives, capital markets Settlement; Retail Brokerage, Prime Brokerage, Custody, Asset Management; and explicit Credit Risk, Market Risk, Liquidity Risk, and broader Financial Accounting. These require capability definitions and ownership review before being added to the capability-to-domain and implementation mappings. Market Risk ownership across verticals and the boundaries between Financial Accounting and Ledger require explicit design decisions.
+
+The existing capability definitions and mappings below and above remain unchanged. Existing scheduled capabilities in the following list retain their roadmap allocations; listing a capability as future does not override the release baseline.
+
 Future EPOS releases may introduce:
 
 - Payments Management
