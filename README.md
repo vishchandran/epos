@@ -4,6 +4,8 @@
 
 EPOS is a long-term engineering program to design, build, and operate the products and technology capabilities of an enterprise bank. It spans customer and party management, deposits, lending, accounts, payments, cards, foreign exchange, trade finance, risk, compliance, channels, data, security, infrastructure, and operations.
 
+Its strategic coverage is organized into six business verticals: Core Banking, Transaction Banking, Capital Markets, Brokerage & Wealth, Enterprise Risk & Finance, and Enterprise Shared Services. This coverage includes both capabilities already scheduled in Releases 1.0–7.0 and proposed future domains that have no approved release or delivery date. The [master roadmap](program/core-roadmap.md#business-vertical-coverage--strategic-proposal) is the source of truth for that distinction.
+
 The objective is not only to produce working banking software. EPOS is a practical environment for learning, challenging decisions, improving designs, refactoring safely, and continuously optimizing a large enterprise platform while applying real-world architecture and engineering principles.
 
 ## At a glance
@@ -21,6 +23,19 @@ The objective is not only to produce working banking software. EPOS is a practic
 ![EPOS capabilities](docs/diagrams/epos-capabilities-compact.svg)
 
 Every capability is designed as part of one connected banking ecosystem rather than as an isolated technical exercise.
+
+### Strategic business verticals
+
+| Vertical                       | Coverage                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------- |
+| **Core Banking**               | Customer, Accounts, Deposits, Lending, Ledger                              |
+| **Transaction Banking**        | Payments, Cards, FX, Trade Finance, Cash Management                        |
+| **Capital Markets**            | Trading, Securities, Derivatives, Market Risk, Settlement                  |
+| **Brokerage & Wealth**         | Retail Brokerage, Prime Brokerage, Custody, Asset Management               |
+| **Enterprise Risk & Finance**  | Credit Risk, Market Risk, Liquidity Risk, Compliance, Financial Accounting |
+| **Enterprise Shared Services** | Party, Product, Agreement, Reference Data, Audit, Documents                |
+
+The verticals are a strategic coverage model. They do not change the approved release baseline or schedule proposed domains. See the [business vertical coverage proposal](program/core-roadmap.md#business-vertical-coverage--strategic-proposal) for the scheduled-versus-proposed breakdown and governance requirements.
 
 ## How EPOS is engineered
 

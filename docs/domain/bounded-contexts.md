@@ -21,6 +21,8 @@ The purpose of this document is to separate enterprise banking capabilities into
 
 This ensures that future TypeScript modules, services, persistence models, APIs, and events are aligned to the business architecture rather than being organized only by technical convenience.
 
+The [six-vertical strategic coverage proposal](../../program/core-roadmap.md#business-vertical-coverage--strategic-proposal) groups existing capabilities and identifies proposed future domains. It does not create bounded contexts or change the initial contexts defined here. Each proposed domain must define ownership, language, dependencies, integration boundaries, and business rules before approval as a bounded context.
+
 ---
 
 ## 2. What Is a Bounded Context?

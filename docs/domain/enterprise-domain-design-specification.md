@@ -17,6 +17,8 @@ The objective is to fully define the business model before implementation begins
 
 This document is implementation-independent and focuses on business design rather than technical implementation.
 
+The [six-vertical strategic coverage proposal](../../program/core-roadmap.md#business-vertical-coverage--strategic-proposal) extends the long-term view of EPOS. It does not expand this Release 1 specification or approve new domain objects, bounded contexts, release allocations, or dates. Proposed future domains must complete the domain design and roadmap governance process before they are added here.
+
 ---
 
 # 2. Objectives

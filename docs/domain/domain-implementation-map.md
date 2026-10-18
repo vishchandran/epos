@@ -17,6 +17,8 @@ Business Capability → Bounded Context → Aggregate → TypeScript Module
 
 No implementation decisions in this document introduce new business concepts. They simply translate the approved domain model into an implementation roadmap.
 
+The [six-vertical strategic coverage proposal](../../program/core-roadmap.md#business-vertical-coverage--strategic-proposal) identifies broader future domain coverage. This implementation map continues to represent only approved domain concepts and mappings. A proposed domain must receive capability, ownership, bounded-context, dependency, and release approval before it is added to the mapping or package sequence below.
+
 ---
 
 # 2. Mapping Principles
