@@ -2,6 +2,17 @@ packages:
   - "apps/*"
   - "packages/*"
   - "platform/*"
+
+# Delay newly published versions for 24 hours to reduce exposure to compromised releases.
+minimumReleaseAge: 1440
+
+# The proxy-addr advisory requires Express trust proxy subnet configuration.
+# EPOS does not enable trust proxy; re-review this exception before enabling it.
+auditConfig:
+  ignoreGhsas:
+    - GHSA-jqcg-44mw-7w3h
+
+# Only these reviewed packages may execute dependency build scripts.
 allowBuilds:
   esbuild: true
   puppeteer: true
