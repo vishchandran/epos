@@ -1,0 +1,44 @@
+name: Dependency security
+
+on:
+  pull_request:
+    paths:
+      - "**/package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - ".npmrc"
+      - ".github/workflows/dependency-security.yml"
+  schedule:
+    - cron: "23 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit dependencies
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Verify reproducible install
+        run: pnpm install --frozen-lockfile
+
+      - name: Block critical production vulnerabilities
+        run: pnpm audit --prod --audit-level critical
+
+      - name: Report high-severity development and production findings
+        continue-on-error: true
+        run: pnpm audit --audit-level high
