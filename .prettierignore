@@ -3,5 +3,8 @@ dist
 coverage
 .turbo
 
+# Generated files are validated by their owning tools, not Prettier.
+pnpm-lock.yaml
+
 # Generated security assessment; reviewed as Markdown in pull requests.
 docs/security/dependency-security-baseline.md
