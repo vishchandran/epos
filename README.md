@@ -1,123 +1,25 @@
-# EPOS — Enterprise Platform OS
+# Enterprise Platform OS (EPOS)
 
-> Designing and engineering a modern bank from the ground up.
+**Project Status: Retired — November 2026**
 
-EPOS is a long-term engineering program to design, build, and operate the products and technology capabilities of an enterprise bank. It spans customer and party management, deposits, lending, accounts, payments, cards, foreign exchange, trade finance, risk, compliance, channels, data, security, infrastructure, and operations.
-
-Its strategic coverage is organized into six business verticals: Core Banking, Transaction Banking, Capital Markets, Brokerage & Wealth, Enterprise Risk & Finance, and Enterprise Shared Services. This coverage includes both capabilities already scheduled in Releases 1.0–7.0 and proposed future domains that have no approved release or delivery date. The [master roadmap](program/core-roadmap.md#business-vertical-coverage--strategic-proposal) is the source of truth for that distinction.
-
-The objective is not only to produce working banking software. EPOS is a practical environment for learning, challenging decisions, improving designs, refactoring safely, and continuously optimizing a large enterprise platform while applying real-world architecture and engineering principles.
-
-## At a glance
-
-|                   |                                                                                          |
-| ----------------- | ---------------------------------------------------------------------------------------- |
-| **Mission**       | Engineer banking products and their supporting platform from first principles            |
-| **Approach**      | Product-led, domain-driven, backend-first, and end-to-end by design                      |
-| **Architecture**  | Modular monorepo with strict Domain, Application, Infrastructure, and API boundaries     |
-| **Delivery**      | Incremental releases, vertical slices, automated quality gates, and documented decisions |
-| **Current focus** | Release 1.0 — Enterprise Foundation · Phase 3 — Infrastructure Layer                     |
-
-## One program, the whole bank
-
-![EPOS capabilities](docs/diagrams/epos-capabilities-compact.svg)
-
-Every capability is designed as part of one connected banking ecosystem rather than as an isolated technical exercise.
-
-### Strategic business verticals
-
-| Vertical                       | Coverage                                                                   |
-| ------------------------------ | -------------------------------------------------------------------------- |
-| **Core Banking**               | Customer, Accounts, Deposits, Lending, Ledger                              |
-| **Transaction Banking**        | Payments, Cards, FX, Trade Finance, Cash Management                        |
-| **Capital Markets**            | Trading, Securities, Derivatives, Market Risk, Settlement                  |
-| **Brokerage & Wealth**         | Retail Brokerage, Prime Brokerage, Custody, Asset Management               |
-| **Enterprise Risk & Finance**  | Credit Risk, Market Risk, Liquidity Risk, Compliance, Financial Accounting |
-| **Enterprise Shared Services** | Party, Product, Agreement, Reference Data, Audit, Documents                |
-
-The verticals are a strategic coverage model. They do not change the approved release baseline or schedule proposed domains. See the [business vertical coverage proposal](program/core-roadmap.md#business-vertical-coverage--strategic-proposal) for the scheduled-versus-proposed breakdown and governance requirements.
-
-## How EPOS is engineered
-
-![Continuous improvement cycle](docs/diagrams/continuous-improvement-cycle.svg)
-
-This lifecycle keeps product thinking, architecture, implementation, and operations connected. Working software provides evidence; that evidence is used to improve the model and the platform.
-
-## Architecture principles
-
-- **Business capability driven** — Organize the platform around banking capabilities, not technologies.
-- **Domain ownership** — Keep business rules inside explicit bounded contexts and aggregate boundaries.
-- **Separation of concerns** — Prevent APIs, databases, messaging, and infrastructure from owning business behavior.
-- **API and event ready** — Design application services for reuse by APIs, jobs, workflows, and event consumers.
-- **Security and observability by design** — Treat controls and operational visibility as foundational capabilities.
-- **Evolution over perfection** — Build incrementally, measure outcomes, refactor intentionally, and document major decisions.
-- **Automation first** — Use repeatable builds, tests, quality gates, delivery pipelines, and infrastructure automation.
-- **Documentation as an asset** — Keep architecture, decisions, risks, dependencies, and delivery history traceable.
-
-### Layered model
-
-```text
-API / Jobs / Events
-        ↓
-Application Layer       Commands · Queries · Use Cases · DTOs
-        ↓
-Domain Layer            Entities · Value Objects · Business Rules
-        ↑
-Infrastructure          Persistence · Messaging · Caching · Integrations
-```
-
-Dependencies point toward business behavior. Domain code remains independent of Express, PostgreSQL, Kafka, Redis, and cloud-provider SDKs.
-
-## Current progress
-
-| Phase                                   | Outcome                                                                    | Status |
-| --------------------------------------- | -------------------------------------------------------------------------- | :----: |
-| **-1 — Technology & Platform Baseline** | Architecture, engineering standards, monorepo, toolchain, and governance   |   ✅   |
-| **0 — Engineering Foundation**          | Runnable System API, TypeScript, testing, logging, Docker, and CI          |   ✅   |
-| **1 — Enterprise Domain**               | Party Management, Customer, Product, Agreement, Account, and Ledger models |   ✅   |
-| **2 — Application Layer**               | Commands, queries, DTOs, repositories, and application use cases           |   ✅   |
-
-The Phase 2 Application Layer now coordinates Party Management, Customer, Product, Agreement, Account, and Ledger workflows. Phase 3 introduces persistence and infrastructure implementations behind the completed application contracts.
-
-## Repository
-
-```text
-epos/
-├── apps/             Deployable applications
-├── packages/         Reusable Domain and Application code
-├── platform/         Shared platform capabilities
-├── infrastructure/   Provisioning and deployment
-├── docs/             Architecture and engineering knowledge
-└── program/          Roadmaps, releases, risks, and governance
-```
-
-Core stack: **Node.js 24 · TypeScript · pnpm workspaces · Express · Vitest · ESLint · Prettier · Docker · GitHub Actions**
-
-```bash
-pnpm install
-pnpm build
-pnpm lint
-pnpm test
-pnpm format:check
-```
-
-Run the System API:
-
-```bash
-cp apps/system-api/.env.example apps/system-api/.env
-pnpm --filter @epos/system-api dev
-```
-
-## Explore the program
-
-- [Architecture principles](docs/architecture/core-architecture-principles.md)
-- [Application Layer architecture](docs/architecture/application-layer-architecture.md)
-- [Architecture decisions](docs/architecture/adr/)
-- [Enterprise domain](docs/domain/)
-- [Engineering standards](docs/architecture/core-engineering-standards.md)
-- [Program roadmap](program/core-roadmap.md)
-- [Release and phase governance](program/)
+> **Project Retirement Notice**
+>
+> EPOS was initiated as a hands-on engineering initiative to explore enterprise banking architecture, distributed systems, cloud-native technologies, and financial-services platform design.
+>
+> As the project evolved, building and maintaining a comprehensive banking platform introduced significant engineering overhead beyond its original learning objectives.
+>
+> Following a reassessment of scope and priorities, EPOS has been formally retired as an active development initiative.
+>
+> **Future architecture learning will focus on:**
+>
+> - **Staff TPM Architecture Mastery:** Structured architecture drills covering distributed systems, scalability, resilience, cloud infrastructure, and AI.
+> - **Domain-Specific Engineering:** Independently scoped financial-services use cases, including payments, trading, brokerage, and other enterprise domains.
+> - **Targeted Prototyping:** Small implementations designed to validate specific architectural decisions and trade-offs.
+>
+> The existing codebase and documentation are retained as a reference and portfolio of foundational engineering work.
+>
+> **No further feature development or ongoing maintenance is planned.**
 
 ---
 
-EPOS is intended for learning, research, architecture practice, and engineering experimentation. It must not be used with real customer, credential, or financial data without an independent production-readiness, security, privacy, and regulatory assessment.
+_This repository is retained for educational and reference purposes and should not be considered production-ready or actively maintained._
