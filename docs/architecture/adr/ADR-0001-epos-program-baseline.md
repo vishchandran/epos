@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded by [ADR-0010](ADR-0010-retire-and-archive-epos.md)
 
 ## Date
 
@@ -61,3 +61,5 @@ Trade-offs:
 ## Notes
 
 This ADR establishes the baseline identity of EPOS. Future ADRs should capture specific technology, architecture, security, data, deployment, and operational decisions.
+
+EPOS retired in November 2026. The completed work and this original baseline remain as historical context; the multi-year delivery decision is no longer active.
