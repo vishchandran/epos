@@ -2,12 +2,6 @@ name: Dependency security
 
 on:
   pull_request:
-    paths:
-      - "**/package.json"
-      - "pnpm-lock.yaml"
-      - "pnpm-workspace.yaml"
-      - ".npmrc"
-      - ".github/workflows/dependency-security.yml"
   schedule:
     - cron: "23 8 * * 1"
   workflow_dispatch:
