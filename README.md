@@ -23,3 +23,5 @@
 ---
 
 _This repository is retained for educational and reference purposes and should not be considered production-ready or actively maintained._
+
+The retirement decision and final delivery state are recorded in [ADR-0010](docs/architecture/adr/ADR-0010-retire-and-archive-epos.md) and the [archived master roadmap](program/core-roadmap.md).
