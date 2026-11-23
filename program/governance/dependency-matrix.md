@@ -1,12 +1,14 @@
 # EPOS Dependency Matrix
 
+> **Archive status — Retired November 2026.** This matrix is closed and retained as a record of dependencies satisfied during active development. No new delivery dependencies will be tracked.
+
 ## Purpose
 
 The Dependency Matrix identifies and tracks dependencies that may impact the successful planning, delivery, and operation of the EPOS program.
 
 Dependencies may exist between releases, phases, architecture decisions, platform capabilities, business domains, infrastructure, or external systems.
 
-This document is reviewed throughout the program lifecycle and updated as new dependencies emerge.
+During active development, this document was reviewed throughout the program lifecycle and updated as new dependencies emerged.
 
 ---
 
@@ -63,6 +65,7 @@ The Dependency Matrix should be reviewed:
 
 # Revision History
 
-| Version | Date         | Description               |
-| ------- | ------------ | ------------------------- |
-| **1.0** | July 5, 2026 | Initial Dependency Matrix |
+| Version | Date          | Description                    |
+| ------- | ------------- | ------------------------------ |
+| **1.0** | July 5, 2026  | Initial Dependency Matrix      |
+| **1.1** | November 2026 | Archived on program retirement |

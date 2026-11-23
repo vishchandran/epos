@@ -1,5 +1,9 @@
 # Release 1.0 Plan
 
+> **Final status: Retired incomplete — November 2026**
+>
+> This plan is archived. Phases -1 through 2 were completed. Phases 3 and 4 were not pursued after EPOS retired, so Release 1.0 did not meet its original completion or exit criteria. See [ADR-0010](../../../docs/architecture/adr/ADR-0010-retire-and-archive-epos.md).
+
 ## Overview
 
 Release 1.0 establishes the engineering, domain, application, persistence, and service-integration foundation for EPOS.
@@ -10,15 +14,16 @@ The objective of this release is to create the governed software architecture re
 
 # Release Summary
 
-| Item                   | Value                      |
-| ---------------------- | -------------------------- |
-| **Release**            | 1.0                        |
-| **Release Name**       | Enterprise Foundation      |
-| **Planned Start**      | July 5, 2026               |
-| **Target Completion**  | October 2026 _(Tentative)_ |
-| **Estimated Duration** | ~4 Months                  |
+| Item                         | Value                      |
+| ---------------------------- | -------------------------- |
+| **Release**                  | 1.0                        |
+| **Release Name**             | Enterprise Foundation      |
+| **Final Status**             | Retired incomplete         |
+| **Planned Start**            | July 5, 2026               |
+| **Former Target Completion** | October 2026 _(Tentative)_ |
+| **Estimated Duration**       | ~4 Months                  |
 
-> **Note:** The target completion date represents the current planning baseline. Depending on sprint execution, scope changes, technical complexity, engineering velocity, risks, and approved program decisions, the release may complete earlier or later than planned. Any approved schedule changes will be reflected in the program roadmap.
+> **Historical note:** October 2026 was the tentative planning target during active development. The release retired incomplete and no replacement completion date is planned.
 
 ---
 
@@ -32,14 +37,14 @@ Build a production-inspired enterprise foundation spanning engineering standards
 
 Release 1.0 includes the following phases:
 
-|  Phase | Focus                          | Status      |
-| -----: | ------------------------------ | ----------- |
-| **-1** | Technology & Platform Baseline | ✅ Complete |
-|  **0** | Engineering Foundation         | ✅ Complete |
-|  **1** | Enterprise Domain Modeling     | ✅ Complete |
-|  **2** | Application Layer              | ✅ Complete |
-|  **3** | Infrastructure Layer           | ⏳ Planned  |
-|  **4** | Enterprise Service Integration | ⏳ Planned  |
+|  Phase | Focus                          | Status        |
+| -----: | ------------------------------ | ------------- |
+| **-1** | Technology & Platform Baseline | ✅ Complete   |
+|  **0** | Engineering Foundation         | ✅ Complete   |
+|  **1** | Enterprise Domain Modeling     | ✅ Complete   |
+|  **2** | Application Layer              | ✅ Complete   |
+|  **3** | Infrastructure Layer           | ⏹ Not pursued |
+|  **4** | Enterprise Service Integration | ⏹ Not pursued |
 
 ---
 
@@ -81,12 +86,14 @@ The following capabilities are intentionally deferred to future releases:
 
 # Assumptions
 
-- EPOS is developed as a long-term engineering program.
-- Development follows a release-based delivery model.
-- The roadmap represents the current planning baseline.
-- Learning and implementation occur concurrently.
-- Architecture decisions may evolve as the platform matures.
-- Documentation is maintained alongside implementation.
+These were the assumptions used during active delivery. They are retained for historical context and are no longer active program assumptions.
+
+- EPOS was designed as a long-term engineering program.
+- Development followed a release-based delivery model.
+- The roadmap represented the active planning baseline.
+- Learning and implementation occurred concurrently.
+- Architecture decisions could evolve as the platform matured.
+- Documentation was maintained alongside implementation.
 
 ---
 
@@ -128,6 +135,8 @@ High-level release risks include:
 ---
 
 # Success Criteria
+
+These criteria are retained as the original release baseline. They were not fully met before program retirement.
 
 Release 1.0 is considered complete when:
 
@@ -172,3 +181,4 @@ Release 1.0 can be formally closed when:
 | **1.0** | July 5, 2026   | Initial Release 1.0 plan                            |
 | **1.1** | August 1, 2026 | Aligned Phases 2–4 with active implementation scope |
 | **1.2** | August 1, 2026 | Recorded completion of Phase 2                      |
+| **1.3** | November 2026  | Archived release as retired incomplete              |

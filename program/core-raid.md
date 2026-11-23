@@ -1,10 +1,12 @@
 # EPOS Program RAID Register
 
+> **Archive status — Retired November 2026.** This register is closed and retained as a historical record. Entries shown as Open or Active reflect their last active-program review state; no further monitoring or action is planned.
+
 ## Purpose
 
 The RAID Register records the **Risks**, **Assumptions**, **Issues**, and **Dependencies** that may impact the successful delivery of the EPOS program.
 
-This is a living governance document that is reviewed throughout the program lifecycle. Each entry is associated with the applicable release or marked as **Program** when it spans multiple releases.
+During active development, this was a living governance document reviewed throughout the program lifecycle. Each entry is associated with the applicable release or marked as **Program** when it spans multiple releases.
 
 ---
 
@@ -52,6 +54,7 @@ The RAID Register should be reviewed:
 
 # Revision History
 
-| Version | Date         | Description                   |
-| ------- | ------------ | ----------------------------- |
-| **1.0** | July 5, 2026 | Initial Program RAID Register |
+| Version | Date          | Description                    |
+| ------- | ------------- | ------------------------------ |
+| **1.0** | July 5, 2026  | Initial Program RAID Register  |
+| **1.1** | November 2026 | Archived on program retirement |

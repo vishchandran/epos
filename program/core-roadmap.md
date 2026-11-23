@@ -1,5 +1,9 @@
 # EPOS Master Roadmap
 
+> **Archive status — Retired November 2026**
+>
+> EPOS is no longer an active development program. This roadmap is retained as a historical planning record. Releases, phases, milestones, and future domain coverage that were not completed before retirement are not scheduled for delivery. See [ADR-0010](../docs/architecture/adr/ADR-0010-retire-and-archive-epos.md).
+
 ## Purpose
 
 This document is the master roadmap for the EPOS program.
@@ -12,18 +16,22 @@ Detailed planning, execution tracking, release progress, risks, dependencies, an
 
 # Program Summary
 
-| Item                   | Value                         |
-| ---------------------- | ----------------------------- |
-| **Program**            | EPOS (Enterprise Platform OS) |
-| **Start Date**         | July 5, 2026                  |
-| **Planned Completion** | January 2029                  |
-| **Estimated Duration** | ~30 Months                    |
-| **Delivery Model**     | Release-Based Delivery        |
-| **Methodology**        | Agile                         |
+| Item                          | Value                         |
+| ----------------------------- | ----------------------------- |
+| **Program**                   | EPOS (Enterprise Platform OS) |
+| **Start Date**                | July 5, 2026                  |
+| **Status**                    | Retired                       |
+| **Retirement Date**           | November 2026                 |
+| **Former Planned Completion** | January 2029                  |
+| **Former Estimated Duration** | ~30 Months                    |
+| **Delivery Model**            | Release-Based Delivery        |
+| **Methodology**               | Agile                         |
 
 ---
 
 # Release Roadmap
+
+The dates below are the former delivery baseline. They are retained for historical context and are no longer active targets.
 
 | Release | Objective                                           | Planned Duration    |
 | ------- | --------------------------------------------------- | ------------------- |
@@ -58,7 +66,7 @@ The following roadmap identifies when implementation of each major business doma
 
 > **Implementation Strategy**
 >
-> EPOS follows a **backend-first implementation strategy**. Core business capabilities are implemented and validated before customer-facing channels are introduced. Channels remain thin consumers of application services and evolve incrementally over multiple releases. Every business domain continues to mature throughout the lifetime of the platform.
+> EPOS followed a **backend-first implementation strategy** during active development. Core business capabilities were intended to be implemented and validated before customer-facing channels. This strategy is retained as architectural history and no longer represents an active delivery plan.
 
 ---
 
@@ -66,7 +74,7 @@ The following roadmap identifies when implementation of each major business doma
 
 The six verticals below describe the proposed breadth of EPOS. They organize existing capabilities and identify future domain coverage; they are not additional releases, implementation phases, or approved delivery commitments.
 
-**Delivery baseline:** The Release 1.0–7.0 roadmap, domain implementation schedule, phase statuses, dates, and milestones elsewhere in this document remain unchanged. Existing scheduled scope retains its current release allocation. Newly proposed coverage has no approved release, phase, or delivery date and is not implicitly included in the January 2029 program target.
+**Former delivery baseline:** The Release 1.0–7.0 roadmap, domain implementation schedule, dates, and milestones are retained as historical plans. Retirement cancelled all incomplete and future delivery. Proposed coverage was never assigned an approved release, phase, or delivery date.
 
 | Business Vertical              | Domain Coverage                                                            | Existing Scheduled Coverage                                                                                                                                                                                                  | Newly Proposed Future Coverage — Unscheduled                                                                                                                                                                                                  |
 | ------------------------------ | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -87,22 +95,24 @@ The six verticals below describe the proposed breadth of EPOS. They organize exi
 
 ## Approval and Scheduling
 
-This is a proposed program-scope expansion under [Roadmap Governance](#roadmap-governance). Review and acceptance of the strategic coverage do not themselves approve scheduled delivery. Before any newly proposed domain becomes a delivery commitment, review its scope and dependencies, record significant architecture decisions in ADRs, align the domain documentation, and approve the corresponding release-plan and roadmap changes through a reviewable PR. Any release allocation, phase change, milestone, or date must be explicitly approved; none is assigned here.
+This was a proposed program-scope expansion under [Roadmap Governance](#roadmap-governance). It was not approved as scheduled delivery before retirement. No release allocation, phase, milestone, or date is assigned, and the proposal is retained only as a record of potential future domain coverage.
 
 ---
 
 # Implementation Roadmap
 
-## Current Release 1.0 Status
+## Release 1.0 Status at Retirement
 
-| Phase | Focus                          | Status      |
-| ----: | ------------------------------ | ----------- |
-|    -1 | Technology & Platform Baseline | ✅ Complete |
-|     0 | Engineering Foundation         | ✅ Complete |
-|     1 | Enterprise Domain Modeling     | ✅ Complete |
-|     2 | Application Layer              | ✅ Complete |
-|     3 | Infrastructure Layer           | ⏳ Planned  |
-|     4 | Enterprise Service Integration | ⏳ Planned  |
+| Phase | Focus                          | Status        |
+| ----: | ------------------------------ | ------------- |
+|    -1 | Technology & Platform Baseline | ✅ Complete   |
+|     0 | Engineering Foundation         | ✅ Complete   |
+|     1 | Enterprise Domain Modeling     | ✅ Complete   |
+|     2 | Application Layer              | ✅ Complete   |
+|     3 | Infrastructure Layer           | ⏹ Not pursued |
+|     4 | Enterprise Service Integration | ⏹ Not pursued |
+
+The following table records the former phase sequence. Phases after Phase 2 were not delivered.
 
 |  Phase | Release | Primary Focus                               |
 | -----: | :-----: | ------------------------------------------- |
@@ -143,7 +153,9 @@ This is a proposed program-scope expansion under [Roadmap Governance](#roadmap-g
 
 # Major Milestones
 
-| Milestone          | Target         |
+The targets below are historical. Only completed work recorded in the phase logs was delivered; future milestones were cancelled when the program retired.
+
+| Milestone          | Former Target  |
 | ------------------ | -------------- |
 | Program Kickoff    | July 2026      |
 | Release 1 Complete | October 2026   |
@@ -158,7 +170,7 @@ This is a proposed program-scope expansion under [Roadmap Governance](#roadmap-g
 
 # Roadmap Governance
 
-The EPOS Master Roadmap is a strategic planning artifact and is updated only when one or more of the following occur:
+During active development, the EPOS Master Roadmap was updated only when one or more of the following occurred:
 
 - Program scope changes.
 - A release is added, removed, or redefined.
